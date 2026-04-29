@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MP4 Contábil — Identidade Visual Completa | Andressa Juliani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@300;400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0e1c1a;
+      --surface:  #132C28;
+      --surface2: #1a3530;
+      --border:   #1e3f3a;
+      --accent:   #EDC574;
+      --accent-dim: rgba(237,197,116,0.12);
+      --text:     #FEF7E5;
+      --text-muted: #8aad9f;
+      --green2:   #2F4F4E;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled { background: rgba(14,28,26,0.95); backdrop-filter: blur(16px); border-color: var(--border); }
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 16px; height: 16px; }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: flex-end; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #060e0d 0%, #0e1c1a 50%, #132C28 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(237,197,116,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(237,197,116,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(14,28,26,0.6) 60%, #0e1c1a 100%);
+    }
+    .hero-glow {
+      position: absolute; bottom: -100px; left: 5%; width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(237,197,116,0.06) 0%, transparent 65%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 80px 88px; max-width: 1000px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 24px; background: var(--accent-dim);
+      border: 1px solid rgba(237,197,116,0.25); padding: 6px 14px; border-radius: 100px;
+    }
+    .hero-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(52px, 7vw, 96px); font-weight: 400;
+      line-height: 1.0; letter-spacing: -0.01em; color: var(--text); margin-bottom: 24px;
+    }
+    .hero-title em { font-style: normal; color: var(--accent); }
+    .hero-sub { font-size: 18px; color: rgba(254,247,229,0.6); max-width: 580px; line-height: 1.65; font-weight: 300; }
+    .hero-meta { display: flex; gap: 48px; margin-top: 52px; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .meta-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(254,247,229,0.3); }
+    .meta-value { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; color: rgba(254,247,229,0.8); }
+
+    /* LAYOUT */
+    section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .section-title {
+      font-family: 'Anton', sans-serif; font-size: clamp(32px, 4.5vw, 56px);
+      font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; color: var(--text); margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--accent); }
+    .section-lead { font-size: 17px; color: var(--text-muted); max-width: 620px; line-height: 1.75; margin-bottom: 56px; font-weight: 300; }
+    .divider { border: none; height: 1px; background: var(--border); margin: 0 80px; }
+
+    /* CONTEXTO */
+    .contexto-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .contexto-text { font-size: 16px; color: var(--text-muted); line-height: 1.8; font-weight: 300; }
+    .contexto-text p { margin-bottom: 20px; }
+    .contexto-text strong { color: var(--text); font-weight: 700; }
+    .conceito-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 44px 40px;
+      border-left: 4px solid var(--accent);
+    }
+    .conceito-box .label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); opacity: 0.7; margin-bottom: 20px; }
+    .conceito-box .frase {
+      font-family: 'Anton', sans-serif; font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 400; letter-spacing: -0.01em; line-height: 1.2; color: var(--text);
+    }
+
+    /* ENTREGÁVEIS */
+    .entrega-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: 16px; overflow: hidden; background: var(--border); }
+    .entrega-card { background: var(--surface2); padding: 36px 28px; }
+    .entrega-num { font-family: 'Anton', sans-serif; font-size: 42px; color: var(--accent); opacity: 0.2; line-height: 1; margin-bottom: 16px; }
+    .entrega-title { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .entrega-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    /* PALETA */
+    .paleta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .cor-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    .cor-swatch { height: 120px; }
+    .cor-info { background: var(--surface); padding: 16px; }
+    .cor-nome { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .cor-tipo { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .cor-hex { font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--accent); font-weight: 500; }
+
+    /* TIPOGRAFIA */
+    .tipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tipo-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 40px 36px;
+    }
+    .tipo-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .tipo-amostra-anton { font-family: 'Anton', sans-serif; font-size: 52px; color: var(--text); line-height: 1; margin-bottom: 16px; }
+    .tipo-amostra-lato { font-family: 'Lato', sans-serif; font-size: 28px; font-weight: 300; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
+    .tipo-nome { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .tipo-uso { font-size: 13px; color: var(--text-muted); }
+
+    /* CARROSSEL */
+    .carousel-stack { display: flex; flex-direction: column; gap: 64px; }
+    .carousel-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+    .carousel-num { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); opacity: 0.5; }
+    .carousel-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); }
+    .carousel-box {
+      position: relative; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 1 / 1; max-width: 560px; margin: 0 auto; width: 100%;
+    }
+    .carousel-track { display: flex; height: 100%; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-track img { flex: 0 0 100%; height: 100%; object-fit: contain; background: var(--surface); pointer-events: none; user-select: none; }
+    .c-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(14,28,26,0.7); border: 1px solid var(--border);
+      color: var(--text); width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s; z-index: 3;
+    }
+    .c-btn:hover { background: rgba(237,197,116,0.15); border-color: rgba(237,197,116,0.4); }
+    .c-btn svg { width: 18px; height: 18px; }
+    .c-prev { left: 12px; }
+    .c-next { right: 12px; }
+    .c-counter {
+      position: absolute; top: 12px; right: 14px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600;
+      color: rgba(254,247,229,0.5); background: rgba(14,28,26,0.6);
+      padding: 4px 10px; border-radius: 100px; z-index: 3;
+    }
+    .c-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3; }
+    .c-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(254,247,229,0.25); cursor: pointer; transition: background 0.2s, width 0.2s; border: none; }
+    .c-dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+
+    /* GALERIA MOCKUPS */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .gallery-item {
+      position: relative; overflow: hidden; border-radius: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      aspect-ratio: 4/3; cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .gallery-item:hover { transform: translateY(-4px); border-color: rgba(237,197,116,0.35); }
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: unset; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-overlay { position: absolute; inset: 0; background: rgba(14,28,26,0); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .gallery-item:hover .gallery-overlay { background: rgba(14,28,26,0.4); }
+    .gallery-overlay svg { opacity: 0; transition: opacity 0.3s; color: var(--accent); width: 32px; height: 32px; }
+    .gallery-item:hover .gallery-overlay svg { opacity: 1; }
+
+    /* LIGHTBOX */
+    .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.93); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 24px; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px; }
+    .lb-close { position: absolute; top: 20px; right: 24px; background: transparent; border: 1px solid rgba(254,247,229,0.2); color: var(--text); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 18px; transition: background 0.2s; }
+    .lb-close:hover { background: rgba(237,197,116,0.15); }
+    .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(254,247,229,0.06); border: 1px solid rgba(254,247,229,0.12); color: var(--text); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+    .lb-prev:hover, .lb-next:hover { background: rgba(237,197,116,0.2); }
+    .lb-prev { left: 24px; } .lb-next { right: 24px; }
+    .lb-prev svg, .lb-next svg { width: 20px; height: 20px; }
+    .lb-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: rgba(254,247,229,0.45); }
+
+    /* CTA */
+    .cta-section { text-align: center; padding: 96px 80px; position: relative; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(237,197,116,0.07) 0%, transparent 70%); pointer-events: none; }
+    .cta-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .cta-title { font-family: 'Anton', sans-serif; font-size: clamp(36px, 5.5vw, 64px); font-weight: 400; line-height: 1.05; color: var(--text); margin-bottom: 16px; }
+    .cta-title em { font-style: normal; color: var(--accent); }
+    .cta-sub { font-size: 17px; color: var(--text-muted); margin-bottom: 40px; font-weight: 300; }
+    .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #0e1c1a; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--text); font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; padding: 14px 32px; border-radius: 8px; border: 1px solid var(--border); text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 80px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--text-muted); opacity: 0.45; }
+
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .hero-content { padding: 0 24px 64px; }
+      section { padding: 64px 24px; }
+      .divider { margin: 0 24px; }
+      .contexto-split { grid-template-columns: 1fr; }
+      .entrega-grid { grid-template-columns: 1fr; }
+      .paleta-grid { grid-template-columns: 1fr 1fr; }
+      .tipo-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+      .cta-section { padding: 64px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="portfolio-andressa-standalone.html#cases" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+      Voltar ao portfólio
+    </a>
+    <div class="nav-logo">Andressa <span>Juliani</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Naming · Identidade Visual · Manual de Marca · Mockups</div>
+      <h1 class="hero-title">MP4 Contábil<br><em>Crescimento<br>com precisão.</em></h1>
+      <p class="hero-sub">Do naming ao brandbook completo — identidade visual estratégica para uma contábil moderna que entrega resultados e precisa de uma marca à sua altura.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Cliente</div>
+          <div class="meta-value">MP4 Contábil</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Segmento</div>
+          <div class="meta-value">Contabilidade</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Escopo</div>
+          <div class="meta-value">Branding Completo</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Entrega</div>
+          <div class="meta-value">Naming · ID Visual · Brandbook</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEXTO -->
+  <section>
+    <p class="section-label fade-up">O projeto</p>
+    <h2 class="section-title fade-up d1">Uma contábil que precisava de uma marca<br><em>à altura do que entrega.</em></h2>
+    <div class="contexto-split">
+      <div class="contexto-text fade-up d2">
+        <p>A MP4 chegou sem nome, sem identidade e sem linguagem visual. O desafio era construir tudo do zero com um conceito claro: <strong>credibilidade que não intimida, modernidade que não perde seriedade.</strong></p>
+        <p>O processo começou pelo naming — encontrar um nome que carregasse significado, fosse fácil de lembrar e diferenciasse no mercado contábil. A partir daí, cada decisão visual foi tomada com intenção: da paleta de cores ao símbolo, da tipografia ao tom de voz.</p>
+        <p>O resultado é um sistema de identidade coeso que <strong>comunica crescimento, precisão e confiança</strong> — os três pilares que definem o que a MP4 faz pelos seus clientes.</p>
+      </div>
+      <div class="conceito-box fade-up d3">
+        <div class="label">Conceito central</div>
+        <div class="frase">"Contabilidade moderna, estratégica, que entrega resultados."</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ENTREGÁVEIS -->
+  <section>
+    <p class="section-label fade-up">O que foi entregue</p>
+    <h2 class="section-title fade-up d1">Do nome à <em>aplicação completa.</em></h2>
+    <p class="section-lead fade-up d2">Cada entregável foi desenvolvido como parte de um sistema — não peças isoladas, mas uma identidade que funciona em conjunto do digital ao impresso.</p>
+
+    <div class="entrega-grid">
+      <div class="entrega-card fade-up d1">
+        <div class="entrega-num">01</div>
+        <div class="entrega-title">Naming</div>
+        <div class="entrega-desc">Desenvolvimento e validação do nome da marca com critérios de memorabilidade, sonoridade e posicionamento. Um nome que comunica antes de precisar explicar.</div>
+      </div>
+      <div class="entrega-card fade-up d2">
+        <div class="entrega-num">02</div>
+        <div class="entrega-title">Logotipo e Símbolo</div>
+        <div class="entrega-desc">O símbolo nasce da letra "M" — sólida e estável, representando base técnica e confiança. A seta ascendente simboliza evolução contínua e orientação consultiva.</div>
+      </div>
+      <div class="entrega-card fade-up d3">
+        <div class="entrega-num">03</div>
+        <div class="entrega-title">Identidade Visual</div>
+        <div class="entrega-desc">Sistema visual completo: paleta de 4 cores com papéis definidos, tipografia primária (Anton) e de suporte (Lato), elementos gráficos e padrões de uso.</div>
+      </div>
+      <div class="entrega-card fade-up d1">
+        <div class="entrega-num">04</div>
+        <div class="entrega-title">Manual de Marca</div>
+        <div class="entrega-desc">Brandbook completo com regras de uso, aplicações corretas e incorretas, especificações técnicas e diretrizes de comunicação para garantir consistência.</div>
+      </div>
+      <div class="entrega-card fade-up d2">
+        <div class="entrega-num">05</div>
+        <div class="entrega-title">Mockups</div>
+        <div class="entrega-desc">Visualizações realistas da marca aplicada em contexto — papelaria, redes sociais, materiais digitais e físicos que mostram a identidade funcionando no mundo real.</div>
+      </div>
+      <div class="entrega-card fade-up d3">
+        <div class="entrega-num">06</div>
+        <div class="entrega-title">Arquivos Finais</div>
+        <div class="entrega-desc">Entrega organizada em todos os formatos — vetorial editável, PNG fundo transparente, versões para uso digital e impresso com especificações técnicas completas.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PALETA -->
+  <section>
+    <p class="section-label fade-up">Identidade Visual</p>
+    <h2 class="section-title fade-up d1">Cores que <em>comunicam antes de falar.</em></h2>
+    <p class="section-lead fade-up d2">Cada cor tem um papel definido no sistema. A paleta traduz equilíbrio, credibilidade e crescimento — os atributos centrais da marca.</p>
+
+    <div class="paleta-grid fade-up d2">
+      <div class="cor-card">
+        <div class="cor-swatch" style="background:#132C28;"></div>
+        <div class="cor-info">
+          <div class="cor-nome">Verde Estrutural</div>
+          <div class="cor-tipo">Cor Primária</div>
+          <div class="cor-hex">#132C28</div>
+        </div>
+      </div>
+      <div class="cor-card">
+        <div class="cor-swatch" style="background:#2F4F4E;"></div>
+        <div class="cor-info">
+          <div class="cor-nome">Verde Profundo</div>
+          <div class="cor-tipo">Cor Secundária</div>
+          <div class="cor-hex">#2F4F4E</div>
+        </div>
+      </div>
+      <div class="cor-card">
+        <div class="cor-swatch" style="background:#EDC574; border-bottom: 1px solid var(--border);"></div>
+        <div class="cor-info">
+          <div class="cor-nome">Amarelo Dourado</div>
+          <div class="cor-tipo">Cor de Destaque</div>
+          <div class="cor-hex">#EDC574</div>
+        </div>
+      </div>
+      <div class="cor-card">
+        <div class="cor-swatch" style="background:#FEF7E5; border-bottom: 1px solid var(--border);"></div>
+        <div class="cor-info">
+          <div class="cor-nome">Branco Clareza</div>
+          <div class="cor-tipo">Cor Neutra</div>
+          <div class="cor-hex">#FEF7E5</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TIPOGRAFIA -->
+  <section>
+    <p class="section-label fade-up">Tipografia</p>
+    <h2 class="section-title fade-up d1">Duas fontes.<br><em>Uma voz consistente.</em></h2>
+    <p class="section-lead fade-up d2">A combinação entre força e leveza — Anton para títulos com impacto, Lato Light para textos com clareza e respiro.</p>
+
+    <div class="tipo-grid fade-up d2">
+      <div class="tipo-card">
+        <div class="tipo-label">Títulos e Destaque</div>
+        <div class="tipo-amostra-anton">Anton Regular</div>
+        <div class="tipo-nome">Anton</div>
+        <div class="tipo-uso">Usada em títulos, headlines e elementos de impacto. Transmite força, modernidade e autoridade.</div>
+      </div>
+      <div class="tipo-card">
+        <div class="tipo-label">Texto Corrido</div>
+        <div class="tipo-amostra-lato">Lato Light</div>
+        <div class="tipo-nome">Lato — Light / Regular</div>
+        <div class="tipo-uso">Usada em textos corridos, descrições e legendas. Traz leveza, leiturabilidade e equilíbrio ao conjunto.</div>
+      </div>
+    </div>
+  </section>
+
+  <div style="display:none">
+  <!-- CARROSSÉIS DO BRANDBOOK -->
+  <section>
+    <p class="section-label fade-up">Carrosséis criados</p>
+    <h2 class="section-title fade-up d1">Brandbook em <em>formato de feed.</em></h2>
+    <p class="section-lead fade-up d2">Séries de slides criados para apresentar o sistema de marca de forma visual, clara e aplicável — prontos para uso nas redes sociais.</p>
+
+    <div class="carousel-stack">
+
+      <!-- Carrossel 1 -->
+      <div class="fade-up d1">
+        <div class="carousel-meta">
+          <span class="carousel-num">SÉRIE 01</span>
+          <span class="carousel-name">Elementos Gráficos e Identidade</span>
+        </div>
+        <div class="carousel-box">
+          <div class="carousel-track">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/Divis%C3%A3o%201.png" alt="Capa série 1" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/32.png" alt="Slide 2" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/33.png" alt="Slide 3" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/34.png" alt="Slide 4" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/35.png" alt="Slide 5" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/36.png" alt="Slide 6" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/37.png" alt="Slide 7" loading="lazy">
+          </div>
+          <button class="c-btn c-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="c-btn c-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">7</span></div>
+          <div class="c-dots"></div>
+        </div>
+      </div>
+
+      <!-- Carrossel 2 -->
+      <div class="fade-up d2">
+        <div class="carousel-meta">
+          <span class="carousel-num">SÉRIE 02</span>
+          <span class="carousel-name">Paleta de Cores e Tipografia</span>
+        </div>
+        <div class="carousel-box">
+          <div class="carousel-track">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/Divis%C3%A3o%202.png" alt="Capa série 2" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/33.png" alt="Slide 2" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/34.png" alt="Slide 3" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/35.png" alt="Slide 4" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/36.png" alt="Slide 5" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/37.png" alt="Slide 6" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/38.png" alt="Slide 7" loading="lazy">
+          </div>
+          <button class="c-btn c-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="c-btn c-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">7</span></div>
+          <div class="c-dots"></div>
+        </div>
+      </div>
+
+      <!-- Carrossel 3 -->
+      <div class="fade-up d3">
+        <div class="carousel-meta">
+          <span class="carousel-num">SÉRIE 03</span>
+          <span class="carousel-name">Manual Completo da Marca</span>
+        </div>
+        <div class="carousel-box">
+          <div class="carousel-track">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/Divis%C3%A3o%203.png" alt="Capa série 3" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/34.png" alt="Slide 2" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/35.png" alt="Slide 3" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/36.png" alt="Slide 4" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/37.png" alt="Slide 5" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/38.png" alt="Slide 6" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/39.png" alt="Slide 7" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/40.png" alt="Slide 8" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/41.png" alt="Slide 9" loading="lazy">
+          </div>
+          <button class="c-btn c-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="c-btn c-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">9</span></div>
+          <div class="c-dots"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  </div><!-- end hidden carousels -->
+
+  <hr class="divider" />
+
+  <!-- MOCKUPS -->
+  <section>
+    <p class="section-label fade-up">Aplicações</p>
+    <h2 class="section-title fade-up d1">A marca <em>no mundo real.</em></h2>
+    <p class="section-lead fade-up d2">Mockups e aplicações que mostram como a identidade se comporta em contexto — do detalhe ao conjunto, do digital ao físico.</p>
+
+    <div class="gallery-grid fade-up d2">
+      <div class="gallery-item tall" data-index="0">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/mokcup_com_esse_202604261331%20(1).jpeg" alt="Mockup MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/aplica_em_um_202604261356%20(1).jpeg" alt="Aplicação MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/aplica_em_um_202604261356%20(2).jpeg" alt="Aplicação MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/mandei_ai_patters%2C_202604261245.jpeg" alt="Padrões MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="4">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/mandei_ai_patters%2C_202604261247.jpeg" alt="Padrões MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/mandei_ai_patters%2C_202604261247%20(1).jpeg" alt="Padrões MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="6">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/aplica_em_um_202604261357.jpeg" alt="Aplicação MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="7">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/aplica_em_um_202604261359.jpeg" alt="Aplicação MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="8">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/aplica_em_um_202604261430.jpeg" alt="Aplicação MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="9">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/mockup_desses_itens_202604261434.jpeg" alt="Mockup itens MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+      <div class="gallery-item" data-index="10">
+        <img src="images/fotos%20de%20aplica%C3%A7oes/slide_para_instagram_202604261404.jpeg" alt="Slide Instagram MP4" loading="lazy">
+        <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-glow"></div>
+    <p class="cta-label fade-up">Próximo passo</p>
+    <h2 class="cta-title fade-up d1">Sua empresa também merece<br>uma <em>marca assim?</em></h2>
+    <p class="cta-sub fade-up d2">Do naming ao brandbook — identidade visual completa, com estratégia e intenção em cada detalhe.</p>
+    <div class="btn-row fade-up d3">
+      <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
+      <a href="portfolio-andressa-standalone.html#cases" class="btn-secondary">Ver outros projetos</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Andressa <span>Juliani</span></div>
+    <div class="footer-copy">Social Media · Design · Direção de Arte</div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close">✕</button>
+    <button class="lb-prev" id="lb-prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <img id="lb-img" src="" alt="" />
+    <button class="lb-next" id="lb-next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    <div class="lb-counter"><span id="lb-cur">1</span> / <span id="lb-total">11</span></div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // Carrosséis
+    document.querySelectorAll('.carousel-box').forEach(box => {
+      const track = box.querySelector('.carousel-track');
+      const slides = track.querySelectorAll('img');
+      const total = slides.length;
+      const dotsEl = box.querySelector('.c-dots');
+      const curEl = box.querySelector('.c-cur');
+      let idx = 0;
+      const dots = Array.from({ length: total }, (_, i) => {
+        const d = document.createElement('button');
+        d.className = 'c-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => go(i));
+        dotsEl.appendChild(d);
+        return d;
+      });
+      function go(n) {
+        idx = (n + total) % total;
+        track.style.transform = `translateX(-${idx * 100}%)`;
+        curEl.textContent = idx + 1;
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+      box.querySelector('.c-prev').addEventListener('click', () => go(idx - 1));
+      box.querySelector('.c-next').addEventListener('click', () => go(idx + 1));
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) go(diff > 0 ? idx + 1 : idx - 1);
+      });
+    });
+
+    // Lightbox
+    const items = document.querySelectorAll('.gallery-item');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCur = document.getElementById('lb-cur');
+    const lbTotal = document.getElementById('lb-total');
+    const srcs = Array.from(items).map(i => i.querySelector('img').src);
+    lbTotal.textContent = srcs.length;
+    let current = 0;
+    function openLb(i) { current = i; lbImg.src = srcs[i]; lbCur.textContent = i + 1; lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    function moveLb(d) { current = (current + d + srcs.length) % srcs.length; lbImg.src = srcs[current]; lbCur.textContent = current + 1; }
+    items.forEach((item, i) => item.addEventListener('click', () => openLb(i)));
+    document.getElementById('lb-close').addEventListener('click', closeLb);
+    document.getElementById('lb-prev').addEventListener('click', () => moveLb(-1));
+    document.getElementById('lb-next').addEventListener('click', () => moveLb(1));
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') moveLb(-1);
+      if (e.key === 'ArrowRight') moveLb(1);
+    });
+  </script>
+</body>
+</html>

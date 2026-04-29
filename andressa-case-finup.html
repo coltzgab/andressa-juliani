@@ -1,0 +1,656 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinUp â€” Marca, Narrativa e Estrategia de Conteudo | Andressa Juliani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #161616;
+      --border: #1e1e1e;
+      --accent: #F59E0B;
+      --accent-dim: rgba(245,158,11,0.1);
+      --accent-glow: rgba(245,158,11,0.2);
+      --text: #F0F0F0;
+      --text-muted: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled { background: rgba(8,8,8,0.94); backdrop-filter: blur(16px); border-color: var(--border); }
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 16px; height: 16px; }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: flex-end; position: relative; overflow: hidden;
+    }
+    .hero-cover {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0a0800 0%, #1a1200 50%, #2a1e00 100%);
+    }
+    .hero-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(8,8,8,0) 0%, rgba(8,8,8,0.6) 60%, #080808 100%);
+    }
+    /* grid de fundo decorativo */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 80px 88px; max-width: 960px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 24px; background: var(--accent-dim);
+      border: 1px solid rgba(245,158,11,0.2); padding: 6px 14px; border-radius: 100px;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(44px, 6.5vw, 80px); font-weight: 700;
+      line-height: 1.02; letter-spacing: -0.04em; color: #fff; margin-bottom: 24px;
+    }
+    .hero-title em { font-style: normal; color: var(--accent); }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 560px; line-height: 1.65; }
+    .hero-meta { display: flex; gap: 48px; margin-top: 52px; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .meta-value { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); }
+
+    /* LAYOUT */
+    section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; color: var(--text); margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--accent); }
+    .section-lead { font-size: 17px; color: var(--text-muted); max-width: 620px; line-height: 1.75; margin-bottom: 56px; }
+    .divider { border: none; height: 1px; background: var(--border); margin: 0 80px; }
+
+    /* CONTEXTO â€” split */
+    .contexto-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+    }
+    .contexto-text { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+    .contexto-text p { margin-bottom: 20px; }
+    .contexto-text strong { color: var(--text); font-weight: 500; }
+    .frase-ancora {
+      background: var(--accent); color: #000;
+      border-radius: 16px; padding: 44px 40px;
+    }
+    .frase-ancora .label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,0,0,0.5); margin-bottom: 20px; }
+    .frase-ancora .frase {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.25; color: #000;
+    }
+
+    /* NARRATIVA â€” vilao e heroi */
+    .narrativa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: 16px; overflow: hidden; background: var(--border); }
+    .narr-card { background: var(--surface); padding: 48px 40px; }
+    .narr-badge {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .narr-badge.vilao { background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+    .narr-badge.heroi { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(245,158,11,0.2); }
+    .narr-name { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.02em; }
+    .narr-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; font-style: italic; }
+    .narr-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .narr-list li { font-size: 14px; color: var(--text-muted); padding-left: 16px; position: relative; line-height: 1.5; }
+    .narr-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--border); }
+    .narr-list.red li::before { background: rgba(239,68,68,0.5); }
+    .narr-list.amber li::before { background: var(--accent); opacity: 0.6; }
+
+    /* ESTRATEGIA DE CONTEUDO */
+    .conteudo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .conteudo-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px 24px; transition: border-color 0.3s, transform 0.3s;
+    }
+    .conteudo-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-4px); }
+    .conteudo-num { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--accent); opacity: 0.2; line-height: 1; margin-bottom: 16px; }
+    .conteudo-title { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .conteudo-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .conteudo-tag { display: inline-block; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(245,158,11,0.15); border-radius: 4px; font-size: 10px; font-weight: 600; padding: 3px 8px; margin-top: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* FRASES DE CORTE */
+    .frases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .frase-card {
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 32px 28px; border-left: 3px solid var(--accent);
+    }
+    .frase-texto { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text); line-height: 1.35; letter-spacing: -0.02em; }
+
+    /* SERIES */
+    .series-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .serie-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px 20px; text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .serie-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-6px); }
+    .serie-icon { font-size: 28px; margin-bottom: 16px; }
+    .serie-name { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .serie-freq { font-size: 12px; color: var(--accent); font-weight: 500; }
+
+    /* RITMO */
+    .ritmo-box {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      padding: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    }
+    .ritmo-item { padding: 24px; text-align: center; }
+    .ritmo-dia { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+    .ritmo-tipo { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+    .ritmo-tipo strong { color: var(--text); display: block; font-weight: 600; margin-bottom: 4px; }
+
+    /* RESULTADO */
+    .resultado-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: 16px; overflow: hidden; background: var(--border); }
+    .res-card { background: var(--surface2); padding: 40px 32px; }
+    .res-num { font-family: 'Space Grotesk', sans-serif; font-size: 56px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 8px; opacity: 0.7; }
+    .res-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 12px; }
+    .res-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { text-align: center; padding: 96px 80px; position: relative; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(245,158,11,0.08) 0%, transparent 70%); pointer-events: none; }
+    .cta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .cta-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 56px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); margin-bottom: 16px; }
+    .cta-title em { font-style: normal; color: var(--accent); }
+    .cta-sub { font-size: 17px; color: var(--text-muted); margin-bottom: 40px; }
+    .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #000; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--text); font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; padding: 14px 32px; border-radius: 8px; border: 1px solid var(--border); text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 80px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--text-muted); opacity: 0.45; }
+
+    /* CARROSSEL */
+    .carousel-stack { display: flex; flex-direction: column; gap: 64px; }
+    .carousel-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+    .carousel-num { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); opacity: 0.5; }
+    .carousel-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); }
+    .carousel-box {
+      position: relative; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 1 / 1; max-width: 560px; margin: 0 auto; width: 100%;
+    }
+    .carousel-track {
+      display: flex; height: 100%;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .carousel-track img {
+      flex: 0 0 100%; height: 100%;
+      object-fit: contain; background: var(--surface);
+      pointer-events: none; user-select: none;
+    }
+    .c-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8,8,8,0.7); border: 1px solid var(--border);
+      color: var(--text); width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s;
+      z-index: 3;
+    }
+    .c-btn:hover { background: rgba(245,158,11,0.15); border-color: rgba(245,158,11,0.4); }
+    .c-btn svg { width: 18px; height: 18px; }
+    .c-prev { left: 12px; }
+    .c-next { right: 12px; }
+    .c-counter {
+      position: absolute; top: 12px; right: 14px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.5); background: rgba(8,8,8,0.6);
+      padding: 4px 10px; border-radius: 100px; z-index: 3;
+    }
+    .c-dots {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 3;
+    }
+    .c-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.25); cursor: pointer;
+      transition: background 0.2s, width 0.2s;
+    }
+    .c-dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .hero-content { padding: 0 24px 64px; }
+      section { padding: 64px 24px; }
+      .divider { margin: 0 24px; }
+      .contexto-split { grid-template-columns: 1fr; }
+      .narrativa-grid { grid-template-columns: 1fr; }
+      .conteudo-grid { grid-template-columns: 1fr; }
+      .frases-grid { grid-template-columns: 1fr; }
+      .series-grid { grid-template-columns: 1fr 1fr; }
+      .ritmo-box { grid-template-columns: 1fr; }
+      .resultado-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 64px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="andressa-case-theme.css" />
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="portfolio-andressa-standalone.html#cases" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+      Voltar ao portfolio
+    </a>
+    <div class="nav-logo">Andressa <span>Juliani</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-cover">
+      <img src="images/finup.png" alt="FinUp" />
+    </div>
+    <div class="hero-grid"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Marca Propria Â· Narrativa Â· Estrategia de Conteudo</div>
+      <h1 class="hero-title">FinUp<br><em>A cabeca nao foi feita<br>pra carregar tudo.</em></h1>
+      <p class="hero-sub">Identidade de marca, narrativa central e sistema de conteudo do produto que criei â€” uma fintech com IA construida para aliviar carga mental, nao aumentar.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Empresa</div>
+          <div class="meta-value">FinUp (propria)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Papel</div>
+          <div class="meta-value">Fundador + Estrategista de Marca</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Escopo</div>
+          <div class="meta-value">Marca Â· Narrativa Â· Conteudo</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Produto</div>
+          <div class="meta-value">Fintech com Inteligencia Artificial</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEXTO -->
+  <section>
+    <p class="section-label fade-up">O projeto</p>
+    <h2 class="section-title fade-up d1">Um produto construido<br>com <em>estrategia desde o zero</em></h2>
+    <div class="contexto-split">
+      <div class="contexto-text fade-up d2">
+        <p>A FinUp nao nasceu de uma ideia genial. Nasceu de uma frustracao real: a maioria das pessoas vive com <strong>sobrecarga mental constante</strong> disfarÃ§ada de rotina normal. Esquecem compromissos, tomam decisoes financeiras ruins, acumulam ansiedade silenciosa.</p>
+        <p>O desafio de marca era maior do que parecia. Nao era apenas criar uma identidade bonita â€” era <strong>construir uma narrativa que fizesse o produto fazer sentido antes de ser explicado</strong>. Quem entende o vilao, quer o heroi.</p>
+        <p>Todo o sistema de marca â€” narrativa central, voz, posicionamento, estrategia de conteudo e calendario editorial â€” foi desenvolvido com a mesma logica: <strong>nao vender produto. Apresentar uma visao de mundo.</strong> Quando o publico se identifica com a visao, o produto vira consequencia.</p>
+      </div>
+      <div class="frase-ancora fade-up d3">
+        <div class="label">Frase-ancora da marca</div>
+        <div class="frase">"A cabeca nao foi feita pra carregar tudo."</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- NARRATIVA -->
+  <section>
+    <p class="section-label fade-up">Narrativa Central</p>
+    <h2 class="section-title fade-up d1">Todo produto forte tem<br>um <em>vilao e um heroi</em></h2>
+    <p class="section-lead fade-up d2">Nao sao personagens ficticios. Sao forcas invisiveis que aparecem repetidamente no conteudo e ajudam o publico a escolher um lado. Quem odeia o caos se aproxima. Quem quer leveza permanece.</p>
+
+    <div class="narrativa-grid">
+      <div class="narr-card fade-up d1">
+        <div class="narr-badge vilao">O Vilao</div>
+        <div class="narr-name">O Caos Mental Normalizado</div>
+        <div class="narr-sub">Nao e uma pessoa. E um comportamento aceito como normal.</div>
+        <ul class="narr-list red">
+          <li>"E normal esquecer as coisas"</li>
+          <li>"Minha cabeca e assim mesmo"</li>
+          <li>"Ta tudo anotado em varios lugares"</li>
+          <li>"Eu lembro, ta sob controle" â€” geralmente nao esta</li>
+          <li>Sobrecarga mental constante</li>
+          <li>Ansiedade silenciosa</li>
+          <li>Decisoes financeiras ruins</li>
+        </ul>
+        <p style="margin-top:24px; font-size:13px; color:var(--text-muted); font-style:italic;">O vilao nao grita. Ele cansa.</p>
+      </div>
+      <div class="narr-card fade-up d2">
+        <div class="narr-badge heroi">O Heroi</div>
+        <div class="narr-name">Quem Decide Aliviar a Cabeca</div>
+        <div class="narr-sub">Nao e perfeito. E alguem que decide nao romantizar o caos.</div>
+        <ul class="narr-list amber">
+          <li>Nao romantiza o caos como personalidade</li>
+          <li>Usa sistemas no lugar da memoria</li>
+          <li>Aceita ajuda da automacao sem culpa</li>
+          <li>Busca leveza, nao controle obsessivo</li>
+          <li>E o usuario ideal da FinUp</li>
+          <li>E Gabriel em varios momentos da propria historia</li>
+          <li>E quem se reconhece no conteudo</li>
+        </ul>
+        <p style="margin-top:24px; font-size:13px; color:var(--text-muted); font-style:italic;">Esse heroi nao precisa de disciplina extrema. Precisa de sistema.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ESTRATEGIA DE CONTEUDO -->
+  <section>
+    <p class="section-label fade-up">Estrategia de Conteudo</p>
+    <h2 class="section-title fade-up d1">Seis territorios.<br>Uma <em>narrativa coerente.</em></h2>
+    <p class="section-lead fade-up d2">Cada territorio cumpre um papel diferente â€” da autoridade tecnica a humanizacao do fundador. Juntos criam um ecossistema onde o produto entra naturalmente, sem cara de propaganda.</p>
+
+    <div class="conteudo-grid">
+      <div class="conteudo-card fade-up d1">
+        <div class="conteudo-num">01</div>
+        <div class="conteudo-title">Marca e Posicionamento</div>
+        <div class="conteudo-desc">O territorio principal. Conteudos para reforcar autoridade e visao de marca â€” por que marcas fracas pedem opiniao demais, por que consistencia constoi mais que criatividade.</div>
+        <div class="conteudo-tag">Carrossel Â· Post unico</div>
+      </div>
+      <div class="conteudo-card fade-up d2">
+        <div class="conteudo-num">02</div>
+        <div class="conteudo-title">Fundador e Vida Real</div>
+        <div class="conteudo-desc">Humanizacao sem vitimismo. O peso mental de empreender, o medo que nunca foi o problema, o que mudou quando parei de tentar fazer tudo sozinho.</div>
+        <div class="conteudo-tag">Carrossel Â· Reflexao</div>
+      </div>
+      <div class="conteudo-card fade-up d3">
+        <div class="conteudo-num">03</div>
+        <div class="conteudo-title">FinUp sem Propaganda</div>
+        <div class="conteudo-desc">Produto como consequencia de uma dor real. "Automacao nao e luxo. E saude mental." "Organizacao financeira nao e disciplina. E sistema." A FinUp entra como ferramenta, nao como salvador.</div>
+        <div class="conteudo-tag">Post unico Â· Carrossel</div>
+      </div>
+      <div class="conteudo-card fade-up d1">
+        <div class="conteudo-num">04</div>
+        <div class="conteudo-title">Frases de Corte</div>
+        <div class="conteudo-desc">Posts simples para intercalar e manter ritmo. Tipografia forte, fundo limpo. "Quem muda toda hora nunca vira referencia." "Constancia e chata. Por isso funciona."</div>
+        <div class="conteudo-tag">Post unico</div>
+      </div>
+      <div class="conteudo-card fade-up d2">
+        <div class="conteudo-num">05</div>
+        <div class="conteudo-title">Series de Retencao</div>
+        <div class="conteudo-desc">Conteudo em serie para o publico reconhecer e esperar. Notas de um Fundador, Pensamentos sobre Marca, Construindo em Publico. Um post por semana, sempre no mesmo formato.</div>
+        <div class="conteudo-tag">Serie semanal</div>
+      </div>
+      <div class="conteudo-card fade-up d3">
+        <div class="conteudo-num">06</div>
+        <div class="conteudo-title">Sequencia Inteligente</div>
+        <div class="conteudo-desc">Ritmo semanal com logica: Segunda (frase forte), Quarta (carrossel conceitual), Sexta (reflexao pessoal ou FinUp sem venda). Construir autoridade e narrativa â€” nao apenas feed bonito.</div>
+        <div class="conteudo-tag">Calendario editorial</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- FRASES DE MARCA -->
+  <section>
+    <p class="section-label fade-up">Voz da Marca</p>
+    <h2 class="section-title fade-up d1">Frases que <em>constroem<br>lado</em>, nao so conteudo</h2>
+    <p class="section-lead fade-up d2">A forca esta na repeticao com identidade. Nao e inventar todo dia â€” e repetir as mesmas verdades de formas diferentes ate virarem marca registrada.</p>
+
+    <div class="frases-grid">
+      <div class="frase-card fade-up d1">
+        <div class="frase-texto">"Caos nao e personalidade."</div>
+      </div>
+      <div class="frase-card fade-up d2">
+        <div class="frase-texto">"Cabeca nao foi feita pra ser agenda."</div>
+      </div>
+      <div class="frase-card fade-up d1">
+        <div class="frase-texto">"Automacao nao e luxo. E saude mental."</div>
+      </div>
+      <div class="frase-card fade-up d2">
+        <div class="frase-texto">"Vida leve e decisao, nao sorte."</div>
+      </div>
+      <div class="frase-card fade-up d1">
+        <div class="frase-texto">"Organizacao financeira nao e disciplina. E sistema."</div>
+      </div>
+      <div class="frase-card fade-up d2">
+        <div class="frase-texto">"Normalizar sobrecarga nao e maturidade."</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- RITMO SEMANAL -->
+  <section>
+    <p class="section-label fade-up">Calendario Editorial</p>
+    <h2 class="section-title fade-up d1">Ritmo que <em>acumula</em><br>autoridade</h2>
+    <p class="section-lead fade-up d2">Constancia e mais poderosa que viralidade. O calendario foi desenhado para construir audiencia qualificada de forma sistematica, sem depender de inspiracao.</p>
+
+    <div class="ritmo-box fade-up d2">
+      <div class="ritmo-item">
+        <div class="ritmo-dia">Segunda</div>
+        <div class="ritmo-tipo"><strong>Frase Forte</strong>Post unico, tipografia grande, fundo limpo. Abre a semana com autoridade.</div>
+      </div>
+      <div class="ritmo-item" style="border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+        <div class="ritmo-dia">Quarta</div>
+        <div class="ritmo-tipo"><strong>Carrossel Conceitual</strong>Conteudo de profundidade â€” marca, posicionamento ou FinUp sem venda direta.</div>
+      </div>
+      <div class="ritmo-item">
+        <div class="ritmo-dia">Sexta</div>
+        <div class="ritmo-tipo"><strong>Reflexao Pessoal</strong>Humanizacao do fundador ou FinUp como consequencia natural de uma dor real.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- O QUE FOI FEITO -->
+  <section>
+    <p class="section-label fade-up">Escopo entregue</p>
+    <h2 class="section-title fade-up d1">Mais do que uma marca.<br><em>Um sistema completo.</em></h2>
+    <p class="section-lead fade-up d2">Como fundador, fiz tudo que faria para qualquer cliente â€” sem abrir mao de profundidade por ser o proprio dono.</p>
+
+    <div class="resultado-grid fade-up d2">
+      <div class="res-card">
+        <div class="res-num">01</div>
+        <div class="res-label">Narrativa Central</div>
+        <div class="res-desc">Vilao e heroi definidos. Frase-ancora criada. Sistema narrativo que conecta o perfil pessoal do fundador ao produto de forma coerente e nao forÃ§ada.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">02</div>
+        <div class="res-label">Identidade Visual</div>
+        <div class="res-desc">Marca completa para uma fintech com IA â€” logotipo, paleta, tipografia e aplicacoes em todos os formatos digitais, do feed ao card financeiro.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">03</div>
+        <div class="res-label">Sistema de Conteudo</div>
+        <div class="res-desc">6 territorios editoriais, banco de ideias, frases de corte, series de retencao e calendario semanal com logica de construcao de audiencia de longo prazo.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CARROSSÉIS -->
+  <section>
+    <p class="section-label fade-up">Peças criadas</p>
+    <h2 class="section-title fade-up d1">Carrosséis desenvolvidos<br>para o <em>feed da FinUp</em></h2>
+    <p class="section-lead fade-up d2">Cada carrossel segue a identidade visual da marca — tipografia forte, paleta consistente e narrativa em sequência que educa e posiciona antes de vender.</p>
+
+    <div class="carousel-stack">
+
+      <!-- Carrossel 1 -->
+      <div class="fade-up d1">
+        <div class="carousel-meta">
+          <span class="carousel-num">CARROSSEL 01</span>
+          <span class="carousel-name">Divisão 1 — Série de marca</span>
+        </div>
+        <div class="carousel-box">
+          <div class="carousel-track">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/Divis%C3%A3o%201.png" alt="Slide capa" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/32.png" alt="Slide 2" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/33.png" alt="Slide 3" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/34.png" alt="Slide 4" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/35.png" alt="Slide 5" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/36.png" alt="Slide 6" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(7)/37.png" alt="Slide 7" loading="lazy">
+          </div>
+          <button class="c-btn c-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="c-btn c-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">7</span></div>
+          <div class="c-dots"></div>
+        </div>
+      </div>
+
+      <!-- Carrossel 2 -->
+      <div class="fade-up d2">
+        <div class="carousel-meta">
+          <span class="carousel-num">CARROSSEL 02</span>
+          <span class="carousel-name">Divisão 2 — Série de marca</span>
+        </div>
+        <div class="carousel-box">
+          <div class="carousel-track">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/Divis%C3%A3o%202.png" alt="Slide capa" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/33.png" alt="Slide 2" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/34.png" alt="Slide 3" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/35.png" alt="Slide 4" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/36.png" alt="Slide 5" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/37.png" alt="Slide 6" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(6)/38.png" alt="Slide 7" loading="lazy">
+          </div>
+          <button class="c-btn c-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="c-btn c-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">7</span></div>
+          <div class="c-dots"></div>
+        </div>
+      </div>
+
+      <!-- Carrossel 3 -->
+      <div class="fade-up d3">
+        <div class="carousel-meta">
+          <span class="carousel-num">CARROSSEL 03</span>
+          <span class="carousel-name">Divisão 3 — Série de marca</span>
+        </div>
+        <div class="carousel-box">
+          <div class="carousel-track">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/Divis%C3%A3o%203.png" alt="Slide capa" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/34.png" alt="Slide 2" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/35.png" alt="Slide 3" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/36.png" alt="Slide 4" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/37.png" alt="Slide 5" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/38.png" alt="Slide 6" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/39.png" alt="Slide 7" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/40.png" alt="Slide 8" loading="lazy">
+            <img src="images/fotos%20de%20aplica%C3%A7oes/Design%20sem%20nome%20(5)/41.png" alt="Slide 9" loading="lazy">
+          </div>
+          <button class="c-btn c-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="c-btn c-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">9</span></div>
+          <div class="c-dots"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-glow"></div>
+    <p class="cta-label fade-up">Proximo passo</p>
+    <h2 class="cta-title fade-up d1">Sua marca tambem<br>precisa de uma <em>narrativa assim?</em></h2>
+    <p class="cta-sub fade-up d2">Posicionamento, narrativa e conteudo que faz sentido antes de vender.</p>
+    <div class="btn-row fade-up d3">
+      <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
+      <a href="portfolio-andressa-standalone.html#cases" class="btn-secondary">Ver outros projetos</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Andressa <span>Juliani</span></div>
+    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('.carousel-box').forEach(box => {
+      const track = box.querySelector('.carousel-track');
+      const slides = track.querySelectorAll('img');
+      const total = slides.length;
+      const dotsEl = box.querySelector('.c-dots');
+      const curEl = box.querySelector('.c-cur');
+      let idx = 0;
+
+      const dots = Array.from({ length: total }, (_, i) => {
+        const d = document.createElement('button');
+        d.className = 'c-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => go(i));
+        dotsEl.appendChild(d);
+        return d;
+      });
+
+      function go(n) {
+        idx = (n + total) % total;
+        track.style.transform = `translateX(-${idx * 100}%)`;
+        curEl.textContent = idx + 1;
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+
+      box.querySelector('.c-prev').addEventListener('click', () => go(idx - 1));
+      box.querySelector('.c-next').addEventListener('click', () => go(idx + 1));
+
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) go(diff > 0 ? idx + 1 : idx - 1);
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+

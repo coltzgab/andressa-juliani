@@ -1,0 +1,812 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treinamento de Croquis â€” Olivers Vistorias | Andressa Juliani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #181818;
+      --border: #222222;
+      --accent: #F59E0B;
+      --text: #F0F0F0;
+      --text-muted: #888888;
+      /* Olivers brand */
+      --ol-purple: #3B2070;
+      --ol-teal: #00D4A8;
+      --ol-teal-dim: rgba(0, 212, 168, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* â”€â”€ NAV â”€â”€ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(16px);
+      border-color: var(--border);
+    }
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 16px; height: 16px; }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    /* â”€â”€ HERO â”€â”€ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-cover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a0d40 0%, #3B2070 50%, #1a3d35 100%);
+    }
+    .hero-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,8,8,0) 20%, rgba(8,8,8,0.75) 70%, #080808 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px 80px;
+      max-width: 900px;
+    }
+    .hero-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ol-teal);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero-title em { font-style: normal; color: var(--ol-teal); }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      max-width: 580px;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .meta-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* â”€â”€ SECTIONS â”€â”€ */
+    section {
+      padding: 96px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ol-teal);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--ol-teal); }
+    .section-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    /* â”€â”€ DIVIDER â”€â”€ */
+    .divider {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 0 80px;
+    }
+
+    /* â”€â”€ PROBLEMA / SOLUCAO â”€â”€ */
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .ps-card {
+      background: var(--surface);
+      padding: 48px;
+    }
+    .ps-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .ps-icon.problema { background: rgba(239,68,68,0.1); }
+    .ps-icon.solucao { background: var(--ol-teal-dim); }
+    .ps-icon svg { width: 24px; height: 24px; }
+    .ps-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .ps-title.problema { color: #ef4444; }
+    .ps-title.solucao { color: var(--ol-teal); }
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ps-list li {
+      font-size: 15px;
+      color: var(--text-muted);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .ps-list.problema li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      opacity: 0.5;
+    }
+    .ps-list.solucao li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ol-teal);
+      opacity: 0.6;
+    }
+
+    /* â”€â”€ RESULTADOS â”€â”€ */
+    .resultados-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .resultado-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .resultado-card:hover {
+      border-color: rgba(0, 212, 168, 0.3);
+      transform: translateY(-4px);
+    }
+    .resultado-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--ol-teal);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .resultado-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .resultado-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* â”€â”€ PROCESSO â”€â”€ */
+    .processo-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .step {
+      background: var(--surface);
+      padding: 32px 40px;
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 24px;
+      align-items: start;
+      transition: background 0.2s;
+    }
+    .step:hover { background: var(--surface2); }
+    .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--ol-teal);
+      opacity: 0.3;
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .step-content {}
+    .step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* â”€â”€ ENTREGAVEIS â”€â”€ */
+    .entregaveis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .entregavel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .entregavel-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--ol-teal-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .entregavel-icon svg { width: 22px; height: 22px; color: var(--ol-teal); }
+    .entregavel-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .entregavel-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* â”€â”€ IMPACTO â”€â”€ */
+    .impacto-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--ol-teal);
+      border-radius: 12px;
+      padding: 48px;
+    }
+    .impacto-quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .impacto-quote em { font-style: normal; color: var(--ol-teal); }
+    .impacto-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    /* â”€â”€ CTA â”€â”€ */
+    .cta-section {
+      text-align: center;
+      padding: 96px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(0,212,168,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .cta-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .cta-title em { font-style: normal; color: var(--accent); }
+    .cta-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+
+    /* â”€â”€ FOOTER â”€â”€ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    /* â”€â”€ FADE UP â”€â”€ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* â”€â”€ RESPONSIVE â”€â”€ */
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .hero-content { padding: 0 24px 64px; }
+      section { padding: 64px 24px; }
+      .divider { margin: 0 24px; }
+      .ps-grid { grid-template-columns: 1fr; }
+      .resultados-grid { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 48px 1fr; }
+      .entregaveis-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 64px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="andressa-case-theme.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="portfolio-andressa-standalone.html#cases" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M10 12L6 8l4-4"/>
+      </svg>
+      Voltar ao portfolio
+    </a>
+    <div class="nav-logo">Andressa <span>Juliani</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-cover">
+      <img src="images/olivers-treinamento.png" alt="Treinamento de Croquis Olivers" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Processo Â· Treinamento Â· Gestao Operacional</div>
+      <h1 class="hero-title">Treinamento de<br><em>Croquis</em> Olivers</h1>
+      <p class="hero-sub">De processos caÃ³ticos e inconsistentes para um sistema de treinamento padronizado. Cada colaborador, o mesmo nivel de conhecimento.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Cliente</div>
+          <div class="meta-value">Olivers Vistorias</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Escopo</div>
+          <div class="meta-value">Processo + Treinamento Gravado</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Producao</div>
+          <div class="meta-value">Assessoria Organic</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Ano</div>
+          <div class="meta-value">2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEMA E SOLUCAO -->
+  <section>
+    <p class="section-label fade-up">Diagnostico</p>
+    <h2 class="section-title fade-up d1">O problema que<br>ninguem estava <em>resolvendo</em></h2>
+    <p class="section-lead fade-up d2">A Olivers Vistorias cresceu, mas o processo de treinamento nao acompanhou o crescimento. Cada pessoa ensinava do seu jeito, criando inconsistencia na operacao e dependencia de quem sabia mais.</p>
+
+    <div class="ps-grid fade-up d2">
+      <div class="ps-card">
+        <div class="ps-icon problema">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div class="ps-title problema">O problema</div>
+        <ul class="ps-list problema">
+          <li>Processos de treinamento completamente desorganizados</li>
+          <li>Cada colaborador ensinava de um jeito diferente</li>
+          <li>Sem padrao definido para execucao de croquis</li>
+          <li>Novos colaboradores dependiam de alguem disponivel para aprender</li>
+          <li>Qualidade final variava conforme quem havia ensinado</li>
+          <li>Horas de mao de obra desperdicadas em onboarding repetitivo e inconsistente</li>
+        </ul>
+      </div>
+      <div class="ps-card">
+        <div class="ps-icon solucao">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00D4A8" stroke-width="1.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="ps-title solucao">A solucao</div>
+        <ul class="ps-list solucao">
+          <li>Diagnostico completo dos pontos de falha no processo atual</li>
+          <li>Criacao de processo padronizado de ponta a ponta</li>
+          <li>Producao de treinamento gravado â€” mesmo conteudo para todos</li>
+          <li>Todos os colaboradores passam pelo mesmo material</li>
+          <li>Treinamento disponivel a qualquer momento, sem depender de ninguem</li>
+          <li>Padrao de qualidade garantido desde o primeiro dia de trabalho</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- RESULTADOS -->
+  <section>
+    <p class="section-label fade-up">Impacto</p>
+    <h2 class="section-title fade-up d1">O que mudou depois<br>do <em>treinamento</em></h2>
+    <p class="section-lead fade-up d2">Padronizacao nao e so sobre qualidade â€” e sobre libertar a empresa de depender de pessoas especificas para transmitir conhecimento.</p>
+
+    <div class="resultados-grid">
+      <div class="resultado-card fade-up d1">
+        <div class="resultado-num">100%</div>
+        <div class="resultado-label">Padronizacao</div>
+        <div class="resultado-desc">Todos os colaboradores passam pelo mesmo treinamento, garantindo o mesmo nivel de conhecimento independente de quando entraram na empresa.</div>
+      </div>
+      <div class="resultado-card fade-up d2">
+        <div class="resultado-num">Zero</div>
+        <div class="resultado-label">Dependencia de Pessoa</div>
+        <div class="resultado-desc">O conhecimento saiu da cabeca das pessoas e virou processo documentado. A empresa nao para se alguem sai ou fica indisponivel.</div>
+      </div>
+      <div class="resultado-card fade-up d3">
+        <div class="resultado-num">-H</div>
+        <div class="resultado-label">Reducao de Horas</div>
+        <div class="resultado-desc">Horas de mao de obra liberadas. O tempo que era gasto repetindo o mesmo treinamento informal agora e investido em producao real.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PROCESSO DE CRIACAO -->
+  <section>
+    <p class="section-label fade-up">Como foi feito</p>
+    <h2 class="section-title fade-up d1">Do caos ao<br><em>sistema</em></h2>
+    <p class="section-lead fade-up d2">Criar um treinamento eficaz nao e so gravar um video. E entender como o conhecimento esta sendo transmitido hoje, onde falha e como estruturar algo que funcione de forma independente.</p>
+
+    <div class="processo-steps fade-up d2">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Diagnostico do processo atual</div>
+          <div class="step-desc">Mapeamento de como o treinamento estava sendo feito â€” quem ensinava, o que ensinava, o que ficava de fora e onde surgiam os erros mais frequentes na execucao dos croquis.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Estruturacao do conteudo</div>
+          <div class="step-desc">Organizacao de todo o conhecimento necessario em modulos logicos e progressivos. Do basico ao avancado, sem pular etapas e sem informacoes redundantes.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Definicao do padrao de execucao</div>
+          <div class="step-desc">Criacao do processo oficial de croquis da Olivers â€” o jeito certo de fazer, com criterios claros e passos definidos que todo colaborador precisa seguir.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Producao do treinamento gravado</div>
+          <div class="step-desc">Gravacao do treinamento completo em formato de video, seguindo o roteiro estruturado. Um material unico que substitui todos os treinamentos informais anteriores.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <div class="step-title">Implementacao e padronizacao</div>
+          <div class="step-desc">O treinamento passou a ser o ponto de entrada obrigatorio de todos os novos colaboradores. O conhecimento virou ativo da empresa, nao dependencia de individuo.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ENTREGAVEIS -->
+  <section>
+    <p class="section-label fade-up">Entregaveis</p>
+    <h2 class="section-title fade-up d1">O que foi<br><em>entregue</em></h2>
+
+    <div class="entregaveis-grid">
+      <div class="entregavel-card fade-up d1">
+        <div class="entregavel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <div>
+          <div class="entregavel-title">Processo padronizado documentado</div>
+          <div class="entregavel-desc">Documentacao completa do fluxo de execucao de croquis, com etapas, criterios de qualidade e pontos de verificacao.</div>
+        </div>
+      </div>
+      <div class="entregavel-card fade-up d2">
+        <div class="entregavel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="10 8 16 12 10 16 10 8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="entregavel-title">Treinamento gravado completo</div>
+          <div class="entregavel-desc">Video de treinamento estruturado em modulos progressivos â€” do basico ao avancado â€” com o mesmo conteudo para todos os colaboradores.</div>
+        </div>
+      </div>
+      <div class="entregavel-card fade-up d3">
+        <div class="entregavel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <div>
+          <div class="entregavel-title">Roteiro e estrutura de conteudo</div>
+          <div class="entregavel-desc">Roteiro completo do treinamento com organizacao logica do conhecimento, garantindo que nenhuma etapa critica ficasse de fora.</div>
+        </div>
+      </div>
+      <div class="entregavel-card fade-up d4">
+        <div class="entregavel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <div class="entregavel-title">Protocolo de onboarding</div>
+          <div class="entregavel-desc">Definicao do fluxo de entrada de novos colaboradores, com o treinamento gravado como etapa obrigatoria antes de iniciar a operacao.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- IMPACTO ESTRATEGICO -->
+  <section>
+    <p class="section-label fade-up">Visao estrategica</p>
+    <h2 class="section-title fade-up d1">Mais do que um<br><em>treinamento</em></h2>
+
+    <div class="impacto-box fade-up d2">
+      <div class="impacto-quote">
+        Uma empresa que depende de pessoas especificas para transmitir conhecimento nao escala. O conhecimento precisa virar <em>processo</em>.
+      </div>
+      <div class="impacto-desc">
+        Quando o treinamento depende de quem esta disponivel, a qualidade varia. Quando depende de um material fixo e estruturado, a qualidade e constante. Esse projeto transformou o conhecimento tatico da Olivers em um ativo escalavel â€” algo que a empresa possui, nao algo que fica na cabeca de um colaborador. O resultado vai alem da economia de horas: e uma operacao que pode crescer sem perder consistencia.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-glow"></div>
+    <p class="cta-label fade-up">Proximo passo</p>
+    <h2 class="cta-title fade-up d1">Seus processos precisam<br>de um <em>sistema real?</em></h2>
+    <p class="cta-sub fade-up d2">Diagnostico, estruturacao e implementacao â€” do caos a padronizacao.</p>
+    <div class="btn-row fade-up d3">
+      <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
+      <a href="portfolio-andressa-standalone.html#cases" class="btn-secondary">Ver outros projetos</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Andressa <span>Juliani</span></div>
+    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,862 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juliano Camello â€” Marca Pessoal e Estrategia de Conteudo | Andressa Juliani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #181818;
+      --border: #222222;
+      --accent: #F59E0B;
+      --text: #F0F0F0;
+      --text-muted: #888888;
+      /* Juliano brand */
+      --jc-blue: #2E6B9E;
+      --jc-dark: #1a3d5c;
+      --jc-blue-dim: rgba(46, 107, 158, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(16px);
+      border-color: var(--border);
+    }
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 16px; height: 16px; }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-cover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0a1e30 0%, #1a3d5c 50%, #2E6B9E 100%);
+    }
+    .hero-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,8,8,0) 20%, rgba(8,8,8,0.8) 70%, #080808 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px 80px;
+      max-width: 900px;
+    }
+    .hero-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--jc-blue);
+      margin-bottom: 20px;
+      filter: brightness(1.6);
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero-title em { font-style: normal; color: #7ab8e8; }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .meta-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 96px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--jc-blue);
+      margin-bottom: 16px;
+      filter: brightness(1.5);
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: #7ab8e8; }
+    .section-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    .divider {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 0 80px;
+    }
+
+    /* POSICIONAMENTO */
+    .pos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .pos-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .pos-card-full {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--jc-blue);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .pos-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--jc-blue);
+      margin-bottom: 16px;
+      filter: brightness(1.5);
+    }
+    .pos-text {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .pos-text strong { color: var(--text); font-weight: 500; }
+    .pos-big {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+    .pos-big em { font-style: normal; color: #7ab8e8; }
+
+    /* PERSONAS */
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .persona-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .persona-role {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7ab8e8;
+      margin-bottom: 12px;
+    }
+    .persona-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .persona-age {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .persona-info {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .persona-dores {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .persona-dores strong {
+      display: block;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .persona-tag {
+      display: inline-block;
+      background: var(--jc-blue-dim);
+      color: var(--jc-blue);
+      border: 1px solid rgba(46,107,158,0.2);
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 8px;
+      margin-top: 12px;
+      margin-right: 4px;
+      filter: brightness(1.5);
+    }
+
+    /* LINHAS EDITORIAIS */
+    .editoriais-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .editorial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .editorial-card:hover {
+      border-color: rgba(46,107,158,0.4);
+      transform: translateY(-4px);
+    }
+    .editorial-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--jc-blue);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .editorial-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .editorial-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CANAIS */
+    .canais-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .canal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 20px;
+    }
+    .canal-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--jc-blue-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .canal-icon svg { width: 22px; height: 22px; color: var(--jc-blue); filter: brightness(1.5); }
+    .canal-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .canal-obj {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7ab8e8;
+      margin-bottom: 8px;
+    }
+    .canal-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* SWOT */
+    .swot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .swot-card {
+      background: var(--surface);
+      padding: 40px;
+    }
+    .swot-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .swot-title.s { color: #22c55e; }
+    .swot-title.w { color: #ef4444; }
+    .swot-title.o { color: #7ab8e8; }
+    .swot-title.t { color: var(--accent); }
+    .swot-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .swot-list li {
+      font-size: 14px;
+      color: var(--text-muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .swot-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    /* RESULTADO */
+    .resultado-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .res-card {
+      background: var(--surface);
+      padding: 40px;
+    }
+    .res-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--jc-blue);
+      line-height: 1;
+      margin-bottom: 8px;
+      filter: brightness(1.5);
+    }
+    .res-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .res-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 96px 80px;
+      position: relative;
+    }
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(46,107,158,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .cta-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .cta-title em { font-style: normal; color: var(--accent); }
+    .cta-sub { font-size: 17px; color: var(--text-muted); margin-bottom: 40px; }
+    .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #000;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px;
+      padding: 14px 32px; border-radius: 8px; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--text);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px;
+      padding: 14px 32px; border-radius: 8px; border: 1px solid var(--border);
+      text-decoration: none; transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .hero-content { padding: 0 24px 64px; }
+      section { padding: 64px 24px; }
+      .divider { margin: 0 24px; }
+      .pos-grid { grid-template-columns: 1fr; }
+      .personas-grid { grid-template-columns: 1fr; }
+      .editoriais-grid { grid-template-columns: 1fr 1fr; }
+      .canais-grid { grid-template-columns: 1fr 1fr; }
+      .swot-grid { grid-template-columns: 1fr; }
+      .resultado-box { grid-template-columns: 1fr; }
+      .cta-section { padding: 64px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="andressa-case-theme.css" />
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="portfolio-andressa-standalone.html#cases" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+      Voltar ao portfolio
+    </a>
+    <div class="nav-logo">Andressa <span>Juliani</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-cover">
+      <img src="images/juliano-camello.png" alt="Juliano Camello" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Marca Pessoal Â· Estrategia de Conteudo Â· Posicionamento</div>
+      <h1 class="hero-title">Juliano Camello<br><em>Especialista em Holding</em></h1>
+      <p class="hero-sub">Posicionamento de marca pessoal do zero: de contador experiente a referencia nacional em holding para contadores empresarios.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Cliente</div>
+          <div class="meta-value">Juliano Camello</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Escopo</div>
+          <div class="meta-value">Marca Pessoal + Estrategia Digital</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Canais</div>
+          <div class="meta-value">Instagram Â· YouTube Â· TikTok Â· Blog</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Producao</div>
+          <div class="meta-value">Assessoria Organic</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSICIONAMENTO -->
+  <section>
+    <p class="section-label fade-up">Posicionamento</p>
+    <h2 class="section-title fade-up d1">Do contador ao<br><em>especialista reconhecido</em></h2>
+    <p class="section-lead fade-up d2">O mercado contabil e cheio de bons tecnicos. O desafio era transformar Juliano Camello em uma referencia â€” alguem que outros contadores buscam ativamente para aprender e firmar parcerias.</p>
+
+    <div class="pos-grid fade-up d2">
+      <div class="pos-card">
+        <div class="pos-label">Posicionamento unico</div>
+        <div class="pos-text">Juliano Camello e o <strong>contador especialista em holding</strong> que oferece solucoes personalizadas e estrategicas para contadores empresarios â€” com conhecimento aprofundado e experiencia pratica na area.</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-label">Proposta de valor</div>
+        <div class="pos-text">Auxiliar contadores empresarios a <strong>se tornarem especialistas em holding</strong>, por meio de parcerias de trabalho e consultorias especializadas â€” com orientacoes praticas, estrategias de tributacao e diferenciais competitivos claros.</div>
+      </div>
+    </div>
+    <div class="pos-card-full fade-up d3">
+      <div class="pos-label">Big Idea do conteudo</div>
+      <div class="pos-big">
+        Juliano Camello capacita contadores empresarios a expandirem suas atuacoes e aumentarem o valor agregado dos seus servicos â€” por meio do <em>conhecimento em holding e parcerias estrategicas</em>.
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PERSONAS -->
+  <section>
+    <p class="section-label fade-up">Audiencia</p>
+    <h2 class="section-title fade-up d1">Tres perfis, uma<br><em>mesma necessidade</em></h2>
+    <p class="section-lead fade-up d2">O publico de Juliano nao e o cliente final da holding â€” e o contador que quer oferecer esse servico e nao sabe como. Tres estagios diferentes da mesma jornada profissional.</p>
+
+    <div class="personas-grid">
+      <div class="persona-card fade-up d1">
+        <div class="persona-role">Persona 01</div>
+        <div class="persona-name">Pedro Silva</div>
+        <div class="persona-age">42 anos Â· Dono de escritorio contabil</div>
+        <div class="persona-info">Contador experiente que quer expandir seus servicos. Entende que holding e uma oportunidade de crescimento, mas tem duvidas sobre o processo e como abordar clientes.</div>
+        <div class="persona-dores">
+          <strong>Principais dores</strong>
+          Falta de conhecimento tecnico em holding. Incerteza sobre como abordar e converter clientes. Necessidade de entender aspectos legais e fiscais.
+        </div>
+        <span class="persona-tag">LinkedIn</span>
+        <span class="persona-tag">Cursos online</span>
+      </div>
+      <div class="persona-card fade-up d2">
+        <div class="persona-role">Persona 02</div>
+        <div class="persona-name">Ana Santos</div>
+        <div class="persona-age">35 anos Â· Contadora em escritorio medio</div>
+        <div class="persona-info">Reconhece a importancia da holding mas sente falta de conhecimento especifico. Busca parceiros especialistas para ampliar os servicos que oferece aos seus clientes.</div>
+        <div class="persona-dores">
+          <strong>Principais dores</strong>
+          Dificuldade em explicar holding de forma convincente. Necessidade de atualizacao constante. Interesse em parcerias estrategicas.
+        </div>
+        <span class="persona-tag">LinkedIn</span>
+        <span class="persona-tag">Facebook</span>
+        <span class="persona-tag">Eventos</span>
+      </div>
+      <div class="persona-card fade-up d3">
+        <div class="persona-role">Persona 03</div>
+        <div class="persona-name">Lucas Oliveira</div>
+        <div class="persona-age">28 anos Â· Contador junior</div>
+        <div class="persona-info">Em busca de crescimento profissional. Quer se especializar em holding e percebe que essa area pode abrir portas para o futuro. Precisa de orientacao pratica e materiais de qualidade.</div>
+        <div class="persona-dores">
+          <strong>Principais dores</strong>
+          Falta de experiencia e de materiais educacionais de qualidade. Necessidade de orientacao sobre como se diferenciar no mercado.
+        </div>
+        <span class="persona-tag">Instagram</span>
+        <span class="persona-tag">LinkedIn</span>
+        <span class="persona-tag">Udemy</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- LINHAS EDITORIAIS -->
+  <section>
+    <p class="section-label fade-up">Conteudo</p>
+    <h2 class="section-title fade-up d1">Seis linhas que constroem<br><em>autoridade real</em></h2>
+    <p class="section-lead fade-up d2">Cada linha editorial resolve uma dor diferente da audiencia. Juntas, elas criam um ecossistema de conteudo que educa, gera confianca e posiciona Juliano como referencia indiscutivel em holding.</p>
+
+    <div class="editoriais-grid">
+      <div class="editorial-card fade-up d1">
+        <div class="editorial-num">01</div>
+        <div class="editorial-title">Beneficios da Holding</div>
+        <div class="editorial-desc">Protecao patrimonial, reducao de tributos e planejamento de sucessao familiar. O conteudo mais buscado pela audiencia â€” e o que mais gera autoridade quando bem executado.</div>
+      </div>
+      <div class="editorial-card fade-up d2">
+        <div class="editorial-num">02</div>
+        <div class="editorial-title">Payback do Investimento</div>
+        <div class="editorial-desc">Como calcular o retorno entre o valor investido na holding e a economia gerada em tributos. Conteudo estrategico que ajuda contadores a convencer clientes resistentes.</div>
+      </div>
+      <div class="editorial-card fade-up d3">
+        <div class="editorial-num">03</div>
+        <div class="editorial-title">Transacao Onerosa vs Nao Onerosa</div>
+        <div class="editorial-desc">Diferenciacao tecnica com impacto direto na elaboracao do contrato social. Conteudo que demonstra profundidade tecnica e gera confianca nos pares da area.</div>
+      </div>
+      <div class="editorial-card fade-up d1">
+        <div class="editorial-num">04</div>
+        <div class="editorial-title">Descricao de Imoveis Integralizados</div>
+        <div class="editorial-desc">Como descrever corretamente imoveis no contrato social para evitar problemas futuros no registro. Conteudo pratico que resolve dores reais dos contadores no dia a dia.</div>
+      </div>
+      <div class="editorial-card fade-up d2">
+        <div class="editorial-num">05</div>
+        <div class="editorial-title">Palestras e Lives</div>
+        <div class="editorial-desc">Formato de alta autoridade com profissionais complementares â€” direito familiar, elaboracao de contratos, questoes notariais. Expande a rede e fortalece o posicionamento.</div>
+      </div>
+      <div class="editorial-card fade-up d3">
+        <div class="editorial-num">06</div>
+        <div class="editorial-title">Lifestyle do Especialista</div>
+        <div class="editorial-desc">Rotina, leituras, networking e viagens. Humaniza a marca e gera conexao com a audiencia â€” elemento essencial para uma marca pessoal que vai alem do tecnico.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CANAIS -->
+  <section>
+    <p class="section-label fade-up">Presenca digital</p>
+    <h2 class="section-title fade-up d1">Quatro canais,<br>uma <em>voz consistente</em></h2>
+    <p class="section-lead fade-up d2">Cada plataforma cumpre um papel especifico na jornada da audiencia â€” da descoberta a conversao. A estrategia foi construida para que os canais se complementem, nao se repitam.</p>
+
+    <div class="canais-grid">
+      <div class="canal-card fade-up d1">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <div class="canal-name">Instagram</div>
+        <div class="canal-obj">Descoberta + Autoridade</div>
+        <div class="canal-desc">Reels educativos no topo do funil. Stories com enquetes, dicas rapidas e bastidores. Linguagem acessivel para atrair contadores de todos os niveis.</div>
+      </div>
+      <div class="canal-card fade-up d2">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </div>
+        <div class="canal-name">YouTube</div>
+        <div class="canal-obj">Profundidade + Retencao</div>
+        <div class="canal-desc">1 video por semana + 1 tutorial detalhado por mes. Conteudo tecnico aprofundado que converte espectadores em clientes e parceiros de longo prazo.</div>
+      </div>
+      <div class="canal-card fade-up d3">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.77 1.52V6.77a4.85 4.85 0 0 1-1-.08z"/></svg>
+        </div>
+        <div class="canal-name">TikTok</div>
+        <div class="canal-obj">Alcance + Visibilidade</div>
+        <div class="canal-desc">Dicas rapidas e Q&A sobre holding. Canal de topo de funil para atingir contadores mais jovens e expandir o alcance organico da marca.</div>
+      </div>
+      <div class="canal-card fade-up d4">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="canal-name">Blog</div>
+        <div class="canal-obj">SEO + Autoridade</div>
+        <div class="canal-desc">Artigos tecnicos para posicionar Juliano como referencia em buscas organicas. Conteudo de longo prazo que trabalha enquanto ele dorme.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SWOT -->
+  <section>
+    <p class="section-label fade-up">Diagnostico</p>
+    <h2 class="section-title fade-up d1">Analise SWOT que <em>guiou</em><br>cada decisao de posicionamento</h2>
+    <p class="section-lead fade-up d2">Entender as forcas e fraquezas de Juliano foi o ponto de partida para uma estrategia que maximiza o que ele tem e mitiga o que ainda nao tem.</p>
+
+    <div class="swot-grid fade-up d2">
+      <div class="swot-card">
+        <div class="swot-title s">Forcas</div>
+        <ul class="swot-list">
+          <li>Conhecimento especializado e aprofundado em holding</li>
+          <li>Experiencia pratica e cases reais de sucesso</li>
+          <li>Habilidades de comunicacao e ensino</li>
+          <li>Rede de contatos profissionais e parcerias estrategicas</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <div class="swot-title w">Fraquezas</div>
+        <ul class="swot-list">
+          <li>Baixa visibilidade digital antes do projeto</li>
+          <li>Falta de fluidez na comunicacao publica</li>
+          <li>Competicao acirrada no setor contabil e de consultoria</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <div class="swot-title o">Oportunidades</div>
+        <ul class="swot-list">
+          <li>Crescente demanda por servicos de holding e consultoria</li>
+          <li>Mercado em expansao com foco em protecao patrimonial</li>
+          <li>Potencial para parcerias com escritorios de advocacia</li>
+          <li>Plataformas digitais com alto alcance organico</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <div class="swot-title t">Ameacas</div>
+        <ul class="swot-list">
+          <li>Concorrencia de outros especialistas em holding</li>
+          <li>Mudancas nas regulamentacoes fiscais e juridicas</li>
+          <li>Volatilidade economica impactando investimento em consultoria</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- RESULTADO -->
+  <section>
+    <p class="section-label fade-up">O que foi entregue</p>
+    <h2 class="section-title fade-up d1">Uma marca pessoal<br><em>completa e acionavel</em></h2>
+    <p class="section-lead fade-up d2">Nao um PDF que fica na gaveta. Uma estrategia com posicionamento definido, audiencia mapeada, conteudo estruturado e canais com papel claro.</p>
+
+    <div class="resultado-box fade-up d2">
+      <div class="res-card">
+        <div class="res-num">3</div>
+        <div class="res-label">Personas mapeadas</div>
+        <div class="res-desc">Tres estagios distintos da jornada do contador â€” do junior ao dono de escritorio â€” com dores, canais e linguagem proprios.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">6</div>
+        <div class="res-label">Linhas editoriais</div>
+        <div class="res-desc">Cada linha com topicos, formatos e objetivos definidos. Conteudo que constoi autoridade de forma sistematica, nao aleatoria.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">4</div>
+        <div class="res-label">Canais ativos</div>
+        <div class="res-desc">Instagram, YouTube, TikTok e Blog com estrategias distintas e papeis complementares dentro do ecossistema de conteudo.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-glow"></div>
+    <p class="cta-label fade-up">Proximo passo</p>
+    <h2 class="cta-title fade-up d1">Quer construir sua<br><em>marca pessoal com estrategia?</em></h2>
+    <p class="cta-sub fade-up d2">Posicionamento, conteudo e presenca digital â€” tudo integrado e acionavel.</p>
+    <div class="btn-row fade-up d3">
+      <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
+      <a href="portfolio-andressa-standalone.html#cases" class="btn-secondary">Ver outros projetos</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Andressa <span>Juliani</span></div>
+    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
+

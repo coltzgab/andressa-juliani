@@ -1,0 +1,2195 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinUp ”” Manual da Marca 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== RESET + BASE ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #f2612e;
+    --night: #131b2f;
+    --indigo: #4a52a3;
+    --mist: #e3d9eb;
+    --white: #ffffff;
+    --night-60: rgba(19,27,47,0.6);
+    --night-30: rgba(19,27,47,0.3);
+    --white-60: rgba(255,255,255,0.6);
+    --white-40: rgba(255,255,255,0.4);
+    --white-15: rgba(255,255,255,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    background: #0d0d0d;
+    color: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ===== NAVEGACAO LATERAL ===== */
+  .nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    background: #0a0a0a;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-logo {
+    padding: 0 28px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 24px;
+  }
+
+  .nav-logo img {
+    height: 22px;
+    width: auto;
+  }
+
+  .nav-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    padding: 0 28px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+
+  .nav a {
+    display: block;
+    padding: 7px 28px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+    border-left: 2px solid transparent;
+  }
+
+  .nav a:hover {
+    color: var(--orange);
+    border-left-color: var(--orange);
+  }
+
+  .nav-footer {
+    margin-top: auto;
+    padding: 24px 28px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-footer-text {
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    line-height: 1.6;
+  }
+
+  /* ===== MAIN ===== */
+  main {
+    margin-left: 220px;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 80px 72px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ===== COVER ===== */
+  .cover {
+    min-height: 100vh;
+    background: var(--night);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 72px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: none;
+  }
+
+  .cover-glow {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,97,46,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-glow-2 {
+    position: absolute;
+    bottom: -80px;
+    left: 200px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,82,163,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-top img {
+    height: 36px;
+    width: auto;
+  }
+
+  .cover-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    border: 1px solid rgba(242,97,46,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .cover-middle {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+
+  .cover-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 64px;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+
+  .cover-title .accent { color: var(--orange); }
+
+  .cover-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 24px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: -0.5px;
+  }
+
+  .cover-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .cover-tagline span {
+    color: var(--orange);
+  }
+
+  .cover-meta {
+    text-align: right;
+  }
+
+  .cover-meta-text {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.8;
+  }
+
+  .orange-rule {
+    height: 3px;
+    background: var(--orange);
+    margin-top: 48px;
+  }
+
+  /* ===== SECTION HEADERS ===== */
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+
+  .section-lead {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 48px 0;
+  }
+
+  /* ===== GRID UTILS ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .card-orange {
+    background: rgba(242,97,46,0.08);
+    border-color: rgba(242,97,46,0.2);
+  }
+
+  .card-indigo {
+    background: rgba(74,82,163,0.1);
+    border-color: rgba(74,82,163,0.25);
+  }
+
+  .card-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .card-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  /* ===== POSICIONAMENTO ===== */
+  .mvv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .mvv-item {
+    padding: 32px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mvv-item:last-child { border-right: none; }
+
+  .mvv-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(242,97,46,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .mvv-icon svg { width: 16px; height: 16px; }
+
+  .mvv-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .mvv-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .mvv-subtext {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  /* Valores */
+  .valores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+
+  .valor-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 24px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .valor-item:last-child { border-bottom: none; }
+
+  .valor-num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--orange);
+    opacity: 0.4;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 40px;
+  }
+
+  .valor-content { flex: 1; }
+
+  .valor-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .valor-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  /* ===== ARQUETIPO ===== */
+  .archetype-hero {
+    background: var(--orange);
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .archetype-hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.08);
+  }
+
+  .archetype-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 40px;
+    color: var(--night);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .archetype-sub {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(19,27,47,0.55);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .archetype-desc {
+    font-size: 14px;
+    color: rgba(19,27,47,0.75);
+    line-height: 1.7;
+    max-width: 560px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .behaviors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .behavior-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+  }
+
+  .behavior-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .behavior-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .behavior-text strong {
+    color: var(--white);
+    display: block;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  /* Personalidade slider visual */
+  .personality-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .personality-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .personality-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    width: 120px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .personality-bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .personality-bar {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--orange);
+  }
+
+  .personality-label-right {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  /* ===== TOM DE VOZ ===== */
+  .tone-blocks {
+    display: grid;
+    grid-template-columns: 3fr 1.25fr 0.75fr;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .tone-block {
+    border-radius: 8px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+  }
+
+  .tone-pct {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  .tone-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .tone-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.7;
+  }
+
+  .certo-errado {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ce-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ce-item:last-child { border-bottom: none; }
+
+  .ce-label {
+    padding: 16px 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ce-certo .ce-label { color: #4ade80; }
+  .ce-errado .ce-label { color: rgba(255,255,255,0.25); }
+
+  .ce-text {
+    padding: 16px 24px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ce-certo .ce-text { color: var(--white); }
+  .ce-errado .ce-text { color: rgba(255,255,255,0.3); text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.15); }
+
+  .ce-context {
+    padding: 16px 24px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ===== STORYTELLING ===== */
+  .story-arc {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .story-phase {
+    flex: 1;
+    padding: 28px 24px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .story-phase:last-child { border-right: none; }
+
+  .story-phase-num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 32px;
+    color: rgba(242,97,46,0.25);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .story-phase-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .story-phase-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  .story-phase-quote {
+    margin-top: 12px;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--orange);
+    line-height: 1.5;
+  }
+
+  /* Taglines */
+  .tagline-hero {
+    background: var(--night);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .tagline-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+  }
+
+  .tagline-text .accent { color: var(--orange); }
+
+  .tagline-type {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-top: 16px;
+  }
+
+  /* ===== SISTEMA VISUAL ===== */
+
+  /* Logos */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .logo-cell {
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 32px;
+    gap: 12px;
+    position: relative;
+  }
+
+  .logo-cell img {
+    width: 65%;
+    height: auto;
+    max-height: 80px;
+    object-fit: contain;
+  }
+
+  .logo-cell-name {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    opacity: 0.45;
+    text-align: center;
+  }
+
+  /* Paleta */
+  .palette-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr 1.5fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .color-swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .swatch-block {
+    height: 100px;
+  }
+
+  .swatch-info {
+    background: rgba(255,255,255,0.03);
+    padding: 14px 16px;
+  }
+
+  .swatch-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .swatch-hex {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+  }
+
+  .swatch-uses {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+  }
+
+  .color-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+
+  .color-rule-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .color-rule-item:last-child { border-bottom: none; }
+
+  .color-pair {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .color-dot-sm {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .color-arrow {
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+  }
+
+  .color-rule-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  .color-rule-text strong {
+    color: var(--white);
+  }
+
+  .color-rule-status {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .status-ok {
+    background: rgba(74,222,128,0.1);
+    color: #4ade80;
+    border: 1px solid rgba(74,222,128,0.2);
+  }
+
+  .status-no {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Tipografia */
+  .type-specimen {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .type-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .type-family {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  .type-role {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .type-body {
+    padding: 28px 24px;
+  }
+
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding-bottom: 16px;
+  }
+
+  .type-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .type-meta {
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  .type-meta-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .type-meta-spec {
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    font-family: 'Courier New', monospace;
+  }
+
+  .type-sample {
+    flex: 1;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  /* ===== APLICACOES ===== */
+  .app-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .app-preview-item {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .app-preview-label {
+    padding: 10px 16px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .app-preview-canvas {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+  }
+
+  /* Mini card de visita */
+  .mini-card {
+    width: 200px;
+    height: 112px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .mini-card-front {
+    background: var(--night);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px 16px 0;
+    height: 100%;
+  }
+
+  .mini-card-front img {
+    height: 16px;
+    width: auto;
+  }
+
+  .mini-card-front .mini-tagline {
+    font-size: 6px;
+    color: rgba(255,255,255,0.4);
+    padding-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .mini-card-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--orange);
+  }
+
+  .mini-card-verso {
+    background: var(--orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px 16px;
+    height: 100%;
+  }
+
+  .mini-card-verso .mini-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-weight: 700;
+    font-size: 9px;
+    color: var(--white);
+  }
+
+  .mini-card-verso .mini-role {
+    font-size: 6px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+  }
+
+  .mini-card-verso .mini-contact {
+    font-size: 5.5px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+  }
+
+  .mini-card-verso img {
+    height: 10px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    align-self: flex-end;
+  }
+
+  /* Mini post */
+  .mini-post {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  /* ===== REGRAS DE USO ===== */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .rule-item {
+    padding: 20px 24px;
+    border-radius: 6px;
+    border: 1px solid;
+  }
+
+  .rule-ok {
+    border-color: rgba(74,222,128,0.2);
+    background: rgba(74,222,128,0.04);
+  }
+
+  .rule-no {
+    border-color: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .rule-status {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .rule-ok .rule-status { color: #4ade80; }
+  .rule-no .rule-status { color: rgba(255,255,255,0.25); }
+
+  .rule-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  .rule-no .rule-text { color: rgba(255,255,255,0.3); }
+
+  /* ===== TOM POR CONTEXTO ===== */
+  .context-table {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    border-collapse: collapse;
+  }
+
+  .context-table th {
+    background: rgba(255,255,255,0.04);
+    padding: 12px 20px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .context-table td {
+    padding: 16px 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .context-table tr:last-child td { border-bottom: none; }
+
+  .context-table td:first-child {
+    font-weight: 600;
+    color: var(--white);
+    white-space: nowrap;
+  }
+
+  .tag-pill {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  .tag-prov { background: rgba(242,97,46,0.15); color: var(--orange); border: 1px solid rgba(242,97,46,0.2); }
+  .tag-prox { background: rgba(74,222,128,0.08); color: #4ade80; border: 1px solid rgba(74,222,128,0.15); }
+  .tag-prec { background: rgba(74,82,163,0.15); color: #8b93d4; border: 1px solid rgba(74,82,163,0.25); }
+
+  /* ===== FOOTER ===== */
+  .doc-footer {
+    padding: 48px 72px;
+    background: var(--night);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-left img {
+    height: 28px;
+    width: auto;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .footer-left-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.7;
+  }
+
+  .footer-right {
+    text-align: right;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    line-height: 1.8;
+  }
+</style>
+  <link rel="stylesheet" href="andressa-case-theme.css" />
+</head>
+<body>
+
+<!-- NAVEGACAO -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="../../assets/logos/wordmark-orange.svg" alt="FinUp">
+  </div>
+
+  <a href="portfolio-andressa-standalone.html#cases">Voltar ao portfolio</a>
+
+  <div class="nav-label">Manual da Marca</div>
+  <a href="#posicionamento">Posicionamento</a>
+  <a href="#mvv">Missao, Visao e Valores</a>
+  <a href="#arquetipo">Arquetipo</a>
+  <a href="#tom">Tom de Voz</a>
+  <a href="#storytelling">Storytelling</a>
+
+  <div class="nav-label">Sistema Visual</div>
+  <a href="#logos">Logos</a>
+  <a href="#cores">Paleta de Cores</a>
+  <a href="#tipografia">Tipografia</a>
+
+  <div class="nav-label">Aplicacoes</div>
+  <a href="#aplicacoes">Materiais</a>
+  <a href="#regras">Regras de Uso</a>
+  <a href="#contexto">Voz por Contexto</a>
+
+  <div class="nav-footer">
+    <div class="nav-footer-text">
+      FinUp Manual da Marca<br>
+      Versao 1.0 / Marco 2026
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- COVER -->
+  <section class="cover" id="cover">
+    <div class="cover-glow"></div>
+    <div class="cover-glow-2"></div>
+
+    <div class="cover-top">
+      <img src="../../assets/logos/wordmark-orange.svg" alt="FinUp">
+      <div class="cover-badge">Manual da Marca v1.0</div>
+    </div>
+
+    <div class="cover-middle">
+      <div class="cover-eyebrow">FinUp Brand System</div>
+      <div class="cover-title">
+        Manual<br>da <span class="accent">Marca</span>
+      </div>
+      <div class="cover-subtitle">Identidade visual, voz e diretrizes</div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-tagline">
+        O sistema complica.<br>
+        <span>A FinUp resolve.</span>
+      </div>
+      <div class="cover-meta">
+        <div class="cover-meta-text">
+          Versao 1.0<br>
+          Marco de 2026<br>
+          Confidencial ”” uso interno
+        </div>
+      </div>
+    </div>
+
+    <div class="orange-rule"></div>
+  </section>
+
+  <!-- POSICIONAMENTO -->
+  <section id="posicionamento">
+    <div class="section-eyebrow">01 ”” Posicionamento</div>
+    <div class="section-title">Quem e a FinUp</div>
+    <div class="section-lead">A FinUp e um assistente financeiro pessoal que opera via WhatsApp. Sem app extra. Sem planilha. Uma mensagem resolve.</div>
+
+    <div class="grid-2" style="gap:16px;margin-bottom:32px;">
+      <div class="card card-orange">
+        <div class="card-label">O problema</div>
+        <div class="card-title">O sistema financeiro foi feito para confundir</div>
+        <div class="card-text">Apps complexos, planilhas sem fim, termos tecnicos. As pessoas desistem antes de comecar. Nao por preguica. Por falta de uma ferramenta feita para humanos.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">A solucao</div>
+        <div class="card-title">Financas que cabem numa mensagem de WhatsApp</div>
+        <div class="card-text">A FinUp remove todas as barreiras. Nao precisa instalar nada novo. Nao precisa aprender nada. Voce ja sabe usar o WhatsApp. Isso e suficiente.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Proposta de valor</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:8px;">
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:22px;color:var(--orange);margin-bottom:6px;">Simples</div>
+          <div class="card-text">Registro de gastos em segundos, via mensagem de texto no WhatsApp.</div>
+        </div>
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:22px;color:var(--orange);margin-bottom:6px;">Inteligente</div>
+          <div class="card-text">IA categoriza, analisa e gera insights sem que o usuario precise configurar nada.</div>
+        </div>
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:22px;color:var(--orange);margin-bottom:6px;">Acessivel</div>
+          <div class="card-text">Funciona em qualquer celular com WhatsApp. Sem barreira tecnica, sem custo de adocao.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSAO VISAO VALORES -->
+  <section id="mvv">
+    <div class="section-eyebrow">02 ”” Missao, Visao e Valores</div>
+    <div class="section-title">A razao de existir</div>
+    <div class="section-lead">Tres perguntas que definem cada decisao da empresa.</div>
+
+    <div class="mvv-grid">
+      <div class="mvv-item">
+        <div class="mvv-icon">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6.5" stroke="#f2612e" stroke-width="1.3"/>
+            <path d="M8 5v4M8 11v.5" stroke="#f2612e" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="mvv-label">Missao</div>
+        <div class="mvv-text">Por que existimos hoje</div>
+        <div class="mvv-subtext">Dar clareza financeira a qualquer brasileiro, de forma simples, direto no WhatsApp.</div>
+      </div>
+      <div class="mvv-item">
+        <div class="mvv-icon">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2L10 6.5H15L11 9.5L13 14L8 11L3 14L5 9.5L1 6.5H6L8 2Z" stroke="#f2612e" stroke-width="1.3" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="mvv-label">Visao</div>
+        <div class="mvv-text">Onde queremos chegar</div>
+        <div class="mvv-subtext">Ser a primeira escolha do brasileiro quando o assunto e organizar o proprio dinheiro, antes de qualquer banco ou app tradicional.</div>
+      </div>
+      <div class="mvv-item">
+        <div class="mvv-icon">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1L9.5 5.5H14.5L10.5 8.5L12 13L8 10L4 13L5.5 8.5L1.5 5.5H6.5L8 1Z" fill="#f2612e" fill-opacity="0.3" stroke="#f2612e" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="mvv-label">Posicao de mercado</div>
+        <div class="mvv-text">O primeiro assistente nativo do WhatsApp</div>
+        <div class="mvv-subtext">Nao somos mais um fintech. Somos a interface financeira que mora onde o usuario ja mora.</div>
+      </div>
+    </div>
+
+    <div class="valores-list">
+      <div class="valor-item">
+        <div class="valor-num">01</div>
+        <div class="valor-content">
+          <div class="valor-name">Clareza acima de tudo</div>
+          <div class="valor-desc">Se precisa de manual para usar, nao esta pronto. Cada funcionalidade deve ser imediatamente compreensivel por quem nunca usou.</div>
+        </div>
+      </div>
+      <div class="valor-item">
+        <div class="valor-num">02</div>
+        <div class="valor-content">
+          <div class="valor-name">Honestidade sem filtro</div>
+          <div class="valor-desc">Dados reais, nao o que o usuario quer ouvir. Comunicacao direta, mesmo quando o assunto e desconfortavel.</div>
+        </div>
+      </div>
+      <div class="valor-item">
+        <div class="valor-num">03</div>
+        <div class="valor-content">
+          <div class="valor-name">Respeito pelo tempo do usuario</div>
+          <div class="valor-desc">Nenhuma interacao deve levar mais do que precisa. Cada toque a menos e um compromisso da marca.</div>
+        </div>
+      </div>
+      <div class="valor-item">
+        <div class="valor-num">04</div>
+        <div class="valor-content">
+          <div class="valor-name">Democratizacao financeira</div>
+          <div class="valor-desc">Controle financeiro nao e privilegio de quem tem contador ou MBA. E direito de todo mundo.</div>
+        </div>
+      </div>
+      <div class="valor-item">
+        <div class="valor-num">05</div>
+        <div class="valor-content">
+          <div class="valor-name">Entrega antes do discurso</div>
+          <div class="valor-desc">Promessa sem produto e marketing vazio. Cada claim da marca precisa ser verificavel na experiencia real.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUETIPO -->
+  <section id="arquetipo">
+    <div class="section-eyebrow">03 ”” Arquetipo e Personalidade</div>
+    <div class="section-title">Heroi Disruptor</div>
+    <div class="section-lead">A FinUp nao espera o problema se resolver. Ela vai atras dele junto com o usuario.</div>
+
+    <div class="archetype-hero">
+      <div class="archetype-name">Heroi Disruptor</div>
+      <div class="archetype-sub">Arquetipo principal / 20% Sabio como complemento</div>
+      <div class="archetype-desc">
+        O Heroi Disruptor nao combate viloes externos. Ele enfrenta sistemas, burocracia e complexidade desnecessaria. Assume que o status quo e o problema e que o usuario merece algo melhor. Nao pede licenca para mudar as regras.
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px;">Os 5 comportamentos do Heroi Disruptor</div>
+      <div class="behaviors-grid">
+        <div class="behavior-item">
+          <div class="behavior-dot"></div>
+          <div class="behavior-text"><strong>Nomeia o inimigo</strong>O inimigo e o sistema complicado, nunca o usuario. A culpa e da burocracia, nao de quem nao consegue usar.</div>
+        </div>
+        <div class="behavior-item">
+          <div class="behavior-dot"></div>
+          <div class="behavior-text"><strong>Mostra o caminho</strong>Nao critica sem oferecer saida. Cada problema apontado vem acompanhado de solucao concreta.</div>
+        </div>
+        <div class="behavior-item">
+          <div class="behavior-dot"></div>
+          <div class="behavior-text"><strong>Celebra a virada</strong>Reconhece cada pequeno avanço do usuario. A primeira meta batida merece ser celebrada tanto quanto a grande.</div>
+        </div>
+        <div class="behavior-item">
+          <div class="behavior-dot"></div>
+          <div class="behavior-text"><strong>Fala a verdade</strong>Mesmo quando e inconfortavel. Dados reais, expectativas reais, promessas que cabem no produto.</div>
+        </div>
+        <div class="behavior-item">
+          <div class="behavior-dot" style="grid-column: span 2;"></div>
+          <div class="behavior-text"><strong>Age, nao discursa</strong>Prefere mostrar a explicar longamente. Uma demo vale mais do que um paragrafo de marketing.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px;">Escala de personalidade</div>
+
+    <div class="personality-row">
+      <div class="personality-item">
+        <div class="personality-label">Formal</div>
+        <div class="personality-bar-wrap">
+          <div class="personality-bar" style="width:20%;"></div>
+        </div>
+        <div class="personality-label-right">Informal</div>
+      </div>
+      <div class="personality-item">
+        <div class="personality-label">Corporativo</div>
+        <div class="personality-bar-wrap">
+          <div class="personality-bar" style="width:80%;"></div>
+        </div>
+        <div class="personality-label-right">Humano</div>
+      </div>
+      <div class="personality-item">
+        <div class="personality-label">Conservador</div>
+        <div class="personality-bar-wrap">
+          <div class="personality-bar" style="width:75%;"></div>
+        </div>
+        <div class="personality-label-right">Disruptivo</div>
+      </div>
+      <div class="personality-item">
+        <div class="personality-label">Complexo</div>
+        <div class="personality-bar-wrap">
+          <div class="personality-bar" style="width:15%;"></div>
+        </div>
+        <div class="personality-label-right">Simples</div>
+      </div>
+      <div class="personality-item">
+        <div class="personality-label">Distante</div>
+        <div class="personality-bar-wrap">
+          <div class="personality-bar" style="width:70%;"></div>
+        </div>
+        <div class="personality-label-right">Proximo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOM DE VOZ -->
+  <section id="tom">
+    <div class="section-eyebrow">04 ”” Tom de Voz</div>
+    <div class="section-title">Como a FinUp fala</div>
+    <div class="section-lead">Tres dimensoes que coexistem. Nao se excluem. A proporcao varia por contexto, mas todas as tres devem estar presentes.</div>
+
+    <div class="tone-blocks">
+      <div class="tone-block" style="background:var(--orange);">
+        <div>
+          <div class="tone-pct" style="color:var(--night);">60%</div>
+          <div class="tone-name" style="color:var(--night);">Provocativo</div>
+        </div>
+        <div class="tone-desc" style="color:rgba(19,27,47,0.65);">Aponta o problema sem rodeios. Desafia o sistema financeiro. Nao tem medo de dizer que o jeito atual e ruim. Uma frase que so a FinUp diria.</div>
+      </div>
+      <div class="tone-block" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+        <div>
+          <div class="tone-pct" style="color:var(--white);">25%</div>
+          <div class="tone-name" style="color:var(--white);">Proximo</div>
+        </div>
+        <div class="tone-desc">Fala de igual para igual. Nao julga. Nao usa jargao tecnico desnecessario. Reconhece que dinheiro e um assunto carregado de emocao.</div>
+      </div>
+      <div class="tone-block" style="background:rgba(74,82,163,0.15);border:1px solid rgba(74,82,163,0.2);">
+        <div>
+          <div class="tone-pct" style="color:#8b93d4;">15%</div>
+          <div class="tone-name" style="color:var(--white);">Preciso</div>
+        </div>
+        <div class="tone-desc">Quando usa numero, esta certo. Quando promete, cumpre. Nao enche linguica. Fundamento para a credibilidade.</div>
+      </div>
+    </div>
+
+    <div class="certo-errado">
+      <div class="ce-item" style="background:rgba(255,255,255,0.02);">
+        <div class="ce-label" style="color:rgba(255,255,255,0.25);font-size:9px;letter-spacing:1px;">FRASE</div>
+        <div class="ce-text" style="font-size:11px;color:rgba(255,255,255,0.3);">Certo</div>
+        <div class="ce-context" style="font-size:11px;color:rgba(255,255,255,0.3);">Errado</div>
+      </div>
+      <div class="ce-item ce-certo">
+        <div class="ce-label">Certo</div>
+        <div class="ce-text">"Voce nao precisa de uma planilha enorme. Precisa de 2 minutos no WhatsApp."</div>
+        <div class="ce-context">Marketing, redes sociais, onboarding</div>
+      </div>
+      <div class="ce-item ce-errado">
+        <div class="ce-label">Errado</div>
+        <div class="ce-text">"Nossa solucao inovadora oferece uma experiencia financeira simplificada e intuitiva."</div>
+        <div class="ce-context">Generico, poderia ser qualquer fintech</div>
+      </div>
+      <div class="ce-item ce-certo">
+        <div class="ce-label">Certo</div>
+        <div class="ce-text">"O sistema foi feito para confundir. A FinUp foi feita para resolver."</div>
+        <div class="ce-context">Posts, headlines, campanhas</div>
+      </div>
+      <div class="ce-item ce-errado">
+        <div class="ce-label">Errado</div>
+        <div class="ce-text">"Gestao financeira inteligente ao alcance de todos com nossa plataforma robusta."</div>
+        <div class="ce-context">Corporativo, vazio, sem personalidade</div>
+      </div>
+      <div class="ce-item ce-certo">
+        <div class="ce-label">Certo</div>
+        <div class="ce-text">"Manda uma mensagem dizendo quanto gastou. So isso."</div>
+        <div class="ce-context">Onboarding, instrucoes, produto</div>
+      </div>
+      <div class="ce-item ce-errado">
+        <div class="ce-label">Errado</div>
+        <div class="ce-text">"Para utilizar o sistema, acesse o modulo de lancamentos e preencha os campos."</div>
+        <div class="ce-context">Linguagem de manual tecnico</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORYTELLING -->
+  <section id="storytelling">
+    <div class="section-eyebrow">05 ”” Storytelling</div>
+    <div class="section-title">A narrativa da marca</div>
+    <div class="section-lead">A historia que a FinUp conta em toda comunicacao, do post ao pitch.</div>
+
+    <div class="story-arc">
+      <div class="story-phase">
+        <div class="story-phase-num">01</div>
+        <div class="story-phase-name">O mundo antes</div>
+        <div class="story-phase-text">O brasileiro medio tem dificuldade com financas. Nao por falta de inteligencia. Por falta de ferramenta acessivel. Planilhas sao complicadas. Apps sao mais um login pra lembrar.</div>
+        <div class="story-phase-quote">"O sistema complica."</div>
+      </div>
+      <div class="story-phase">
+        <div class="story-phase-num">02</div>
+        <div class="story-phase-name">O inimigo nomeado</div>
+        <div class="story-phase-text">O problema nao e o usuario. O problema e um sistema financeiro desenhado para ser opaco. Banks e fintechs tradicionais lucram com a confusao.</div>
+        <div class="story-phase-quote">"Alguem achou mais facil deixar assim."</div>
+      </div>
+      <div class="story-phase">
+        <div class="story-phase-num">03</div>
+        <div class="story-phase-name">A virada</div>
+        <div class="story-phase-text">A FinUp aparece onde o usuario ja esta: no WhatsApp. Sem fricao. Sem curva de aprendizado. Uma mensagem e ja esta controlando o dinheiro.</div>
+        <div class="story-phase-quote">"Voce ja sabe usar."</div>
+      </div>
+      <div class="story-phase">
+        <div class="story-phase-num">04</div>
+        <div class="story-phase-name">O novo mundo</div>
+        <div class="story-phase-text">Com clareza vem decisao. Com decisao vem mudanca real: primeira reserva criada, primeira meta atingida, primeiro mes no azul.</div>
+        <div class="story-phase-quote">"Dinheiro claro. Decisoes certas."</div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px;">Taglines oficiais</div>
+
+    <div class="tagline-hero">
+      <div style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;">Tagline master ”” todos os materiais de marketing</div>
+      <div class="tagline-text">O sistema complica.<br><span class="accent">A FinUp resolve.</span></div>
+    </div>
+
+    <div class="tagline-hero" style="background:rgba(74,82,163,0.08);border-color:rgba(74,82,163,0.2);">
+      <div style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8b93d4;margin-bottom:12px;">Tagline de suporte ”” uso institucional e pitch</div>
+      <div class="tagline-text" style="font-size:20px;">Dinheiro claro. Decisoes certas.</div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-label">Quando usar cada uma</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px;">
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;color:var(--orange);margin-bottom:8px;">Tagline master</div>
+          <div class="card-text">Posts, ads, banners, cartao de visita, capa de redes sociais, materiais de venda ao consumidor final, qualquer ponto de contato com o publico.</div>
+        </div>
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;color:#8b93d4;margin-bottom:8px;">Tagline de suporte</div>
+          <div class="card-text">Pitch para investidores, materiais de imprensa, apresentacoes para parceiros institucionais. Contextos onde o tom provocativo nao e adequado.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <section id="logos">
+    <div class="section-eyebrow">06 ”” Sistema de Logo</div>
+    <div class="section-title">Os 12 arquivos oficiais</div>
+    <div class="section-lead">Cada variante tem um uso especifico. Nunca recriar o logo. Nunca distorcer. Nunca usar fundo que nao consta nesta referencia.</div>
+
+    <div class="logo-grid">
+      <!-- Linha 1: Wordmarks em fundo transparente -->
+      <div class="logo-cell" style="background:var(--night);">
+        <img src="../../assets/logos/wordmark-orange.svg" alt="wordmark-orange">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.4);">wordmark-orange.svg</div>
+      </div>
+      <div class="logo-cell" style="background:var(--night);">
+        <img src="../../assets/logos/wordmark-color.svg" alt="wordmark-color">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.4);">wordmark-color.svg</div>
+      </div>
+      <div class="logo-cell" style="background:#f0f0f0;">
+        <img src="../../assets/logos/wordmark-night.svg" alt="wordmark-night">
+        <div class="logo-cell-name" style="color:rgba(19,27,47,0.4);">wordmark-night.svg</div>
+      </div>
+      <div class="logo-cell" style="background:#f0f0f0;">
+        <img src="../../assets/logos/wordmark-night-indigo.svg" alt="wordmark-night-indigo">
+        <div class="logo-cell-name" style="color:rgba(19,27,47,0.4);">wordmark-night-indigo.svg</div>
+      </div>
+
+      <!-- Linha 2: Logos com fundo solido -->
+      <div class="logo-cell" style="background:var(--orange);">
+        <img src="../../assets/logos/logo-orange-bg.svg" alt="logo-orange-bg">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.5);">logo-orange-bg.svg</div>
+      </div>
+      <div class="logo-cell" style="background:var(--orange);">
+        <img src="../../assets/logos/logo-orange-rounded.svg" alt="logo-orange-rounded">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.5);">logo-orange-rounded.svg</div>
+      </div>
+      <div class="logo-cell" style="background:var(--night);">
+        <img src="../../assets/logos/logo-night-bg.svg" alt="logo-night-bg">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.4);">logo-night-bg.svg</div>
+      </div>
+      <div class="logo-cell" style="background:var(--night);">
+        <img src="../../assets/logos/logo-night-rounded.svg" alt="logo-night-rounded">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.4);">logo-night-rounded.svg</div>
+      </div>
+
+      <!-- Linha 3: Variantes Indigo -->
+      <div class="logo-cell" style="background:#f0f0f0;">
+        <img src="../../assets/logos/wordmark-indigo.svg" alt="wordmark-indigo">
+        <div class="logo-cell-name" style="color:rgba(19,27,47,0.4);">wordmark-indigo.svg</div>
+      </div>
+      <div class="logo-cell" style="background:var(--night);">
+        <img src="../../assets/logos/wordmark-indigo-night.svg" alt="wordmark-indigo-night">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.4);">wordmark-indigo-night.svg</div>
+      </div>
+      <div class="logo-cell" style="background:var(--indigo);">
+        <img src="../../assets/logos/logo-indigo-bg.svg" alt="logo-indigo-bg">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.4);">logo-indigo-bg.svg</div>
+      </div>
+      <div class="logo-cell" style="background:var(--indigo);">
+        <img src="../../assets/logos/logo-indigo-rounded.svg" alt="logo-indigo-rounded">
+        <div class="logo-cell-name" style="color:rgba(255,255,255,0.4);">logo-indigo-rounded.svg</div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px;">Qual arquivo usar em cada situacao</div>
+
+    <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div style="padding:12px 20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.03);">Arquivo</div>
+        <div style="padding:12px 20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.03);">Quando usar</div>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.06);">wordmark-orange.svg</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.55);">Fundo escuro (Night, dark mode, gradiente Night-Indigo)</div>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.06);">wordmark-color.svg</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.55);">Fundo branco ou claro (papel timbrado, envelope, assinatura de email)</div>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.06);">wordmark-night.svg + filter</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.55);">Fundo laranja ”” aplicar CSS: filter: brightness(0) invert(1)</div>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.06);">logo-night-bg.svg</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.55);">Foto de perfil Instagram (variante Night), favicon, ícone de app</div>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr;">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.06);">logo-indigo-*.svg</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.55);">Materiais institucionais, variante de cor para contextos formais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORES -->
+  <section id="cores">
+    <div class="section-eyebrow">07 ”” Paleta de Cores</div>
+    <div class="section-title">Cinco cores. Sem desvios.</div>
+    <div class="section-lead">A paleta da FinUp e intencional e fechada. Qualquer cor fora desta selecao precisa de aprovacao da marca.</div>
+
+    <div class="palette-row">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#f2612e;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Orange</div>
+          <div class="swatch-hex">#f2612e</div>
+          <div class="swatch-uses">Cor principal. CTAs, headlines de destaque, elementos de energia. Barra de identidade.</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#131b2f;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Night</div>
+          <div class="swatch-hex">#131b2f</div>
+          <div class="swatch-uses">Fundo principal. Headers, fundos escuros, texto em fundos claros.</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#4a52a3;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Indigo</div>
+          <div class="swatch-hex">#4a52a3</div>
+          <div class="swatch-uses">Acento secundario. Gradientes Night-Indigo, elementos institucionais.</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#e3d9eb;border:1px solid rgba(0,0,0,0.06);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Mist</div>
+          <div class="swatch-hex">#e3d9eb</div>
+          <div class="swatch-uses">Fundo alternativo claro. Rodapes institucionais, backgrounds sutis.</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#ffffff;border:1px solid rgba(0,0,0,0.06);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#ffffff</div>
+          <div class="swatch-uses">Texto sobre escuros. Espacamento e respiro visual.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-rules">
+      <div class="color-rule-item">
+        <div class="color-pair">
+          <div class="color-dot-sm" style="background:#f2612e;"></div>
+          <div class="color-arrow">em</div>
+          <div class="color-dot-sm" style="background:#131b2f;"></div>
+        </div>
+        <div class="color-rule-text"><strong>Orange sobre Night</strong> ”” combinacao primaria. Alto contraste, identidade maxima.</div>
+        <div class="color-rule-status status-ok">Permitido</div>
+      </div>
+      <div class="color-rule-item">
+        <div class="color-pair">
+          <div class="color-dot-sm" style="background:#131b2f;"></div>
+          <div class="color-arrow">em</div>
+          <div class="color-dot-sm" style="background:#f2612e;"></div>
+        </div>
+        <div class="color-rule-text"><strong>Night sobre Orange</strong> ”” combinacao secundaria. Verso do cartao, CTAs invertidos.</div>
+        <div class="color-rule-status status-ok">Permitido</div>
+      </div>
+      <div class="color-rule-item">
+        <div class="color-pair">
+          <div class="color-dot-sm" style="background:#ffffff;border:1px solid #ccc;"></div>
+          <div class="color-arrow">em</div>
+          <div class="color-dot-sm" style="background:#131b2f;"></div>
+        </div>
+        <div class="color-rule-text"><strong>Branco sobre Night</strong> ”” texto corrido, subtitulos, informacoes secundarias.</div>
+        <div class="color-rule-status status-ok">Permitido</div>
+      </div>
+      <div class="color-rule-item">
+        <div class="color-pair">
+          <div class="color-dot-sm" style="background:#f2612e;"></div>
+          <div class="color-arrow">em</div>
+          <div class="color-dot-sm" style="background:#ffffff;border:1px solid #ccc;"></div>
+        </div>
+        <div class="color-rule-text"><strong>Orange sobre Branco</strong> ”” somente em titulos Display/H1 com tamanho minimo de 24px (WCAG AA).</div>
+        <div class="color-rule-status status-ok">Condicional</div>
+      </div>
+      <div class="color-rule-item">
+        <div class="color-pair">
+          <div class="color-dot-sm" style="background:#f2612e;"></div>
+          <div class="color-arrow">em</div>
+          <div class="color-dot-sm" style="background:#f2612e;"></div>
+        </div>
+        <div class="color-rule-text"><strong>Orange sobre Orange</strong> ”” proibido. Nunca usar a mesma cor para texto e fundo.</div>
+        <div class="color-rule-status status-no">Proibido</div>
+      </div>
+      <div class="color-rule-item">
+        <div class="color-pair">
+          <div class="color-dot-sm" style="background:linear-gradient(90deg,#131b2f,#4a52a3);"></div>
+        </div>
+        <div class="color-rule-text"><strong>Gradiente Night para Indigo</strong> ”” unico gradiente de fundo autorizado. Direcoes: 135deg ou horizontal.</div>
+        <div class="color-rule-status status-ok">Permitido</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOGRAFIA -->
+  <section id="tipografia">
+    <div class="section-eyebrow">08 ”” Tipografia</div>
+    <div class="section-title">Duas familias. Um sistema.</div>
+    <div class="section-lead">Syne para impacto. Inter para clareza. Nunca substituir por outras fontes sem aprovacao da marca.</div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <div class="type-family">Syne ”” Headlines e Display</div>
+        <div class="type-role">Google Fonts / weights 700, 800</div>
+      </div>
+      <div class="type-body">
+        <div class="type-scale">
+          <div class="type-row">
+            <div class="type-meta">
+              <div class="type-meta-name">Display</div>
+              <div class="type-meta-spec">800 / 64px</div>
+            </div>
+            <div class="type-sample" style="font-family:'Poppins',sans-serif;font-weight:800;font-size:48px;letter-spacing:-2px;">Manual da Marca</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <div class="type-meta-name">H1</div>
+              <div class="type-meta-spec">800 / 36px</div>
+            </div>
+            <div class="type-sample" style="font-family:'Poppins',sans-serif;font-weight:800;font-size:30px;letter-spacing:-1px;">O sistema complica.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <div class="type-meta-name">H2</div>
+              <div class="type-meta-spec">700 / 24px</div>
+            </div>
+            <div class="type-sample" style="font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.5px;">A FinUp resolve.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <div class="type-meta-name">H3</div>
+              <div class="type-meta-spec">700 / 18px</div>
+            </div>
+            <div class="type-sample" style="font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;">Heroi Disruptor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <div class="type-family">Inter ”” Corpo e Interface</div>
+        <div class="type-role">Google Fonts / weights 400, 500, 600</div>
+      </div>
+      <div class="type-body">
+        <div class="type-scale">
+          <div class="type-row">
+            <div class="type-meta">
+              <div class="type-meta-name">Body L</div>
+              <div class="type-meta-spec">400 / 16px</div>
+            </div>
+            <div class="type-sample" style="font-family:'Poppins',sans-serif;font-weight:400;font-size:15px;color:rgba(255,255,255,0.7);">A FinUp e um assistente financeiro que opera via WhatsApp, sem necessidade de app adicional.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <div class="type-meta-name">Body</div>
+              <div class="type-meta-spec">400 / 14px</div>
+            </div>
+            <div class="type-sample" style="font-family:'Poppins',sans-serif;font-weight:400;font-size:13px;color:rgba(255,255,255,0.6);">Manda uma mensagem no WhatsApp dizendo quanto gastou. A FinUp categoriza, analisa e avisa quando algo sai do padrao.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <div class="type-meta-name">Caption</div>
+              <div class="type-meta-spec">600 / 11px</div>
+            </div>
+            <div class="type-sample" style="font-family:'Poppins',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);">Sistema visual ”” versao 1.0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <div class="card-label">Regras tipograficas</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:8px;">
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--orange);margin-bottom:6px;">Nunca</div>
+          <div class="card-text">Usar outras familias. Distorcer proporcoes. Usar peso Regular em headlines. Misturar mais de 2 fontes num mesmo material.</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--orange);margin-bottom:6px;">Em email</div>
+          <div class="card-text">Substituir Syne e Inter por Arial, Helvetica, sans-serif. Clientes de email nao carregam Google Fonts. Usar apenas em assinatura HTML.</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--orange);margin-bottom:6px;">Espacamento</div>
+          <div class="card-text">Headlines: letter-spacing negativo (-1px a -2px). Body: letter-spacing 0 ou levemente positivo. Nunca compactar em excesso.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APLICACOES -->
+  <section id="aplicacoes">
+    <div class="section-eyebrow">09 ”” Aplicacoes</div>
+    <div class="section-title">Materiais da marca</div>
+    <div class="section-lead">Todos os arquivos estao em assets/mockups/. Abrir no navegador para visualizar e em qualquer editor para editar.</div>
+
+    <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div style="padding:12px 20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">Arquivo</div>
+        <div style="padding:12px 20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">Descricao</div>
+        <div style="padding:12px 20px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">Formato final</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">cartao-visita.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">Frente (Night) e verso (Orange), 90x50mm</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PDF para grafica</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">papel-timbrado.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">A4, imprimivel via Ctrl+P direto do navegador</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PDF / impressao</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">envelope.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">DL 220x110mm, frente com logo e remetente</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PDF para grafica</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">assinatura-email.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">Preview + codigo HTML copiavel para Gmail/Outlook</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">HTML direto</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">cover-instagram-perfil.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">3 variantes, 1080x1080px, preview em circulo</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PNG 1080x1080</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">cover-instagram-destaques.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">6 temas, 1080x1920px, preview como circulo no feed</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PNG 1080x1920</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">cover-youtube.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">2560x1440px, safe zone mapeada por device</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PNG/JPG max 6MB</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">cover-linkedin.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">1584x396px, preview de perfil incluido</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PNG/JPG</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">post-template-urban-hero.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">Orange / alto impacto / lancamentos e ads</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PNG 1080x1080</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">post-template-dark-authority.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">Night / dados e autoridade / conteudo educativo</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PNG 1080x1080</div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr 160px;">
+        <div style="padding:14px 20px;font-family:'Courier New',monospace;font-size:11px;color:var(--orange);border-right:1px solid rgba(255,255,255,0.05);">post-template-clean-proof.html</div>
+        <div style="padding:14px 20px;font-size:12px;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.05);">Branco / prova social / depoimentos</div>
+        <div style="padding:14px 20px;font-size:11px;color:rgba(255,255,255,0.3);">PNG 1080x1080</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGRAS DE USO -->
+  <section id="regras">
+    <div class="section-eyebrow">10 ”” Regras de Uso</div>
+    <div class="section-title">O que pode e o que nao pode</div>
+    <div class="section-lead">Qualquer duvida sobre uso de logo, cor ou tipografia: consultar este manual antes de executar.</div>
+
+    <div class="rules-grid">
+      <div class="rule-item rule-ok">
+        <div class="rule-status">Permitido</div>
+        <div class="rule-text">Usar os SVGs oficiais em qualquer tamanho, mantendo a proporcao original.</div>
+      </div>
+      <div class="rule-item rule-no">
+        <div class="rule-status">Proibido</div>
+        <div class="rule-text">Distorcer ou esticar o logo fora da proporcao original.</div>
+      </div>
+      <div class="rule-item rule-ok">
+        <div class="rule-status">Permitido</div>
+        <div class="rule-text">Aplicar CSS filter: brightness(0) invert(1) para versao branca em fundos coloridos.</div>
+      </div>
+      <div class="rule-item rule-no">
+        <div class="rule-status">Proibido</div>
+        <div class="rule-text">Recriar o logo com outra fonte ou em software de design fora dos SVGs fornecidos.</div>
+      </div>
+      <div class="rule-item rule-ok">
+        <div class="rule-status">Permitido</div>
+        <div class="rule-text">Gradiente Night para Indigo em 135 graus como fundo de materiais premium.</div>
+      </div>
+      <div class="rule-item rule-no">
+        <div class="rule-status">Proibido</div>
+        <div class="rule-text">Usar gradientes com outras cores ou adicionar sombra diretamente sobre o logotipo.</div>
+      </div>
+      <div class="rule-item rule-ok">
+        <div class="rule-status">Permitido</div>
+        <div class="rule-text">Orange sobre Night para texto de destaque em qualquer tamanho.</div>
+      </div>
+      <div class="rule-item rule-no">
+        <div class="rule-status">Proibido</div>
+        <div class="rule-text">Orange sobre branco para corpo de texto (apenas headlines 24px ou maiores).</div>
+      </div>
+      <div class="rule-item rule-ok">
+        <div class="rule-status">Permitido</div>
+        <div class="rule-text">Area de respiro minima: espaco equivalente a altura da letra "f" do logo em todos os lados.</div>
+      </div>
+      <div class="rule-item rule-no">
+        <div class="rule-status">Proibido</div>
+        <div class="rule-text">Emojis em materiais visuais impressos, banners, posts formais e documentos.</div>
+      </div>
+      <div class="rule-item rule-ok">
+        <div class="rule-status">Permitido</div>
+        <div class="rule-text">Syne para todos os titulos. Inter para corpo de texto. Arial em assinaturas de email.</div>
+      </div>
+      <div class="rule-item rule-no">
+        <div class="rule-status">Proibido</div>
+        <div class="rule-text">Em-dash (travessao) em qualquer texto da marca. Usar virgula, dois-pontos ou ponto.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOM POR CONTEXTO -->
+  <section id="contexto">
+    <div class="section-eyebrow">11 ”” Voz por Contexto</div>
+    <div class="section-title">A mesma marca, o tom certo</div>
+    <div class="section-lead">A personalidade da FinUp nao muda. O equilibrio entre as tres dimensoes se ajusta conforme o canal.</div>
+
+    <table class="context-table">
+      <thead>
+        <tr>
+          <th>Canal / Contexto</th>
+          <th>Tom dominante</th>
+          <th>O que fazer</th>
+          <th>O que evitar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Redes sociais</td>
+          <td><span class="tag-pill tag-prov">Provocativo</span><span class="tag-pill tag-prox">Proximo</span></td>
+          <td>Frases que so a FinUp diria. Uma ideia por post. CTA direto.</td>
+          <td>Jargao corporativo. Mais de um CTA. Texto longo sem gancho.</td>
+        </tr>
+        <tr>
+          <td>Onboarding / produto</td>
+          <td><span class="tag-pill tag-prox">Proximo</span><span class="tag-pill tag-prec">Preciso</span></td>
+          <td>Instrucoes em uma frase. Verbo no imperativo direto. Celebrar cada passo.</td>
+          <td>Linguagem de manual tecnico. Passos numerados demais. Jargao financeiro.</td>
+        </tr>
+        <tr>
+          <td>Atendimento</td>
+          <td><span class="tag-pill tag-prox">Proximo</span><span class="tag-pill tag-prec">Preciso</span></td>
+          <td>Reconhecer o problema imediatamente. Dar prazo real. Seguir ate resolver.</td>
+          <td>"Lamentamos o inconveniente." Transferir sem aviso. Prazo generico.</td>
+        </tr>
+        <tr>
+          <td>Email marketing</td>
+          <td><span class="tag-pill tag-prov">Provocativo</span><span class="tag-pill tag-prox">Proximo</span></td>
+          <td>Subject line provocador. Corpo curto. Um link principal.</td>
+          <td>Subject generico. Email longo. Multiplos CTAs competindo.</td>
+        </tr>
+        <tr>
+          <td>Pitch / investidores</td>
+          <td><span class="tag-pill tag-prec">Preciso</span><span class="tag-pill tag-prov">Provocativo</span></td>
+          <td>Numeros reais. Mercado endereçavel com fonte. Diferenciais em termos de negocio.</td>
+          <td>Hiperboles sem dados. "Somos o Nubank do..." Projecoes sem metodologia.</td>
+        </tr>
+        <tr>
+          <td>Imprensa</td>
+          <td><span class="tag-pill tag-prec">Preciso</span><span class="tag-pill tag-prox">Proximo</span></td>
+          <td>Press release em portugues claro. Porta-voz com posicao definida. Dados verificaveis.</td>
+          <td>Termos de marketing em lugar de fatos. Evasividade sobre metricas reais.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-divider"></div>
+
+    <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--white);margin-bottom:16px;">Checklist antes de publicar</div>
+
+    <div class="grid-2" style="gap:12px;">
+      <div class="card">
+        <div class="card-label">Voz</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>Esta escrito como a FinUp falaria, ou como qualquer empresa falaria?</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>Tem pelo menos uma frase que so a FinUp diria?</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>Evitou jargoes corporativos e palavras de marketing vazias?</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>Se tem numero, esta correto e verificado?</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Visual e Formato</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>O logo usado e o SVG oficial para o fundo em questao?</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>As cores usadas sao apenas as 5 da paleta oficial?</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>Nao tem em-dash nem emoji fora de contexto de conversa?</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,0.6);">
+            <div style="width:16px;height:16px;border:1.5px solid rgba(242,97,46,0.4);border-radius:3px;flex-shrink:0;margin-top:1px;"></div>
+            <span>A tagline master aparece onde devia aparecer?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    <div class="footer-left">
+      <img src="../../assets/logos/wordmark-orange.svg" alt="FinUp">
+      <div class="footer-left-text">
+        Manual da Marca FinUp<br>
+        Versao 1.0 ”” Marco de 2026<br>
+        Documento confidencial ”” uso interno
+      </div>
+    </div>
+    <div class="footer-right">
+      finup-app.com<br>
+      contato@finup-app.com<br>
+      @app_finup
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
+
+
+

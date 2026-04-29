@@ -1,0 +1,946 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JJ Lima Contabilidade â€” Identidade Visual e Estrategia de Conteudo | Andressa Juliani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #181818;
+      --border: #222222;
+      --accent: #F59E0B;
+      --text: #F0F0F0;
+      --text-muted: #888888;
+      /* JJ Lima brand colors */
+      --jj-blue: #277eb8;
+      --jj-dark: #16425c;
+      --jj-gold: #f4af08;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* â”€â”€ NAV â”€â”€ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(16px);
+      border-color: var(--border);
+    }
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 16px; height: 16px; }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    /* â”€â”€ HERO â”€â”€ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-cover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #16425c 0%, #277eb8 60%, #1a5a8a 100%);
+    }
+    .hero-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,8,8,0) 30%, rgba(8,8,8,0.85) 80%, #080808 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px 80px;
+      max-width: 900px;
+    }
+    .hero-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--jj-gold);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--jj-gold);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .meta-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* â”€â”€ SECTIONS â”€â”€ */
+    section {
+      padding: 96px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--jj-blue);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--jj-gold); }
+    .section-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    /* â”€â”€ OVERVIEW â”€â”€ */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .ov-card {
+      background: var(--surface);
+      padding: 40px;
+    }
+    .ov-card-full {
+      grid-column: 1 / -1;
+      background: var(--surface2);
+      padding: 40px;
+    }
+    .ov-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--jj-blue);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .ov-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+    .ov-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* â”€â”€ IDENTIDADE VISUAL â”€â”€ */
+    .divider {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 0 80px;
+    }
+
+    /* â”€â”€ PALETA â”€â”€ */
+    .palette-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .color-swatch {
+      flex: 1;
+      min-width: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .swatch-block {
+      height: 100px;
+    }
+    .swatch-info {
+      background: var(--surface);
+      padding: 16px 20px;
+    }
+    .swatch-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .swatch-hex {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: monospace;
+    }
+    .swatch-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* â”€â”€ TIPOGRAFIA â”€â”€ */
+    .typo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .typo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .typo-specimen {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .typo-specimen.poppins { font-family: 'Space Grotesk', sans-serif; color: var(--jj-blue); }
+    .typo-specimen.nunito { font-family: 'Inter', sans-serif; color: var(--text); font-weight: 400; }
+    .typo-meta { font-size: 13px; color: var(--text-muted); }
+    .typo-meta strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 14px; }
+
+    /* â”€â”€ ESTRATEGIA â”€â”€ */
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .pilar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .pilar-card:hover {
+      border-color: rgba(39,126,184,0.4);
+      transform: translateY(-4px);
+    }
+    .pilar-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--jj-blue);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .pilar-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .pilar-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* â”€â”€ PERSONAS â”€â”€ */
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .persona-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .persona-role {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--jj-gold);
+      margin-bottom: 12px;
+    }
+    .persona-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .persona-info {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .persona-tag {
+      display: inline-block;
+      background: rgba(39,126,184,0.12);
+      color: var(--jj-blue);
+      border: 1px solid rgba(39,126,184,0.2);
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 8px;
+      margin-top: 12px;
+      margin-right: 4px;
+    }
+
+    /* â”€â”€ CANAIS â”€â”€ */
+    .canais-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .canal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .canal-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(39,126,184,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .canal-icon svg { width: 24px; height: 24px; color: var(--jj-blue); }
+    .canal-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .canal-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* â”€â”€ SWOT â”€â”€ */
+    .swot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .swot-card {
+      background: var(--surface);
+      padding: 40px;
+    }
+    .swot-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .swot-title.s { color: #22c55e; }
+    .swot-title.w { color: #ef4444; }
+    .swot-title.o { color: var(--jj-blue); }
+    .swot-title.t { color: var(--jj-gold); }
+    .swot-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .swot-list li {
+      font-size: 14px;
+      color: var(--text-muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .swot-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    /* â”€â”€ CTA â”€â”€ */
+    .cta-section {
+      text-align: center;
+      padding: 96px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(39,126,184,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .cta-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .cta-title em { font-style: normal; color: var(--accent); }
+    .cta-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+
+    /* â”€â”€ FOOTER â”€â”€ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    /* â”€â”€ FADE UP â”€â”€ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* â”€â”€ RESPONSIVE â”€â”€ */
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .hero-content { padding: 0 24px 64px; }
+      .hero-meta { flex-wrap: wrap; gap: 24px; }
+      section { padding: 64px 24px; }
+      .divider { margin: 0 24px; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .typo-grid { grid-template-columns: 1fr; }
+      .strategy-grid { grid-template-columns: 1fr 1fr; }
+      .personas-grid { grid-template-columns: 1fr; }
+      .canais-grid { grid-template-columns: 1fr 1fr; }
+      .swot-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 64px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="andressa-case-theme.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="portfolio-andressa-standalone.html#cases" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M10 12L6 8l4-4"/>
+      </svg>
+      Voltar ao portfolio
+    </a>
+    <div class="nav-logo">Andressa <span>Juliani</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-cover">
+      <img src="images/jjlima.png" alt="JJ Lima Contabilidade" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Identidade Visual Â· Estrategia de Conteudo Â· Brand Strategy</div>
+      <h1 class="hero-title">JJ Lima<br><em>Contabilidade</em></h1>
+      <p class="hero-sub">Projeto completo de branding e estrategia digital: do posicionamento ao plano editorial para quatro canais simultaneos.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Segmento</div>
+          <div class="meta-value">Contabilidade</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Escopo</div>
+          <div class="meta-value">ID Visual + Conteudo</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Canais</div>
+          <div class="meta-value">Instagram Â· LinkedIn Â· YouTube Â· Blog</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Entregaveis</div>
+          <div class="meta-value">Brand Book + Estrategia Digital</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISAO GERAL -->
+  <section>
+    <p class="section-label fade-up">Visao geral</p>
+    <h2 class="section-title fade-up d1">Um escritorio de contabilidade que<br>precisava de uma <em>identidade real</em></h2>
+    <p class="section-lead fade-up d2">A JJ Lima chegou sem posicionamento claro, sem identidade visual definida e sem uma estrategia de conteudo para crescer digitalmente. O desafio era transformar um servico tecnicamente forte em uma marca que comunica autoridade, gera confianca e atrai o cliente certo.</p>
+
+    <div class="overview-grid fade-up d2">
+      <div class="ov-card">
+        <div class="ov-num">3</div>
+        <div class="ov-label">Personas mapeadas</div>
+        <div class="ov-desc">MEIs, pequenas empresas e profissionais liberais â€” cada uma com dores, linguagem e canais proprios.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-num">4</div>
+        <div class="ov-label">Pilares editoriais</div>
+        <div class="ov-desc">Educacional, institucional, autoridade e conexao. Cada pilar com temas e formatos definidos.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-num">4</div>
+        <div class="ov-label">Canais ativos</div>
+        <div class="ov-desc">Instagram, LinkedIn, YouTube e Blog â€” estrategias distintas para cada plataforma.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-num">100%</div>
+        <div class="ov-label">Brand book entregue</div>
+        <div class="ov-desc">Manual de marca completo: logo, paleta, tipografia, tom de voz e aplicacoes.</div>
+      </div>
+      <div class="ov-card-full">
+        <div class="ov-label">Resumo do projeto</div>
+        <div class="ov-desc" style="max-width:800px; font-size:16px; color: var(--text); line-height:1.7; margin-top: 16px;">
+          O projeto comecou com um diagnostico de mercado e analise SWOT, identificando as oportunidades reais de diferenciacao para um escritorio contabil em um mercado competitivo. A partir disso, construimos a identidade visual completa, definimos o sistema de comunicacao e entregamos uma estrategia de conteudo acionavel para os quatro canais digitais prioritarios.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- IDENTIDADE VISUAL -->
+  <section>
+    <p class="section-label fade-up">Identidade visual</p>
+    <h2 class="section-title fade-up d1">Sistema de marca construido<br>para gerar <em>confianca</em></h2>
+    <p class="section-lead fade-up d2">Cores que comunicam solidez e competencia. Tipografia que equilibra autoridade com acessibilidade. Uma identidade que funciona em todos os pontos de contato.</p>
+
+    <!-- PALETA -->
+    <div class="palette-row fade-up d2">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background: #277eb8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Azul Principal</div>
+          <div class="swatch-hex">#277eb8</div>
+          <div class="swatch-role">Confianca e competencia</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background: #16425c;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Azul Profundo</div>
+          <div class="swatch-hex">#16425c</div>
+          <div class="swatch-role">Solidez e autoridade</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background: #0b3741;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Azul Escuro</div>
+          <div class="swatch-hex">#0b3741</div>
+          <div class="swatch-role">Fundo e contraste</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background: #f4af08;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dourado</div>
+          <div class="swatch-hex">#f4af08</div>
+          <div class="swatch-role">Destaque e CTA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIPOGRAFIA -->
+    <div class="typo-grid fade-up d3">
+      <div class="typo-card">
+        <div class="typo-specimen poppins">Poppins</div>
+        <div class="typo-meta">
+          <strong>Headlines e titulos</strong>
+          Geometrica, moderna e legivel em qualquer tamanho. Transmite profissionalismo sem ser rigida.
+        </div>
+      </div>
+      <div class="typo-card">
+        <div class="typo-specimen nunito">Nunito Sans</div>
+        <div class="typo-meta">
+          <strong>Corpo de texto</strong>
+          Humanista, com curvas suaves que tornam a leitura agradavel. Equilibra o peso das headlines.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PERSONAS -->
+  <section>
+    <p class="section-label fade-up">Audiencia</p>
+    <h2 class="section-title fade-up d1">Tres personas, tres<br><em>abordagens</em> distintas</h2>
+    <p class="section-lead fade-up d2">Cada persona tem dores diferentes, usa canais diferentes e precisa de uma comunicacao calibrada. A estrategia leva isso em conta do primeiro ao ultimo contato.</p>
+
+    <div class="personas-grid">
+      <div class="persona-card fade-up d1">
+        <div class="persona-role">Persona 01</div>
+        <div class="persona-name">O MEI Sobrecarregado</div>
+        <div class="persona-info">
+          Microempreendedor que toca o negocio sozinho. Nao tem tempo para entender burocracia contabil e busca um contador que simplifique tudo. Quer clareza, agilidade e sentir que esta em boas maos.
+        </div>
+        <span class="persona-tag">Instagram</span>
+        <span class="persona-tag">WhatsApp</span>
+      </div>
+      <div class="persona-card fade-up d2">
+        <div class="persona-role">Persona 02</div>
+        <div class="persona-name">O Dono de PME</div>
+        <div class="persona-info">
+          Pequeno ou medio empresario que ja tem estrutura mas busca um contador estrategico, nao apenas um cumpridor de obrigacoes fiscais. Quer dados para tomar decisoes melhores.
+        </div>
+        <span class="persona-tag">LinkedIn</span>
+        <span class="persona-tag">Blog</span>
+      </div>
+      <div class="persona-card fade-up d3">
+        <div class="persona-role">Persona 03</div>
+        <div class="persona-name">O Profissional Liberal</div>
+        <div class="persona-info">
+          Medico, advogado, arquiteto. Ganha bem, mas tem pouco tempo e nao quer se preocupar com imposto. Valoriza discredicao, organizacao e atendimento personalizado.
+        </div>
+        <span class="persona-tag">LinkedIn</span>
+        <span class="persona-tag">YouTube</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PILARES DE CONTEUDO -->
+  <section>
+    <p class="section-label fade-up">Estrategia de conteudo</p>
+    <h2 class="section-title fade-up d1">Quatro pilares que constroem<br><em>autoridade</em> ao longo do tempo</h2>
+    <p class="section-lead fade-up d2">Cada pilar resolve um problema de percepca diferente. Juntos, eles criam uma presenca digital que educa, gera confianca e converte.</p>
+
+    <div class="strategy-grid">
+      <div class="pilar-card fade-up d1">
+        <div class="pilar-num">01</div>
+        <div class="pilar-title">Educacional</div>
+        <div class="pilar-desc">Conteudo que simplifica o que parece complexo. Imposto, MEI, regime tributario â€” explicados de forma direta para quem precisa entender sem estudar contabilidade.</div>
+      </div>
+      <div class="pilar-card fade-up d2">
+        <div class="pilar-num">02</div>
+        <div class="pilar-title">Institucional</div>
+        <div class="pilar-desc">Bastidores do escritorio, equipe, valores e cultura. Constroi proximidade e humaniza uma categoria que normalmente se comunica de forma fria e tecnica.</div>
+      </div>
+      <div class="pilar-card fade-up d3">
+        <div class="pilar-num">03</div>
+        <div class="pilar-title">Autoridade</div>
+        <div class="pilar-desc">Cases, resultados, depoimentos e posicionamentos sobre o mercado contabil. Demonstra competencia sem precisar se autopromover de forma explicita.</div>
+      </div>
+      <div class="pilar-card fade-up d4">
+        <div class="pilar-num">04</div>
+        <div class="pilar-title">Conexao</div>
+        <div class="pilar-desc">Conteudo que provoca interacao: perguntas, enquetes, temas do cotidiano do empreendedor. Aumenta alcance organico e cria comunidade em torno da marca.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CANAIS -->
+  <section>
+    <p class="section-label fade-up">Presenca digital</p>
+    <h2 class="section-title fade-up d1">Uma estrategia por canal,<br>uma <em>voz</em> consistente</h2>
+    <p class="section-lead fade-up d2">Cada plataforma tem dinamicas diferentes. A estrategia foi construida respeitando o comportamento de cada audiencia em cada canal.</p>
+
+    <div class="canais-grid">
+      <div class="canal-card fade-up d1">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <div class="canal-name">Instagram</div>
+        <div class="canal-desc">Conteudo educacional e institucional. Reels curtos, carrossÃ©is com dados e stories de bastidores. Foco em MEIs e pequenos empresarios.</div>
+      </div>
+      <div class="canal-card fade-up d2">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <div class="canal-name">LinkedIn</div>
+        <div class="canal-desc">Autoridade e conexao B2B. Artigos sobre gestao financeira, tributacao e mercado. Voltado para donos de PME e profissionais liberais.</div>
+      </div>
+      <div class="canal-card fade-up d3">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </div>
+        <div class="canal-name">YouTube</div>
+        <div class="canal-desc">Videos explicativos de maior profundidade. Guias praticos sobre regime tributario, abertura de empresa e planejamento fiscal.</div>
+      </div>
+      <div class="canal-card fade-up d4">
+        <div class="canal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <div class="canal-name">Blog</div>
+        <div class="canal-desc">SEO e autoridade de longo prazo. Artigos tecnicos posicionam o escritorio como referencia em buscas relacionadas a contabilidade e gestao fiscal.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SWOT -->
+  <section>
+    <p class="section-label fade-up">Diagnostico</p>
+    <h2 class="section-title fade-up d1">Analise SWOT que guiou<br>cada <em>decisao estrategica</em></h2>
+    <p class="section-lead fade-up d2">Nenhuma estrategia se sustenta sem diagnostico. A SWOT foi o ponto de partida para identificar onde concentrar energia e como se diferenciar no mercado.</p>
+
+    <div class="swot-grid fade-up d2">
+      <div class="swot-card">
+        <div class="swot-title s">Forcas</div>
+        <ul class="swot-list">
+          <li>Atendimento personalizado e proximidade com o cliente</li>
+          <li>Conhecimento tecnico solido em tributacao e gestao fiscal</li>
+          <li>Reputacao construida por indicacao e relacionamento</li>
+          <li>Capacidade de atender diferentes portes de empresas</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <div class="swot-title w">Fraquezas</div>
+        <ul class="swot-list">
+          <li>Baixa visibilidade digital antes do projeto</li>
+          <li>Ausencia de identidade visual profissional</li>
+          <li>Comunicacao sem diferenciacao clara no mercado</li>
+          <li>Sem estrategia de conteudo ou presenca organica</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <div class="swot-title o">Oportunidades</div>
+        <ul class="swot-list">
+          <li>Crescimento de MEIs que precisam de contabilidade acessivel</li>
+          <li>Mercado com poucos escritorios com forte presenca digital</li>
+          <li>Demanda crescente por conteudo educacional sobre tributacao</li>
+          <li>LinkedIn como canal subutilizado por contadores</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <div class="swot-title t">Ameacas</div>
+        <ul class="swot-list">
+          <li>Plataformas de contabilidade online com preco baixo</li>
+          <li>Escritorios maiores com mais orcamento de marketing</li>
+          <li>Mudancas na legislacao que exigem atualizacao constante</li>
+          <li>Mercado sensivel a preco em alguns segmentos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-glow"></div>
+    <p class="cta-label fade-up">Proximo passo</p>
+    <h2 class="cta-title fade-up d1">Quer um projeto<br>assim para a <em>sua marca?</em></h2>
+    <p class="cta-sub fade-up d2">Identidade visual, estrategia de conteudo e posicionamento â€” tudo integrado.</p>
+    <div class="btn-row fade-up d3">
+      <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
+      <a href="portfolio-andressa-standalone.html#cases" class="btn-secondary">Ver outros projetos</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Andressa <span>Juliani</span></div>
+    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Fade up
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
+
+
+

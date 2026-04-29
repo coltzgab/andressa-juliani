@@ -1,0 +1,851 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olivers Vistorias â€” Identidade Visual | Andressa Juliani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #161616;
+      --border: #1e1e1e;
+      --accent: #F59E0B;
+      --text: #F0F0F0;
+      --text-muted: #888888;
+      /* Olivers brand */
+      --ol-green: #233e2f;
+      --ol-green-mid: #7A9576;
+      --ol-beige: #F1E9DE;
+      --ol-green-dim: rgba(35, 62, 47, 0.15);
+      --ol-green-glow: rgba(122, 149, 118, 0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.94);
+      backdrop-filter: blur(16px);
+      border-color: var(--border);
+    }
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ol-green-mid); }
+    .nav-back svg { width: 16px; height: 16px; }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-cover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0d1f15 0%, #1a3325 50%, #233e2f 100%);
+    }
+    .hero-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.1) 0%, rgba(8,8,8,0.5) 55%, #080808 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px 88px;
+      max-width: 960px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ol-green-mid);
+      margin-bottom: 24px;
+      background: rgba(122,149,118,0.08);
+      border: 1px solid rgba(122,149,118,0.2);
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--ol-green-mid);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      max-width: 580px;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 48px;
+      margin-top: 52px;
+      flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .meta-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* LAYOUT */
+    section {
+      padding: 96px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ol-green-mid);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--ol-green-mid); }
+    .section-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.75;
+      margin-bottom: 56px;
+    }
+    .divider {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 0 80px;
+    }
+
+    /* CONCEITO */
+    .conceito-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .conceito-text {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .conceito-text strong { color: var(--text); font-weight: 500; }
+    .conceito-quote {
+      background: var(--ol-green);
+      border-radius: 16px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .conceito-quote::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      border: 2px solid rgba(122,149,118,0.25);
+    }
+    .conceito-quote::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -20px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 2px solid rgba(122,149,118,0.12);
+    }
+    .quote-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(241,233,222,0.5);
+      margin-bottom: 20px;
+    }
+    .quote-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ol-beige);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* DNA */
+    .dna-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .dna-card {
+      background: var(--surface);
+      padding: 40px 32px;
+    }
+    .dna-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--ol-green-dim);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .dna-icon svg { width: 20px; height: 20px; color: var(--ol-green-mid); }
+    .dna-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ol-green-mid);
+      margin-bottom: 12px;
+    }
+    .dna-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .dna-text strong { color: var(--text); font-weight: 500; }
+
+    /* CORES */
+    .cores-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .cor-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .cor-swatch {
+      height: 120px;
+    }
+    .cor-info {
+      background: var(--surface);
+      padding: 20px;
+    }
+    .cor-role {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .cor-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .cor-hex {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .cor-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* TIPOGRAFIA */
+    .tipo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .tipo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .tipo-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ol-green-mid);
+      margin-bottom: 20px;
+    }
+    .tipo-sample-bold {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .tipo-sample-light {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .tipo-meta {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 24px;
+    }
+    .tipo-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .tipo-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .tipo-meta-val { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 500; color: var(--text); }
+
+    /* VALORES */
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .valor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .valor-card:hover {
+      border-color: rgba(122,149,118,0.3);
+      transform: translateY(-6px);
+    }
+    .valor-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      color: var(--ol-green-mid);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .valor-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .valor-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* VOZ */
+    .voz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .voz-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .voz-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--ol-green-mid);
+    }
+    .voz-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .voz-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ENTREGAVEIS */
+    .entre-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .entre-card {
+      background: var(--surface2);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .entre-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--ol-green-mid);
+      opacity: 0.2;
+      line-height: 1;
+    }
+    .entre-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .entre-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 96px 80px;
+      position: relative;
+    }
+    .cta-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px; height: 300px;
+      background: radial-gradient(ellipse, rgba(35,62,47,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .cta-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .cta-title em { font-style: normal; color: var(--accent); }
+    .cta-sub { font-size: 17px; color: var(--text-muted); margin-bottom: 40px; }
+    .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #000;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px;
+      padding: 14px 32px; border-radius: 8px; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--text);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px;
+      padding: 14px 32px; border-radius: 8px; border: 1px solid var(--border);
+      text-decoration: none; transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 80px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-brand { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--text-muted); opacity: 0.45; }
+
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .hero-content { padding: 0 24px 64px; }
+      section { padding: 64px 24px; }
+      .divider { margin: 0 24px; }
+      .conceito-grid { grid-template-columns: 1fr; }
+      .dna-grid { grid-template-columns: 1fr; }
+      .cores-grid { grid-template-columns: 1fr 1fr; }
+      .tipo-grid { grid-template-columns: 1fr; }
+      .valores-grid { grid-template-columns: 1fr 1fr; }
+      .voz-grid { grid-template-columns: 1fr; }
+      .entre-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 64px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="andressa-case-theme.css" />
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="portfolio-andressa-standalone.html#cases" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+      Voltar ao portfolio
+    </a>
+    <div class="nav-logo">Andressa <span>Juliani</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-cover">
+      <img src="images/olivers.png" alt="Olivers Vistorias" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Identidade Visual</div>
+      <h1 class="hero-title">Olivers Vistorias<br><em>Manual de Marca Completo</em></h1>
+      <p class="hero-sub">De um nome tecnico a uma marca que transmite precisao, seguranca e modernidade para o mercado de seguros.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Cliente</div>
+          <div class="meta-value">Olivers Vistorias</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Escopo</div>
+          <div class="meta-value">Identidade Visual Completa</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Setor</div>
+          <div class="meta-value">Vistorias e Seguros</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Producao</div>
+          <div class="meta-value">Assessoria Organic</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCEITO -->
+  <section>
+    <p class="section-label fade-up">Conceito de Marca</p>
+    <h2 class="section-title fade-up d1">Solidez tecnica.<br><em>Identidade moderna.</em></h2>
+    <div class="conceito-grid">
+      <div class="conceito-text fade-up d2">
+        <p style="margin-bottom:20px;">A Olivers representa a <strong>evolucao das vistorias tradicionais</strong> para um novo padrao de precisao e profissionalismo. Uma marca que fala de seguranca, responsabilidade tecnica e modernizacao dos processos de avaliacao.</p>
+        <p style="margin-bottom:20px;">Sua essencia esta em <strong>transformar situacoes complexas em clareza, transparencia e tranquilidade</strong> para quem depende de analises bem executadas.</p>
+        <p>Com um tom humano e direto, a Olivers mostra que vistoriar imoveis, empresas e patrimonios e, acima de tudo, <strong>cuidar da seguranca das pessoas e da viabilidade dos seus projetos</strong>. Nao e apenas uma empresa de vistorias â€” e uma parceira tecnica que protege decisoes.</p>
+      </div>
+      <div class="conceito-quote fade-up d3">
+        <div class="quote-label">Posicionamento unico</div>
+        <div class="quote-text">Tecnologia e estrutura para Vistoriar o Brasil com precisao.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- DNA -->
+  <section>
+    <p class="section-label fade-up">DNA da Marca</p>
+    <h2 class="section-title fade-up d1">O que move<br><em>a Olivers</em></h2>
+    <p class="section-lead fade-up d2">Proposito, visao e missao construidos para uma empresa que nao executa vistorias â€” constroi processos confiaveis, padronizados e seguros.</p>
+    <div class="dna-grid">
+      <div class="dna-card fade-up d1">
+        <div class="dna-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="dna-label">Proposito</div>
+        <div class="dna-text">Transformar a vistoria tecnica em um <strong>processo estrategico, padronizado e seguro</strong> â€” agregando valor real ao mercado de seguros e criando oportunidades para profissionais parceiros em todo o Brasil.</div>
+      </div>
+      <div class="dna-card fade-up d2">
+        <div class="dna-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="dna-label">Visao</div>
+        <div class="dna-text">Ser <strong>referencia nacional em vistorias tecnicas</strong> para seguradoras, reconhecida pela uniao entre tecnologia proprietaria, rede capacitada e excelencia operacional.</div>
+      </div>
+      <div class="dna-card fade-up d3">
+        <div class="dna-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="dna-label">Missao</div>
+        <div class="dna-text">Elevar o processo de vistoria oferecendo <strong>solucoes seguras, ageis e integradas</strong> â€” com precisao tecnica, inovacao continua e respeito aos dados e as pessoas envolvidas.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PALETA DE CORES -->
+  <section>
+    <p class="section-label fade-up">Paleta de Cores</p>
+    <h2 class="section-title fade-up d1">Cores que comunicam<br><em>estrutura e precisao</em></h2>
+    <p class="section-lead fade-up d2">Cada tom foi escolhido para reforcar o posicionamento tecnico e moderno da marca â€” equilibrando autoridade institucional com sofisticacao aplicada.</p>
+    <div class="cores-grid">
+      <div class="cor-card fade-up d1">
+        <div class="cor-swatch" style="background:#233e2f;"></div>
+        <div class="cor-info">
+          <div class="cor-role">Cor Primaria</div>
+          <div class="cor-name">Verde Profundo</div>
+          <div class="cor-hex">#233E2F</div>
+          <div class="cor-desc">Estrutura, seriedade e estabilidade. Base da identidade e do posicionamento tecnico da marca.</div>
+        </div>
+      </div>
+      <div class="cor-card fade-up d2">
+        <div class="cor-swatch" style="background:#F1E9DE;"></div>
+        <div class="cor-info">
+          <div class="cor-role">Cor Secundaria</div>
+          <div class="cor-name">Bege Tecnico</div>
+          <div class="cor-hex">#F1E9DE</div>
+          <div class="cor-desc">Leveza, equilibrio e sofisticacao. Favorece a clareza nas aplicacoes e reforÃ§a o tom institucional.</div>
+        </div>
+      </div>
+      <div class="cor-card fade-up d3">
+        <div class="cor-swatch" style="background:#7A9576;"></div>
+        <div class="cor-info">
+          <div class="cor-role">Cor de Destaque</div>
+          <div class="cor-name">Verde Claro</div>
+          <div class="cor-hex">#7A9576</div>
+          <div class="cor-desc">Inovacao aplicada, funcionalidade e movimento. Para elementos estrategicos que precisam se destacar com sutileza.</div>
+        </div>
+      </div>
+      <div class="cor-card fade-up d4">
+        <div class="cor-swatch" style="background:#ffffff; border-bottom:1px solid #eee;"></div>
+        <div class="cor-info">
+          <div class="cor-role">Cor Neutra</div>
+          <div class="cor-name">Branco Puro</div>
+          <div class="cor-hex">#FFFFFF</div>
+          <div class="cor-desc">Base universal para contrastes e legibilidade. Preserva elegancia e objetividade em todas as aplicacoes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TIPOGRAFIA -->
+  <section>
+    <p class="section-label fade-up">Tipografia</p>
+    <h2 class="section-title fade-up d1">Poppins â€” uma fonte<br>que <em>reflete precisao</em></h2>
+    <p class="section-lead fade-up d2">Tracos bem definidos que representam clareza nos processos e seriedade no relacionamento com seguradoras e parceiros. Hierarquia tipografica que equilibra impacto e leiturabilidade.</p>
+    <div class="tipo-grid">
+      <div class="tipo-card fade-up d2">
+        <div class="tipo-label">Titulos â€” Poppins Extra Bold</div>
+        <div class="tipo-sample-bold">Olivers<br>Vistorias</div>
+        <div class="tipo-meta">
+          <div class="tipo-meta-item"><div class="tipo-meta-label">Familia</div><div class="tipo-meta-val">Poppins</div></div>
+          <div class="tipo-meta-item"><div class="tipo-meta-label">Peso</div><div class="tipo-meta-val">800 Extra Bold</div></div>
+          <div class="tipo-meta-item"><div class="tipo-meta-label">Uso</div><div class="tipo-meta-val">Headlines e titulos</div></div>
+        </div>
+      </div>
+      <div class="tipo-card fade-up d3">
+        <div class="tipo-label">Texto Corrido â€” Poppins Light</div>
+        <div class="tipo-sample-light" style="font-size:15px; margin-top:8px;">A Olivers se comunica como uma empresa tecnica, seria e moderna â€” com foco em clareza, precisao e profissionalismo. Tom direto, confiavel e estrategico, como uma conversa entre especialistas que entendem os desafios do setor de seguros.</div>
+        <div class="tipo-meta">
+          <div class="tipo-meta-item"><div class="tipo-meta-label">Familia</div><div class="tipo-meta-val">Poppins</div></div>
+          <div class="tipo-meta-item"><div class="tipo-meta-label">Peso</div><div class="tipo-meta-val">300 Light</div></div>
+          <div class="tipo-meta-item"><div class="tipo-meta-label">Uso</div><div class="tipo-meta-val">Corpo de texto</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- VALORES -->
+  <section>
+    <p class="section-label fade-up">Atributos de Marca</p>
+    <h2 class="section-title fade-up d1">Quatro atributos que<br><em>definem a Olivers</em></h2>
+    <p class="section-lead fade-up d2">Cada atributo foi trabalhado visualmente e na comunicacao para garantir coerencia entre o que a marca promete e o que o cliente experimenta.</p>
+    <div class="valores-grid">
+      <div class="valor-card fade-up d1">
+        <div class="valor-num">01</div>
+        <div class="valor-name">Eficiente</div>
+        <div class="valor-desc">Clareza, objetividade e funcionalidade no design e na operacao. Cada elemento cumpre um papel preciso.</div>
+      </div>
+      <div class="valor-card fade-up d2">
+        <div class="valor-num">02</div>
+        <div class="valor-name">Integra</div>
+        <div class="valor-desc">Unidade, confianca e proximidade. Uma marca que honra o que entrega e gera seguranca para seguradoras e parceiros.</div>
+      </div>
+      <div class="valor-card fade-up d3">
+        <div class="valor-num">03</div>
+        <div class="valor-name">Tradicional</div>
+        <div class="valor-desc">Valores solidos, credibilidade e legado de mais de 20 anos no mercado de vistorias tecnicas para seguros.</div>
+      </div>
+      <div class="valor-card fade-up d4">
+        <div class="valor-num">04</div>
+        <div class="valor-name">Inovadora</div>
+        <div class="valor-desc">Modernidade e diferenciacao no mercado. Tecnologia e processos proprios que elevam o padrao da vistoria tecnica.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- VOZ DA MARCA -->
+  <section>
+    <p class="section-label fade-up">Tom de Voz</p>
+    <h2 class="section-title fade-up d1">Autoridade sem<br><em>arrogancia</em></h2>
+    <p class="section-lead fade-up d2">A Olivers explica o complexo de forma simples â€” sem jargoes desnecessarios, mas com profundidade e responsabilidade. Tecnica sem ser fria. Seria sem ser distante.</p>
+    <div class="voz-grid">
+      <div class="voz-card fade-up d1">
+        <div class="voz-bar"></div>
+        <div class="voz-title">Direta e Confiavel</div>
+        <div class="voz-text">Fala sobre processos, dados e seguranca com objetividade. Vai ao ponto sem rodeios â€” porque quem contrata vistorias nao tem tempo a perder.</div>
+      </div>
+      <div class="voz-card fade-up d2">
+        <div class="voz-bar"></div>
+        <div class="voz-title">Tecnica e Acessivel</div>
+        <div class="voz-text">Profundidade sem jargoes. Usa linguagem especializada quando necessario, mas sempre com o cuidado de ser compreendida por quem esta fora do setor.</div>
+      </div>
+      <div class="voz-card fade-up d3">
+        <div class="voz-bar"></div>
+        <div class="voz-title">Humana e Estrategica</div>
+        <div class="voz-text">Nao e uma maquina de laudos â€” e uma parceira que entende o impacto de cada decisao. Conecta precisao tecnica com o cuidado com as pessoas envolvidas.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ENTREGAVEIS -->
+  <section>
+    <p class="section-label fade-up">O que foi entregue</p>
+    <h2 class="section-title fade-up d1">Manual de marca<br><em>completo e aplicavel</em></h2>
+    <p class="section-lead fade-up d2">Um sistema visual coerente do digital ao impresso â€” pronto para escalar sem perder identidade.</p>
+    <div class="entre-grid fade-up d2">
+      <div class="entre-card">
+        <div class="entre-num">01</div>
+        <div class="entre-name">Conceito e DNA</div>
+        <div class="entre-desc">Proposito, visao, missao e posicionamento unico definidos e documentados. A base estrategica que orienta todas as decisoes de comunicacao.</div>
+      </div>
+      <div class="entre-card">
+        <div class="entre-num">02</div>
+        <div class="entre-name">Identidade Visual</div>
+        <div class="entre-desc">Logotipo em todas as variacoes, paleta de cores com codigos CMYK, RGB e HEX, tipografia hierarquica e elementos graficos para uso em qualquer midia.</div>
+      </div>
+      <div class="entre-card">
+        <div class="entre-num">03</div>
+        <div class="entre-name">Tom de Voz e Aplicacoes</div>
+        <div class="entre-desc">Guia de comunicacao com atributos de marca, direcao de linguagem e mockups de aplicacao em materiais digitais e impressos.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-glow"></div>
+    <p class="cta-label fade-up">Proximo passo</p>
+    <h2 class="cta-title fade-up d1">Sua marca tambem<br>pode ser <em>assim</em></h2>
+    <p class="cta-sub fade-up d2">Identidade visual que posiciona, diferencia e prepara sua marca para crescer.</p>
+    <div class="btn-row fade-up d3">
+      <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
+      <a href="portfolio-andressa-standalone.html#cases" class="btn-secondary">Ver outros projetos</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Andressa <span>Juliani</span></div>
+    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
+
+
+
