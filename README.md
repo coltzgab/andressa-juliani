@@ -4,7 +4,8 @@ Portfolio estatico em HTML/CSS/JS, pronto para publicar na Vercel.
 
 ## Estrutura
 
-- `portfolio-andressa-standalone.html`: pagina principal.
+- `index.html`: pagina principal, servida na raiz do dominio.
+- `portfolio-andressa-standalone.html`: copia standalone da pagina principal.
 - `andressa-case-*.html`: paginas dos cases.
 - `andressa-case-theme.css`: estilos compartilhados dos cases.
 - `images/`: imagens usadas no portfolio.
@@ -12,7 +13,7 @@ Portfolio estatico em HTML/CSS/JS, pronto para publicar na Vercel.
 
 ## Rodar localmente
 
-Abra `portfolio-andressa-standalone.html` no navegador ou use um servidor estatico:
+Abra `index.html` no navegador ou use um servidor estatico:
 
 ```bash
 npx serve .
@@ -38,4 +39,4 @@ git push -u origin main
 5. Deixe **Output Directory** vazio ou como `.`.
 6. Clique em **Deploy**.
 
-A rota `/` sera redirecionada internamente para `portfolio-andressa-standalone.html`.
+A rota `/` abre o portfolio diretamente pelo `index.html`.

@@ -1,10 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/portfolio-andressa-standalone.html"
-    }
-  ],
   "headers": [
     {
       "source": "/images/(.*)",
