@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Treinamento de Croquis â€” Olivers Vistorias | Andressa Juliani</title>
+  <title>Treinamento de Croquis — Olivers Vistorias | Andressa Juliani</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -35,7 +35,7 @@
       overflow-x: hidden;
     }
 
-    /* â”€â”€ NAV â”€â”€ */
+    /* -- NAV -- */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -74,7 +74,7 @@
     }
     .nav-logo span { color: var(--accent); }
 
-    /* â”€â”€ HERO â”€â”€ */
+    /* -- HERO -- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -151,7 +151,7 @@
       color: rgba(255,255,255,0.85);
     }
 
-    /* â”€â”€ SECTIONS â”€â”€ */
+    /* -- SECTIONS -- */
     section {
       padding: 96px 80px;
       max-width: 1200px;
@@ -183,7 +183,7 @@
       margin-bottom: 56px;
     }
 
-    /* â”€â”€ DIVIDER â”€â”€ */
+    /* -- DIVIDER -- */
     .divider {
       border: none;
       height: 1px;
@@ -191,7 +191,7 @@
       margin: 0 80px;
     }
 
-    /* â”€â”€ PROBLEMA / SOLUCAO â”€â”€ */
+    /* -- PROBLEMA / SOLUCAO -- */
     .ps-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -262,7 +262,7 @@
       opacity: 0.6;
     }
 
-    /* â”€â”€ RESULTADOS â”€â”€ */
+    /* -- RESULTADOS -- */
     .resultados-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -301,7 +301,7 @@
       line-height: 1.6;
     }
 
-    /* â”€â”€ PROCESSO â”€â”€ */
+    /* -- PROCESSO -- */
     .processo-steps {
       display: flex;
       flex-direction: column;
@@ -343,7 +343,7 @@
       line-height: 1.6;
     }
 
-    /* â”€â”€ ENTREGAVEIS â”€â”€ */
+    /* -- ENTREGAVEIS -- */
     .entregaveis-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -382,7 +382,7 @@
       line-height: 1.6;
     }
 
-    /* â”€â”€ IMPACTO â”€â”€ */
+    /* -- IMPACTO -- */
     .impacto-box {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -407,7 +407,7 @@
       max-width: 700px;
     }
 
-    /* â”€â”€ CTA â”€â”€ */
+    /* -- CTA -- */
     .cta-section {
       text-align: center;
       padding: 96px 80px;
@@ -485,7 +485,7 @@
     }
     .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
 
-    /* â”€â”€ FOOTER â”€â”€ */
+    /* -- FOOTER -- */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 80px;
@@ -506,7 +506,7 @@
       opacity: 0.5;
     }
 
-    /* â”€â”€ FADE UP â”€â”€ */
+    /* -- FADE UP -- */
     .fade-up {
       opacity: 0;
       transform: translateY(32px);
@@ -518,7 +518,7 @@
     .d3 { transition-delay: 0.3s; }
     .d4 { transition-delay: 0.4s; }
 
-    /* â”€â”€ RESPONSIVE â”€â”€ */
+    /* -- RESPONSIVE -- */
     @media (max-width: 960px) {
       nav { padding: 20px 24px; }
       .hero-content { padding: 0 24px 64px; }
@@ -531,6 +531,19 @@
       .cta-section { padding: 64px 24px; }
       footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
     }
+    /* Hero readability fix */
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 45%, rgba(0,0,0,0.20) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.78) 72%, var(--bg) 100%) !important;
+    }
+    .hero-content { text-shadow: 0 2px 24px rgba(0,0,0,0.38); }
+    .hero-title, .hero-title * { color: #fff !important; }
+    .hero-title em { color: var(--accent) !important; }
+    .hero-sub { color: rgba(255,255,255,0.84) !important; }
+    .hero-tag { filter: none !important; }
+    .hero-meta .meta-value { color: rgba(255,255,255,0.92) !important; }
+
   </style>
   <link rel="stylesheet" href="andressa-case-theme.css" />
 </head>
@@ -552,9 +565,9 @@
     <div class="hero-cover"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-tag">Processo Â· Treinamento Â· Gestao Operacional</div>
+      <div class="hero-tag">Processo · Treinamento · Gestao Operacional</div>
       <h1 class="hero-title">Treinamento de<br><em>Croquis</em> Olivers</h1>
-      <p class="hero-sub">De processos caÃ³ticos e inconsistentes para um sistema de treinamento padronizado. Cada colaborador, o mesmo nivel de conhecimento.</p>
+      <p class="hero-sub">De processos caóticos e inconsistentes para um sistema de treinamento padronizado. Cada colaborador, o mesmo nivel de conhecimento.</p>
       <div class="hero-meta">
         <div class="meta-item">
           <div class="meta-label">Cliente</div>
@@ -611,7 +624,7 @@
         <ul class="ps-list solucao">
           <li>Diagnostico completo dos pontos de falha no processo atual</li>
           <li>Criacao de processo padronizado de ponta a ponta</li>
-          <li>Producao de treinamento gravado â€” mesmo conteudo para todos</li>
+          <li>Producao de treinamento gravado — mesmo conteudo para todos</li>
           <li>Todos os colaboradores passam pelo mesmo material</li>
           <li>Treinamento disponivel a qualquer momento, sem depender de ninguem</li>
           <li>Padrao de qualidade garantido desde o primeiro dia de trabalho</li>
@@ -626,7 +639,7 @@
   <section>
     <p class="section-label fade-up">Impacto</p>
     <h2 class="section-title fade-up d1">O que mudou depois<br>do <em>treinamento</em></h2>
-    <p class="section-lead fade-up d2">Padronizacao nao e so sobre qualidade â€” e sobre libertar a empresa de depender de pessoas especificas para transmitir conhecimento.</p>
+    <p class="section-lead fade-up d2">Padronizacao nao e so sobre qualidade — e sobre libertar a empresa de depender de pessoas especificas para transmitir conhecimento.</p>
 
     <div class="resultados-grid">
       <div class="resultado-card fade-up d1">
@@ -660,7 +673,7 @@
         <div class="step-num">01</div>
         <div class="step-content">
           <div class="step-title">Diagnostico do processo atual</div>
-          <div class="step-desc">Mapeamento de como o treinamento estava sendo feito â€” quem ensinava, o que ensinava, o que ficava de fora e onde surgiam os erros mais frequentes na execucao dos croquis.</div>
+          <div class="step-desc">Mapeamento de como o treinamento estava sendo feito — quem ensinava, o que ensinava, o que ficava de fora e onde surgiam os erros mais frequentes na execucao dos croquis.</div>
         </div>
       </div>
       <div class="step">
@@ -674,7 +687,7 @@
         <div class="step-num">03</div>
         <div class="step-content">
           <div class="step-title">Definicao do padrao de execucao</div>
-          <div class="step-desc">Criacao do processo oficial de croquis da Olivers â€” o jeito certo de fazer, com criterios claros e passos definidos que todo colaborador precisa seguir.</div>
+          <div class="step-desc">Criacao do processo oficial de croquis da Olivers — o jeito certo de fazer, com criterios claros e passos definidos que todo colaborador precisa seguir.</div>
         </div>
       </div>
       <div class="step">
@@ -723,7 +736,7 @@
         </div>
         <div>
           <div class="entregavel-title">Treinamento gravado completo</div>
-          <div class="entregavel-desc">Video de treinamento estruturado em modulos progressivos â€” do basico ao avancado â€” com o mesmo conteudo para todos os colaboradores.</div>
+          <div class="entregavel-desc">Video de treinamento estruturado em modulos progressivos — do basico ao avancado — com o mesmo conteudo para todos os colaboradores.</div>
         </div>
       </div>
       <div class="entregavel-card fade-up d3">
@@ -769,7 +782,7 @@
         Uma empresa que depende de pessoas especificas para transmitir conhecimento nao escala. O conhecimento precisa virar <em>processo</em>.
       </div>
       <div class="impacto-desc">
-        Quando o treinamento depende de quem esta disponivel, a qualidade varia. Quando depende de um material fixo e estruturado, a qualidade e constante. Esse projeto transformou o conhecimento tatico da Olivers em um ativo escalavel â€” algo que a empresa possui, nao algo que fica na cabeca de um colaborador. O resultado vai alem da economia de horas: e uma operacao que pode crescer sem perder consistencia.
+        Quando o treinamento depende de quem esta disponivel, a qualidade varia. Quando depende de um material fixo e estruturado, a qualidade e constante. Esse projeto transformou o conhecimento tatico da Olivers em um ativo escalavel — algo que a empresa possui, nao algo que fica na cabeca de um colaborador. O resultado vai alem da economia de horas: e uma operacao que pode crescer sem perder consistencia.
       </div>
     </div>
   </section>
@@ -779,7 +792,7 @@
     <div class="cta-glow"></div>
     <p class="cta-label fade-up">Proximo passo</p>
     <h2 class="cta-title fade-up d1">Seus processos precisam<br>de um <em>sistema real?</em></h2>
-    <p class="cta-sub fade-up d2">Diagnostico, estruturacao e implementacao â€” do caos a padronizacao.</p>
+    <p class="cta-sub fade-up d2">Diagnostico, estruturacao e implementacao — do caos a padronizacao.</p>
     <div class="btn-row fade-up d3">
       <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
       <a href="./#cases" class="btn-secondary">Ver outros projetos</a>
@@ -789,7 +802,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">Andressa <span>Juliani</span></div>
-    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+    <div class="footer-copy">Social Media · Design · Direcao de Arte</div>
   </footer>
 
   <script>

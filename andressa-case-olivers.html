@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Olivers Vistorias â€” Identidade Visual | Andressa Juliani</title>
+  <title>Olivers Vistorias — Identidade Visual | Andressa Juliani</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
@@ -567,6 +567,19 @@
       .cta-section { padding: 64px 24px; }
       footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
     }
+    /* Hero readability fix */
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 45%, rgba(0,0,0,0.20) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.78) 72%, var(--bg) 100%) !important;
+    }
+    .hero-content { text-shadow: 0 2px 24px rgba(0,0,0,0.38); }
+    .hero-title, .hero-title * { color: #fff !important; }
+    .hero-title em { color: var(--accent) !important; }
+    .hero-sub { color: rgba(255,255,255,0.84) !important; }
+    .hero-tag { filter: none !important; }
+    .hero-meta .meta-value { color: rgba(255,255,255,0.92) !important; }
+
   </style>
   <link rel="stylesheet" href="andressa-case-theme.css" />
 </head>
@@ -617,7 +630,7 @@
       <div class="conceito-text fade-up d2">
         <p style="margin-bottom:20px;">A Olivers representa a <strong>evolucao das vistorias tradicionais</strong> para um novo padrao de precisao e profissionalismo. Uma marca que fala de seguranca, responsabilidade tecnica e modernizacao dos processos de avaliacao.</p>
         <p style="margin-bottom:20px;">Sua essencia esta em <strong>transformar situacoes complexas em clareza, transparencia e tranquilidade</strong> para quem depende de analises bem executadas.</p>
-        <p>Com um tom humano e direto, a Olivers mostra que vistoriar imoveis, empresas e patrimonios e, acima de tudo, <strong>cuidar da seguranca das pessoas e da viabilidade dos seus projetos</strong>. Nao e apenas uma empresa de vistorias â€” e uma parceira tecnica que protege decisoes.</p>
+        <p>Com um tom humano e direto, a Olivers mostra que vistoriar imoveis, empresas e patrimonios e, acima de tudo, <strong>cuidar da seguranca das pessoas e da viabilidade dos seus projetos</strong>. Nao e apenas uma empresa de vistorias — e uma parceira tecnica que protege decisoes.</p>
       </div>
       <div class="conceito-quote fade-up d3">
         <div class="quote-label">Posicionamento unico</div>
@@ -632,14 +645,14 @@
   <section>
     <p class="section-label fade-up">DNA da Marca</p>
     <h2 class="section-title fade-up d1">O que move<br><em>a Olivers</em></h2>
-    <p class="section-lead fade-up d2">Proposito, visao e missao construidos para uma empresa que nao executa vistorias â€” constroi processos confiaveis, padronizados e seguros.</p>
+    <p class="section-lead fade-up d2">Proposito, visao e missao construidos para uma empresa que nao executa vistorias — constroi processos confiaveis, padronizados e seguros.</p>
     <div class="dna-grid">
       <div class="dna-card fade-up d1">
         <div class="dna-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
         <div class="dna-label">Proposito</div>
-        <div class="dna-text">Transformar a vistoria tecnica em um <strong>processo estrategico, padronizado e seguro</strong> â€” agregando valor real ao mercado de seguros e criando oportunidades para profissionais parceiros em todo o Brasil.</div>
+        <div class="dna-text">Transformar a vistoria tecnica em um <strong>processo estrategico, padronizado e seguro</strong> — agregando valor real ao mercado de seguros e criando oportunidades para profissionais parceiros em todo o Brasil.</div>
       </div>
       <div class="dna-card fade-up d2">
         <div class="dna-icon">
@@ -653,7 +666,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
         <div class="dna-label">Missao</div>
-        <div class="dna-text">Elevar o processo de vistoria oferecendo <strong>solucoes seguras, ageis e integradas</strong> â€” com precisao tecnica, inovacao continua e respeito aos dados e as pessoas envolvidas.</div>
+        <div class="dna-text">Elevar o processo de vistoria oferecendo <strong>solucoes seguras, ageis e integradas</strong> — com precisao tecnica, inovacao continua e respeito aos dados e as pessoas envolvidas.</div>
       </div>
     </div>
   </section>
@@ -664,7 +677,7 @@
   <section>
     <p class="section-label fade-up">Paleta de Cores</p>
     <h2 class="section-title fade-up d1">Cores que comunicam<br><em>estrutura e precisao</em></h2>
-    <p class="section-lead fade-up d2">Cada tom foi escolhido para reforcar o posicionamento tecnico e moderno da marca â€” equilibrando autoridade institucional com sofisticacao aplicada.</p>
+    <p class="section-lead fade-up d2">Cada tom foi escolhido para reforcar o posicionamento tecnico e moderno da marca — equilibrando autoridade institucional com sofisticacao aplicada.</p>
     <div class="cores-grid">
       <div class="cor-card fade-up d1">
         <div class="cor-swatch" style="background:#233e2f;"></div>
@@ -681,7 +694,7 @@
           <div class="cor-role">Cor Secundaria</div>
           <div class="cor-name">Bege Tecnico</div>
           <div class="cor-hex">#F1E9DE</div>
-          <div class="cor-desc">Leveza, equilibrio e sofisticacao. Favorece a clareza nas aplicacoes e reforÃ§a o tom institucional.</div>
+          <div class="cor-desc">Leveza, equilibrio e sofisticacao. Favorece a clareza nas aplicacoes e reforça o tom institucional.</div>
         </div>
       </div>
       <div class="cor-card fade-up d3">
@@ -710,11 +723,11 @@
   <!-- TIPOGRAFIA -->
   <section>
     <p class="section-label fade-up">Tipografia</p>
-    <h2 class="section-title fade-up d1">Poppins â€” uma fonte<br>que <em>reflete precisao</em></h2>
+    <h2 class="section-title fade-up d1">Poppins — uma fonte<br>que <em>reflete precisao</em></h2>
     <p class="section-lead fade-up d2">Tracos bem definidos que representam clareza nos processos e seriedade no relacionamento com seguradoras e parceiros. Hierarquia tipografica que equilibra impacto e leiturabilidade.</p>
     <div class="tipo-grid">
       <div class="tipo-card fade-up d2">
-        <div class="tipo-label">Titulos â€” Poppins Extra Bold</div>
+        <div class="tipo-label">Titulos — Poppins Extra Bold</div>
         <div class="tipo-sample-bold">Olivers<br>Vistorias</div>
         <div class="tipo-meta">
           <div class="tipo-meta-item"><div class="tipo-meta-label">Familia</div><div class="tipo-meta-val">Poppins</div></div>
@@ -723,8 +736,8 @@
         </div>
       </div>
       <div class="tipo-card fade-up d3">
-        <div class="tipo-label">Texto Corrido â€” Poppins Light</div>
-        <div class="tipo-sample-light" style="font-size:15px; margin-top:8px;">A Olivers se comunica como uma empresa tecnica, seria e moderna â€” com foco em clareza, precisao e profissionalismo. Tom direto, confiavel e estrategico, como uma conversa entre especialistas que entendem os desafios do setor de seguros.</div>
+        <div class="tipo-label">Texto Corrido — Poppins Light</div>
+        <div class="tipo-sample-light" style="font-size:15px; margin-top:8px;">A Olivers se comunica como uma empresa tecnica, seria e moderna — com foco em clareza, precisao e profissionalismo. Tom direto, confiavel e estrategico, como uma conversa entre especialistas que entendem os desafios do setor de seguros.</div>
         <div class="tipo-meta">
           <div class="tipo-meta-item"><div class="tipo-meta-label">Familia</div><div class="tipo-meta-val">Poppins</div></div>
           <div class="tipo-meta-item"><div class="tipo-meta-label">Peso</div><div class="tipo-meta-val">300 Light</div></div>
@@ -771,12 +784,12 @@
   <section>
     <p class="section-label fade-up">Tom de Voz</p>
     <h2 class="section-title fade-up d1">Autoridade sem<br><em>arrogancia</em></h2>
-    <p class="section-lead fade-up d2">A Olivers explica o complexo de forma simples â€” sem jargoes desnecessarios, mas com profundidade e responsabilidade. Tecnica sem ser fria. Seria sem ser distante.</p>
+    <p class="section-lead fade-up d2">A Olivers explica o complexo de forma simples — sem jargoes desnecessarios, mas com profundidade e responsabilidade. Tecnica sem ser fria. Seria sem ser distante.</p>
     <div class="voz-grid">
       <div class="voz-card fade-up d1">
         <div class="voz-bar"></div>
         <div class="voz-title">Direta e Confiavel</div>
-        <div class="voz-text">Fala sobre processos, dados e seguranca com objetividade. Vai ao ponto sem rodeios â€” porque quem contrata vistorias nao tem tempo a perder.</div>
+        <div class="voz-text">Fala sobre processos, dados e seguranca com objetividade. Vai ao ponto sem rodeios — porque quem contrata vistorias nao tem tempo a perder.</div>
       </div>
       <div class="voz-card fade-up d2">
         <div class="voz-bar"></div>
@@ -786,7 +799,7 @@
       <div class="voz-card fade-up d3">
         <div class="voz-bar"></div>
         <div class="voz-title">Humana e Estrategica</div>
-        <div class="voz-text">Nao e uma maquina de laudos â€” e uma parceira que entende o impacto de cada decisao. Conecta precisao tecnica com o cuidado com as pessoas envolvidas.</div>
+        <div class="voz-text">Nao e uma maquina de laudos — e uma parceira que entende o impacto de cada decisao. Conecta precisao tecnica com o cuidado com as pessoas envolvidas.</div>
       </div>
     </div>
   </section>
@@ -797,7 +810,7 @@
   <section>
     <p class="section-label fade-up">O que foi entregue</p>
     <h2 class="section-title fade-up d1">Manual de marca<br><em>completo e aplicavel</em></h2>
-    <p class="section-lead fade-up d2">Um sistema visual coerente do digital ao impresso â€” pronto para escalar sem perder identidade.</p>
+    <p class="section-lead fade-up d2">Um sistema visual coerente do digital ao impresso — pronto para escalar sem perder identidade.</p>
     <div class="entre-grid fade-up d2">
       <div class="entre-card">
         <div class="entre-num">01</div>
@@ -831,7 +844,7 @@
 
   <footer>
     <div class="footer-brand">Andressa <span>Juliani</span></div>
-    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+    <div class="footer-copy">Social Media · Design · Direcao de Arte</div>
   </footer>
 
   <script>

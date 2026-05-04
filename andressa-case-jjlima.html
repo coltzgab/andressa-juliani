@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JJ Lima Contabilidade â€” Identidade Visual e Estrategia de Conteudo | Andressa Juliani</title>
+  <title>JJ Lima Contabilidade — Identidade Visual e Estrategia de Conteudo | Andressa Juliani</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -35,7 +35,7 @@
       overflow-x: hidden;
     }
 
-    /* â”€â”€ NAV â”€â”€ */
+    /* -- NAV -- */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -74,7 +74,7 @@
     }
     .nav-logo span { color: var(--accent); }
 
-    /* â”€â”€ HERO â”€â”€ */
+    /* -- HERO -- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -153,7 +153,7 @@
       color: rgba(255,255,255,0.85);
     }
 
-    /* â”€â”€ SECTIONS â”€â”€ */
+    /* -- SECTIONS -- */
     section {
       padding: 96px 80px;
       max-width: 1200px;
@@ -185,7 +185,7 @@
       margin-bottom: 56px;
     }
 
-    /* â”€â”€ OVERVIEW â”€â”€ */
+    /* -- OVERVIEW -- */
     .overview-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -225,7 +225,7 @@
       line-height: 1.6;
     }
 
-    /* â”€â”€ IDENTIDADE VISUAL â”€â”€ */
+    /* -- IDENTIDADE VISUAL -- */
     .divider {
       border: none;
       height: 1px;
@@ -233,7 +233,7 @@
       margin: 0 80px;
     }
 
-    /* â”€â”€ PALETA â”€â”€ */
+    /* -- PALETA -- */
     .palette-row {
       display: flex;
       gap: 16px;
@@ -272,7 +272,7 @@
       margin-top: 4px;
     }
 
-    /* â”€â”€ TIPOGRAFIA â”€â”€ */
+    /* -- TIPOGRAFIA -- */
     .typo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -297,7 +297,7 @@
     .typo-meta { font-size: 13px; color: var(--text-muted); }
     .typo-meta strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 14px; }
 
-    /* â”€â”€ ESTRATEGIA â”€â”€ */
+    /* -- ESTRATEGIA -- */
     .strategy-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -337,7 +337,7 @@
       line-height: 1.6;
     }
 
-    /* â”€â”€ PERSONAS â”€â”€ */
+    /* -- PERSONAS -- */
     .personas-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -382,7 +382,7 @@
       margin-right: 4px;
     }
 
-    /* â”€â”€ CANAIS â”€â”€ */
+    /* -- CANAIS -- */
     .canais-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -419,7 +419,7 @@
       line-height: 1.6;
     }
 
-    /* â”€â”€ SWOT â”€â”€ */
+    /* -- SWOT -- */
     .swot-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -468,7 +468,7 @@
       background: var(--border);
     }
 
-    /* â”€â”€ CTA â”€â”€ */
+    /* -- CTA -- */
     .cta-section {
       text-align: center;
       padding: 96px 80px;
@@ -546,7 +546,7 @@
     }
     .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
 
-    /* â”€â”€ FOOTER â”€â”€ */
+    /* -- FOOTER -- */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 80px;
@@ -567,7 +567,7 @@
       opacity: 0.5;
     }
 
-    /* â”€â”€ FADE UP â”€â”€ */
+    /* -- FADE UP -- */
     .fade-up {
       opacity: 0;
       transform: translateY(32px);
@@ -579,7 +579,7 @@
     .d3 { transition-delay: 0.3s; }
     .d4 { transition-delay: 0.4s; }
 
-    /* â”€â”€ RESPONSIVE â”€â”€ */
+    /* -- RESPONSIVE -- */
     @media (max-width: 960px) {
       nav { padding: 20px 24px; }
       .hero-content { padding: 0 24px 64px; }
@@ -595,6 +595,19 @@
       .cta-section { padding: 64px 24px; }
       footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
     }
+    /* Hero readability fix */
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 45%, rgba(0,0,0,0.20) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.78) 72%, var(--bg) 100%) !important;
+    }
+    .hero-content { text-shadow: 0 2px 24px rgba(0,0,0,0.38); }
+    .hero-title, .hero-title * { color: #fff !important; }
+    .hero-title em { color: var(--accent) !important; }
+    .hero-sub { color: rgba(255,255,255,0.84) !important; }
+    .hero-tag { filter: none !important; }
+    .hero-meta .meta-value { color: rgba(255,255,255,0.92) !important; }
+
   </style>
   <link rel="stylesheet" href="andressa-case-theme.css" />
 </head>
@@ -616,7 +629,7 @@
     <div class="hero-cover"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-tag">Identidade Visual Â· Estrategia de Conteudo Â· Brand Strategy</div>
+      <div class="hero-tag">Identidade Visual · Estrategia de Conteudo · Brand Strategy</div>
       <h1 class="hero-title">JJ Lima<br><em>Contabilidade</em></h1>
       <p class="hero-sub">Projeto completo de branding e estrategia digital: do posicionamento ao plano editorial para quatro canais simultaneos.</p>
       <div class="hero-meta">
@@ -630,7 +643,7 @@
         </div>
         <div class="meta-item">
           <div class="meta-label">Canais</div>
-          <div class="meta-value">Instagram Â· LinkedIn Â· YouTube Â· Blog</div>
+          <div class="meta-value">Instagram · LinkedIn · YouTube · Blog</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Entregaveis</div>
@@ -650,7 +663,7 @@
       <div class="ov-card">
         <div class="ov-num">3</div>
         <div class="ov-label">Personas mapeadas</div>
-        <div class="ov-desc">MEIs, pequenas empresas e profissionais liberais â€” cada uma com dores, linguagem e canais proprios.</div>
+        <div class="ov-desc">MEIs, pequenas empresas e profissionais liberais — cada uma com dores, linguagem e canais proprios.</div>
       </div>
       <div class="ov-card">
         <div class="ov-num">4</div>
@@ -660,7 +673,7 @@
       <div class="ov-card">
         <div class="ov-num">4</div>
         <div class="ov-label">Canais ativos</div>
-        <div class="ov-desc">Instagram, LinkedIn, YouTube e Blog â€” estrategias distintas para cada plataforma.</div>
+        <div class="ov-desc">Instagram, LinkedIn, YouTube e Blog — estrategias distintas para cada plataforma.</div>
       </div>
       <div class="ov-card">
         <div class="ov-num">100%</div>
@@ -790,7 +803,7 @@
       <div class="pilar-card fade-up d1">
         <div class="pilar-num">01</div>
         <div class="pilar-title">Educacional</div>
-        <div class="pilar-desc">Conteudo que simplifica o que parece complexo. Imposto, MEI, regime tributario â€” explicados de forma direta para quem precisa entender sem estudar contabilidade.</div>
+        <div class="pilar-desc">Conteudo que simplifica o que parece complexo. Imposto, MEI, regime tributario — explicados de forma direta para quem precisa entender sem estudar contabilidade.</div>
       </div>
       <div class="pilar-card fade-up d2">
         <div class="pilar-num">02</div>
@@ -826,7 +839,7 @@
           </svg>
         </div>
         <div class="canal-name">Instagram</div>
-        <div class="canal-desc">Conteudo educacional e institucional. Reels curtos, carrossÃ©is com dados e stories de bastidores. Foco em MEIs e pequenos empresarios.</div>
+        <div class="canal-desc">Conteudo educacional e institucional. Reels curtos, carrosséis com dados e stories de bastidores. Foco em MEIs e pequenos empresarios.</div>
       </div>
       <div class="canal-card fade-up d2">
         <div class="canal-icon">
@@ -911,7 +924,7 @@
     <div class="cta-glow"></div>
     <p class="cta-label fade-up">Proximo passo</p>
     <h2 class="cta-title fade-up d1">Quer um projeto<br>assim para a <em>sua marca?</em></h2>
-    <p class="cta-sub fade-up d2">Identidade visual, estrategia de conteudo e posicionamento â€” tudo integrado.</p>
+    <p class="cta-sub fade-up d2">Identidade visual, estrategia de conteudo e posicionamento — tudo integrado.</p>
     <div class="btn-row fade-up d3">
       <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
       <a href="./#cases" class="btn-secondary">Ver outros projetos</a>
@@ -921,7 +934,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">Andressa <span>Juliani</span></div>
-    <div class="footer-copy">Social Media Â· Design Â· Direcao de Arte</div>
+    <div class="footer-copy">Social Media · Design · Direcao de Arte</div>
   </footer>
 
   <script>
