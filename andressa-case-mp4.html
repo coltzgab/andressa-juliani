@@ -295,6 +295,52 @@
     .hero-sub { color: rgba(255,255,255,0.84) !important; }
     .hero-tag { filter: none !important; }
     .hero-meta .meta-value { color: rgba(255,255,255,0.92) !important; }
+    .hero-bg {
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #06110f 0%, #132c28 50%, #2f4f4e 100%) !important;
+    }
+    .hero-bg::before,
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+    .hero-bg::before {
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(237,197,116,0.13) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(237,197,116,0.1) 1px, transparent 1px),
+        repeating-linear-gradient(135deg, transparent 0 34px, rgba(237,197,116,0.09) 35px 36px);
+      background-size: 76px 76px, 76px 76px, 100% 100%;
+      opacity: 0.9;
+    }
+    .hero-bg::after {
+      right: 5vw;
+      bottom: 8vh;
+      width: min(52vw, 620px);
+      height: min(52vw, 620px);
+      background:
+        linear-gradient(rgba(237,197,116,0.86) 0 0) 12% 16% / 44% 10px no-repeat,
+        linear-gradient(rgba(254,247,229,0.56) 0 0) 12% 34% / 68% 2px no-repeat,
+        linear-gradient(rgba(254,247,229,0.4) 0 0) 12% 48% / 46% 2px no-repeat,
+        linear-gradient(rgba(237,197,116,0.62) 0 0) 12% 66% / 28% 8px no-repeat,
+        linear-gradient(135deg, rgba(237,197,116,0.18), rgba(254,247,229,0.05));
+      border: 1px solid rgba(237,197,116,0.24);
+      border-radius: 20px;
+      box-shadow: -24px 28px 90px rgba(0,0,0,0.24);
+      opacity: 0.76;
+      transform: rotate(-5deg);
+    }
+    @media (max-width: 760px) {
+      .hero-bg::after {
+        right: -22vw;
+        bottom: 12vh;
+        width: 82vw;
+        height: 82vw;
+        opacity: 0.42;
+      }
+    }
 
   </style>
 </head>

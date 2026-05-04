@@ -92,3 +92,272 @@ button,
 ::selection {
   background: rgba(183, 110, 82, 0.22);
 }
+
+/* Case hero backgrounds */
+.hero {
+  isolation: isolate;
+  background: #080808 !important;
+}
+
+.hero .hero-cover,
+.hero .hero-bg {
+  overflow: hidden;
+  background-color: #111111 !important;
+}
+
+.hero .hero-cover::before,
+.hero .hero-cover::after,
+.hero .hero-bg::before,
+.hero .hero-bg::after,
+.case-cover-brandbook::before,
+.case-cover-brandbook::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero .hero-cover::before,
+.hero .hero-bg::before {
+  inset: 0;
+  opacity: 0.92;
+}
+
+.hero .hero-cover::after,
+.hero .hero-bg::after {
+  inset: auto 4vw 7vh auto;
+  width: min(52vw, 620px);
+  height: min(52vw, 620px);
+  opacity: 0.72;
+}
+
+.hero .hero-grid {
+  opacity: 0.46;
+  mix-blend-mode: screen;
+}
+
+.hero .hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.56) 48%, rgba(0,0,0,0.18) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.72) 72%, #080808 100%) !important;
+}
+
+.hero .hero-content {
+  text-shadow: 0 2px 28px rgba(0,0,0,0.42);
+}
+
+.hero .hero-title,
+.hero .hero-title *,
+.hero .hero-sub,
+.hero .hero-meta .meta-value {
+  color: #ffffff !important;
+}
+
+.hero .hero-sub {
+  color: rgba(255,255,255,0.82) !important;
+}
+
+.hero .meta-label {
+  color: rgba(255,255,255,0.46) !important;
+}
+
+.case-hero-finup .hero-title em,
+.case-hero-finup .hero-tag {
+  color: #ff8a5c !important;
+}
+
+.case-hero-finup .hero-cover {
+  background:
+    linear-gradient(135deg, #141b31 0%, #3f4693 46%, #f2612e 100%) !important;
+}
+
+.case-hero-finup .hero-cover::before {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.13) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,0.09) 1px, transparent 1px),
+    repeating-linear-gradient(135deg, transparent 0 28px, rgba(255,255,255,0.08) 29px 30px);
+  background-size: 84px 84px, 84px 84px, 100% 100%;
+  transform: perspective(900px) rotateX(58deg) translateY(-18%);
+  transform-origin: center top;
+}
+
+.case-hero-finup .hero-cover::after {
+  background:
+    linear-gradient(#ffffff 0 0) 8% 10% / 46% 12% no-repeat,
+    linear-gradient(#f2612e 0 0) 8% 30% / 66% 8% no-repeat,
+    linear-gradient(#4a52a3 0 0) 8% 46% / 40% 8% no-repeat,
+    linear-gradient(rgba(255,255,255,0.82) 0 0) 8% 64% / 76% 10% no-repeat,
+    linear-gradient(135deg, rgba(255,255,255,0.26), rgba(255,255,255,0.08));
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 22px;
+  box-shadow: -22px 24px 80px rgba(19,27,47,0.38);
+  transform: rotate(-8deg);
+}
+
+.case-hero-jjlima .hero-cover {
+  background:
+    linear-gradient(135deg, #0f2f45 0%, #277eb8 56%, #f4af08 124%) !important;
+}
+
+.case-hero-jjlima .hero-title em,
+.case-hero-jjlima .hero-tag {
+  color: #f4af08 !important;
+}
+
+.case-hero-jjlima .hero-cover::before {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,0.12) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0 44%, rgba(244,175,8,0.26) 44% 47%, transparent 47% 100%);
+  background-size: 72px 72px, 72px 72px, 100% 100%;
+}
+
+.case-hero-jjlima .hero-cover::after {
+  background:
+    linear-gradient(rgba(255,255,255,0.76) 0 0) 12% 16% / 72% 2px no-repeat,
+    linear-gradient(rgba(255,255,255,0.42) 0 0) 12% 30% / 52% 2px no-repeat,
+    linear-gradient(rgba(244,175,8,0.9) 0 0) 12% 44% / 38% 8px no-repeat,
+    linear-gradient(rgba(255,255,255,0.42) 0 0) 12% 62% / 64% 2px no-repeat,
+    linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 18px;
+  transform: rotate(6deg);
+}
+
+.case-hero-juliano .hero-cover {
+  background:
+    linear-gradient(135deg, #07192b 0%, #1a3d5c 48%, #2e6b9e 100%) !important;
+}
+
+.case-hero-juliano .hero-title em,
+.case-hero-juliano .hero-tag {
+  color: #7ab8e8 !important;
+}
+
+.case-hero-juliano .hero-cover::before {
+  background:
+    linear-gradient(120deg, transparent 0 42%, rgba(122,184,232,0.28) 42% 44%, transparent 44% 100%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 96px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 96px);
+}
+
+.case-hero-juliano .hero-cover::after {
+  background:
+    linear-gradient(rgba(255,255,255,0.82) 0 0) 15% 16% / 36% 36% no-repeat,
+    linear-gradient(rgba(122,184,232,0.7) 0 0) 58% 20% / 22% 8% no-repeat,
+    linear-gradient(rgba(255,255,255,0.36) 0 0) 58% 35% / 30% 2px no-repeat,
+    linear-gradient(rgba(255,255,255,0.32) 0 0) 58% 47% / 22% 2px no-repeat,
+    linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 26px;
+  transform: rotate(-5deg);
+}
+
+.case-hero-olivers .hero-cover {
+  background:
+    linear-gradient(135deg, #142318 0%, #233e2f 52%, #7a9576 120%) !important;
+}
+
+.case-hero-olivers .hero-title em,
+.case-hero-olivers .hero-tag {
+  color: #b9d1aa !important;
+}
+
+.case-hero-olivers .hero-cover::before {
+  background:
+    repeating-linear-gradient(135deg, rgba(241,233,222,0.12) 0 1px, transparent 1px 42px),
+    linear-gradient(90deg, transparent 0 54%, rgba(241,233,222,0.18) 54% 56%, transparent 56% 100%);
+}
+
+.case-hero-olivers .hero-cover::after {
+  background:
+    linear-gradient(#f1e9de 0 0) 12% 18% / 72% 2px no-repeat,
+    linear-gradient(#7a9576 0 0) 12% 36% / 28% 10px no-repeat,
+    linear-gradient(rgba(241,233,222,0.55) 0 0) 12% 54% / 58% 2px no-repeat,
+    linear-gradient(rgba(241,233,222,0.45) 0 0) 12% 68% / 44% 2px no-repeat,
+    linear-gradient(135deg, rgba(241,233,222,0.24), rgba(241,233,222,0.06));
+  border: 1px solid rgba(241,233,222,0.22);
+  border-radius: 16px;
+  transform: rotate(4deg);
+}
+
+.case-hero-treinamento .hero-cover {
+  background:
+    linear-gradient(135deg, #160b35 0%, #3b2070 48%, #007b67 120%) !important;
+}
+
+.case-hero-treinamento .hero-title em,
+.case-hero-treinamento .hero-tag {
+  color: #00d4a8 !important;
+}
+
+.case-hero-treinamento .hero-cover::before {
+  background:
+    linear-gradient(90deg, rgba(0,212,168,0.18) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0,212,168,0.12) 1px, transparent 1px),
+    repeating-linear-gradient(45deg, transparent 0 34px, rgba(255,255,255,0.08) 35px 36px);
+  background-size: 54px 54px, 54px 54px, 100% 100%;
+}
+
+.case-hero-treinamento .hero-cover::after {
+  background:
+    linear-gradient(rgba(0,212,168,0.9) 0 0) 12% 16% / 58% 2px no-repeat,
+    linear-gradient(rgba(255,255,255,0.55) 0 0) 12% 32% / 32% 2px no-repeat,
+    linear-gradient(rgba(0,212,168,0.65) 0 0) 50% 32% / 2px 38% no-repeat,
+    linear-gradient(rgba(255,255,255,0.55) 0 0) 20% 70% / 56% 2px no-repeat,
+    linear-gradient(135deg, rgba(0,212,168,0.18), rgba(255,255,255,0.05));
+  border: 1px solid rgba(0,212,168,0.26);
+  border-radius: 18px;
+  transform: rotate(-6deg);
+}
+
+.case-cover-brandbook {
+  background:
+    linear-gradient(135deg, #131b2f 0%, #303773 56%, #f2612e 136%) !important;
+}
+
+.case-cover-brandbook::before {
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+    repeating-linear-gradient(135deg, transparent 0 30px, rgba(255,255,255,0.08) 31px 32px);
+  background-size: 76px 76px, 76px 76px, 100% 100%;
+  opacity: 0.84;
+}
+
+.case-cover-brandbook::after {
+  right: 7vw;
+  bottom: 9vh;
+  width: min(42vw, 520px);
+  height: min(50vw, 620px);
+  background:
+    linear-gradient(#f2612e 0 0) 10% 12% / 28% 8px no-repeat,
+    linear-gradient(rgba(255,255,255,0.78) 0 0) 10% 25% / 72% 2px no-repeat,
+    linear-gradient(rgba(255,255,255,0.48) 0 0) 10% 39% / 54% 2px no-repeat,
+    linear-gradient(rgba(255,255,255,0.18) 0 0) 10% 58% / 78% 22% no-repeat,
+    linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 24px;
+  box-shadow: -28px 34px 92px rgba(19,27,47,0.34);
+  transform: rotate(5deg);
+  opacity: 0.78;
+}
+
+@media (max-width: 760px) {
+  .hero .hero-cover::after,
+  .hero .hero-bg::after {
+    right: -22vw;
+    bottom: 10vh;
+    width: 82vw;
+    height: 82vw;
+    opacity: 0.42;
+  }
+
+  .case-cover-brandbook::after {
+    right: -24vw;
+    bottom: 12vh;
+    width: 82vw;
+    height: 96vw;
+    opacity: 0.36;
+  }
+}
