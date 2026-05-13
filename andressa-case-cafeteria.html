@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gatutino | Projeto Conceitual para Cafeteria | Andressa Juliani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #161616;
+      --border: #1e1e1e;
+      --accent: #E41F1F;
+      --accent-dim: rgba(228,31,31,0.1);
+      --accent-glow: rgba(228,31,31,0.2);
+      --text: #F0F0F0;
+      --text-muted: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled { background: rgba(8,8,8,0.94); backdrop-filter: blur(16px); border-color: var(--border); }
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 16px; height: 16px; }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: flex-end; position: relative; overflow: hidden;
+    }
+    .hero-cover {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0a0800 0%, #1a1200 50%, #2a1e00 100%);
+    }
+    .hero-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(8,8,8,0) 0%, rgba(8,8,8,0.6) 60%, #080808 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(228,31,31,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(228,31,31,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 80px 88px; max-width: 960px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 24px; background: var(--accent-dim);
+      border: 1px solid rgba(228,31,31,0.2); padding: 6px 14px; border-radius: 100px;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(44px, 6.5vw, 80px); font-weight: 700;
+      line-height: 1.02; letter-spacing: -0.04em; color: #fff; margin-bottom: 24px;
+    }
+    .hero-title em { font-style: normal; color: var(--accent); }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 560px; line-height: 1.65; }
+    .hero-meta { display: flex; gap: 48px; margin-top: 52px; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .meta-value { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); }
+
+    /* LAYOUT */
+    section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; color: var(--text); margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--accent); }
+    .section-lead { font-size: 17px; color: var(--text-muted); max-width: 620px; line-height: 1.75; margin-bottom: 56px; }
+    .divider { border: none; height: 1px; background: var(--border); margin: 0 80px; }
+
+    /* CARROSSEL */
+    .carousel-stack { display: flex; flex-direction: column; gap: 64px; }
+    .carousel-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+    .carousel-num { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); opacity: 0.5; }
+    .carousel-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); }
+    .carousel-box {
+      position: relative; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 16 / 10; max-width: 960px; margin: 0 auto; width: 100%;
+    }
+    .carousel-track {
+      display: flex; height: 100%;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .carousel-track img {
+      flex: 0 0 100%; height: 100%;
+      object-fit: cover; background: var(--surface);
+      pointer-events: none; user-select: none;
+    }
+    .c-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8,8,8,0.7); border: 1px solid var(--border);
+      color: var(--text); width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s;
+      z-index: 3;
+    }
+    .c-btn:hover { background: rgba(228,31,31,0.15); border-color: rgba(228,31,31,0.4); }
+    .c-btn svg { width: 18px; height: 18px; }
+    .c-prev { left: 12px; }
+    .c-next { right: 12px; }
+    .c-counter {
+      position: absolute; top: 12px; right: 14px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.5); background: rgba(8,8,8,0.6);
+      padding: 4px 10px; border-radius: 100px; z-index: 3;
+    }
+    .c-dots {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 3;
+    }
+    .c-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.25); cursor: pointer;
+      transition: background 0.2s, width 0.2s;
+    }
+    .c-dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .hero-content { padding: 0 24px 64px; }
+      section { padding: 64px 24px; }
+    }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 80px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--text-muted); opacity: 0.45; }
+
+    .cta-section { text-align: center; padding: 96px 80px; position: relative; }
+    .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="./#cases" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 12L6 8l4-4"/></svg>
+      Voltar ao portfólio
+    </a>
+    <div class="nav-logo">Andressa <span>Juliani</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-cover">
+        <img src="images/cafeteria/cafeteria-2.jpg" alt="Gatutino Hero">
+    </div>
+    <div class="hero-grid"></div>
+    <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(8,8,8,0) 0%, rgba(8,8,8,0.7) 50%, #080808 100%);"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Branding · Identidade Visual · Conceito</div>
+      <h1 class="hero-title">Gatutino<br><em>Design que abraça<br>e aroma que acolhe.</em></h1>
+      <p class="hero-sub">Projeto conceitual de branding para uma cafeteria que une a paixão por café ao design afetivo, criando uma marca memorável e aconchegante.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Projeto</div>
+          <div class="meta-value">Gatutino Café</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Papel</div>
+          <div class="meta-value">Designer de Marca</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Escopo</div>
+          <div class="meta-value">Logo · Visual · Uniformes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- CONTEXTO -->
+  <section>
+    <p class="section-label fade-up">O projeto</p>
+    <h2 class="section-title fade-up d1">Mais que café,<br>uma <em>experiência sensorial</em></h2>
+    <p class="section-lead fade-up d2">O desafio foi criar uma marca que transmitisse o calor de uma xícara de café logo ao primeiro contato visual. A Gatutino nasceu para ser o refúgio urbano de quem busca pausa e beleza no dia a dia.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CARROSSÉIS -->
+  <section>
+    <p class="section-label fade-up">Peças criadas</p>
+    <h2 class="section-title fade-up d1">Aplicações de Marca<br>para a <em>Gatutino</em></h2>
+    
+    <div class="carousel-stack">
+      <div class="fade-up d1">
+        <div class="carousel-meta">
+          <span class="carousel-num">GALERIA</span>
+          <span class="carousel-name">Aplicações e Lifestyle</span>
+        </div>
+        <div class="carousel-box">
+          <div class="carousel-track">
+            <img src="images/cafeteria/cafeteria-2.jpg" alt="Mesa Gatutino">
+            <img src="images/cafeteria/cafeteria-1.jpg" alt="Xícara Gatutino">
+            <img src="images/cafeteria/cafeteria-3.jpg" alt="Uniforme Gatutino">
+            <img src="images/cafeteria/cafeteria-exterior.jpg" alt="Fachada Gatutino">
+            <img src="images/cafeteria/cafeteria-interior.jpg" alt="Interior Gatutino">
+            <img src="images/cafeteria/cafeteria-milkshake.jpg" alt="Milkshake Gatutino">
+            <img src="images/cafeteria/cafeteria-person-front.jpg" alt="Atendimento Gatutino">
+            <img src="images/cafeteria/cafeteria-sign.png" alt="Letreiro Gatutino">
+          </div>
+          <button class="c-btn c-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="c-btn c-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">8</span></div>
+          <div class="c-dots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 class="section-title fade-up">Sua marca também<br>precisa de uma <em>alma assim?</em></h2>
+    <div class="btn-row fade-up d2">
+      <a href="https://wa.me/5551993909150" target="_blank" class="btn-primary">Falar no WhatsApp</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Andressa <span>Juliani</span></div>
+    <div class="footer-copy">Social Media · Design · Direção de Arte</div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('.carousel-box').forEach(box => {
+      const track = box.querySelector('.carousel-track');
+      const slides = track.querySelectorAll('img');
+      const total = slides.length;
+      const dotsEl = box.querySelector('.c-dots');
+      const curEl = box.querySelector('.c-cur');
+      let idx = 0;
+
+      const dots = Array.from({ length: total }, (_, i) => {
+        const d = document.createElement('button');
+        d.className = 'c-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => go(i));
+        dotsEl.appendChild(d);
+        return d;
+      });
+
+      function go(n) {
+        idx = (n + total) % total;
+        track.style.transform = `translateX(-${idx * 100}%)`;
+        curEl.textContent = idx + 1;
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+
+      box.querySelector('.c-prev').addEventListener('click', () => go(idx - 1));
+      box.querySelector('.c-next').addEventListener('click', () => go(idx + 1));
+    });
+  </script>
+</body>
+</html>
