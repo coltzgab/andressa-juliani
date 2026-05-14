@@ -54,6 +54,7 @@
     .hero {
       min-height: 100vh; display: flex; flex-direction: column;
       justify-content: flex-end; position: relative; overflow: hidden;
+      padding-top: 120px;
     }
     .hero-cover {
       position: absolute; inset: 0;
@@ -111,7 +112,8 @@
     .carousel-box {
       position: relative; background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden;
-      aspect-ratio: 1 / 1; max-width: 560px; margin: 0 auto; width: 100%;
+      max-height: 65vh; max-width: 960px; margin: 0 auto; width: 100%;
+      aspect-ratio: 16 / 10;
     }
     .carousel-track {
       display: flex; height: 100%;
@@ -119,7 +121,7 @@
     }
     .carousel-track img {
       flex: 0 0 100%; height: 100%;
-      object-fit: cover; background: var(--surface);
+      object-fit: contain; background: var(--surface);
       pointer-events: none; user-select: none;
     }
     .c-btn {
@@ -192,7 +194,7 @@
     <div class="hero-grid"></div>
     <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(8,8,8,0) 0%, rgba(8,8,8,0.7) 50%, #080808 100%);"></div>
     <div class="hero-content">
-      <div class="hero-tag">Branding â€¢ Identidade Visual â€¢ Conceito</div>
+      <div class="hero-tag">Branding â€¢ IdentidaÃ­de Visual â€¢ Conceito</div>
       <h1 class="hero-title">Gatutino<br><em>Design que abraÃ§a<br>e aroma que acolhe.</em></h1>
       <p class="hero-sub">Projeto conceitual de branding para uma cafeteria que une a paixÃ£o por cafÃ© ao design afetivo, criando uma marca memorÃ¡vel e aconchegante.</p>
       <div class="hero-meta">
@@ -225,21 +227,21 @@
 
   <!-- CARROSSEIS -->
   <section>
-    <p class="section-label fade-up">PeÃ§as criadas</p>
+    <p class="section-label fade-up">PeÃ§as criadaÃ­s</p>
     <h2 class="section-title fade-up d1">AplicaÃ§Ãµes de Marca<br>para a <em>Gatutino</em></h2>
     
     <div class="carousel-stack">
       <div class="fade-up d1">
         <div class="carousel-meta">
           <span class="carousel-num">GALERIA</span>
-          <span class="carousel-name">Aplica��es e Lifestyle</span>
+          <span class="carousel-name">AplicaÃ§Ãµes e Lifestyle</span>
         </div>
         <div class="carousel-box">
           <div class="carousel-track">
             <img src="images/cafeteria/cafeteria-2.jpg" alt="Mesa Gatutino">
             <img src="images/cafeteria/cafeteria-1.jpg" alt="XÃ­cara Gatutino">
             <img src="images/cafeteria/cafeteria-3.jpg" alt="Uniforme Gatutino">
-            <img src="images/cafeteria/cafeteria-exterior.jpg" alt="Fachada Gatutino">
+            <img src="images/cafeteria/cafeteria-exterior.jpg" alt="FachadaÃ­ Gatutino">
             <img src="images/cafeteria/cafeteria-interior.jpg" alt="Interior Gatutino">
             <img src="images/cafeteria/cafeteria-milkshake.jpg" alt="Milkshake Gatutino">
             <img src="images/cafeteria/cafeteria-person-front.jpg" alt="Atendimento Gatutino">
@@ -264,7 +266,7 @@
 
   <footer>
     <div class="footer-brand">Andressa <span>Juliani</span></div>
-    <div class="footer-copy">Social Media � Design � Dire��o de Arte</div>
+    <div class="footer-copy">Social Media â€¢ Design � Dire��o de Arte</div>
   </footer>
 
   <script>
