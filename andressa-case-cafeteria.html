@@ -104,54 +104,25 @@
     .section-lead { font-size: 17px; color: var(--text-muted); max-width: 620px; line-height: 1.75; margin-bottom: 56px; }
     .divider { border: none; height: 1px; background: var(--border); margin: 0 80px; }
 
-    /* CARROSSEL */
-    .carousel-stack { display: flex; flex-direction: column; gap: 64px; }
-    .carousel-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
-    .carousel-num { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); opacity: 0.5; }
-    .carousel-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); }
-    .carousel-box {
-      position: relative; background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-      max-height: 65vh; max-width: 960px; margin: 0 auto; width: 100%;
-      aspect-ratio: 16 / 10;
+    /* GRADE DE MOCKUPS */
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
     }
-    .carousel-track {
-      display: flex; height: 100%;
-      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    .mockup-item {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--surface);
     }
-    .carousel-track img {
-      flex: 0 0 100%; height: 100%;
-      object-fit: contain; background: var(--surface);
-      pointer-events: none; user-select: none;
+    .mockup-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
     }
-    .c-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(8,8,8,0.7); border: 1px solid var(--border);
-      color: var(--text); width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: background 0.2s, border-color 0.2s;
-      z-index: 3;
-    }
-    .c-btn:hover { background: rgba(228,31,31,0.15); border-color: rgba(228,31,31,0.4); }
-    .c-btn svg { width: 18px; height: 18px; }
-    .c-prev { left: 12px; }
-    .c-next { right: 12px; }
-    .c-counter {
-      position: absolute; top: 12px; right: 14px;
-      font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600;
-      color: rgba(255,255,255,0.5); background: rgba(8,8,8,0.6);
-      padding: 4px 10px; border-radius: 100px; z-index: 3;
-    }
-    .c-dots {
-      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 6px; z-index: 3;
-    }
-    .c-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.25); cursor: pointer;
-      transition: background 0.2s, width 0.2s;
-    }
-    .c-dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+    .mockup-item:hover img { transform: scale(1.04); }
 
     .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
@@ -230,29 +201,27 @@
     <p class="section-label fade-up">Peças criadas</p>
     <h2 class="section-title fade-up d1">Aplicações de Marca<br>para a <em>Gatutino</em></h2>
     
-    <div class="carousel-stack">
-      <div class="fade-up d1">
-        <div class="carousel-meta">
-          <span class="carousel-num">GALERIA</span>
-          <span class="carousel-name">Aplicações e Lifestyle</span>
-        </div>
-        <div class="carousel-box">
-          <div class="carousel-track">
-            <img src="images/cafeteria/cafeteria-2.jpg" alt="Mesa Gatutino">
-            <img src="images/cafeteria/cafeteria-1.jpg" alt="Xcara Gatutino">
-            <img src="images/cafeteria/cafeteria-3.jpg" alt="Uniforme Gatutino">
-            <img src="images/cafeteria/cafeteria-exterior.jpg" alt="Fachada Gatutino">
-            <img src="images/cafeteria/cafeteria-interior.jpg" alt="Interior Gatutino">
-            <img src="images/cafeteria/cafeteria-milkshake.jpg" alt="Milkshake Gatutino">
-            <img src="images/cafeteria/cafeteria-person-front.jpg" alt="Atendimento Gatutino">
-            <img src="images/cafeteria/cafeteria-sign.png" alt="Letreiro Gatutino">
-          </div>
-          <button class="c-btn c-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-          <button class="c-btn c-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-          <div class="c-counter"><span class="c-cur">1</span> / <span class="c-total">8</span></div>
-          <div class="c-dots"></div>
-        </div>
-      </div>
+    <div class="mockup-grid fade-up d1">
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-1.jpg" alt="Xícara Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-2.jpg" alt="Mesa Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-3.jpg" alt="Uniforme Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-exterior.jpg" alt="Fachada Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-interior.jpg" alt="Interior Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-milkshake.jpg" alt="Milkshake Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-person-front.jpg" alt="Atendimento Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/cafeteria-sign.png" alt="Letreiro Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2022_04_2026%2C%2014_46_12.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2022_04_2026%2C%2015_18_53.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2022_04_2026%2C%2015_57_06.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2022_04_2026%2C%2015_58_36.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2015_38_50.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2016_05_02.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2020_40_06.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2020_50_02.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2020_55_34.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2020_58_33.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2021_27_16.png" alt="Mockup Gatutino" loading="lazy"></div>
+      <div class="mockup-item"><img src="images/cafeteria/ChatGPT%20Image%2023_04_2026%2C%2021_35_42.png" alt="Mockup Gatutino" loading="lazy"></div>
     </div>
   </section>
 
@@ -277,32 +246,6 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-    document.querySelectorAll('.carousel-box').forEach(box => {
-      const track = box.querySelector('.carousel-track');
-      const slides = track.querySelectorAll('img');
-      const total = slides.length;
-      const dotsEl = box.querySelector('.c-dots');
-      const curEl = box.querySelector('.c-cur');
-      let idx = 0;
-
-      const dots = Array.from({ length: total }, (_, i) => {
-        const d = document.createElement('button');
-        d.className = 'c-dot' + (i === 0 ? ' active' : '');
-        d.addEventListener('click', () => go(i));
-        dotsEl.appendChild(d);
-        return d;
-      });
-
-      function go(n) {
-        idx = (n + total) % total;
-        track.style.transform = `translateX(-${idx * 100}%)`;
-        curEl.textContent = idx + 1;
-        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-      }
-
-      box.querySelector('.c-prev').addEventListener('click', () => go(idx - 1));
-      box.querySelector('.c-next').addEventListener('click', () => go(idx + 1));
-    });
   </script>
 </body>
 </html>
